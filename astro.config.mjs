@@ -9,5 +9,5 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   integrations: [mdx(), tailwind(), image(), sitemap()],
   site: 'https://tnyn.cafe',
-  base: '/tnyn.cafe',
+  base: '/',
 });
