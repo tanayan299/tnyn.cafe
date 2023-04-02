@@ -19,7 +19,7 @@ const { title = "", description = "", withHeader = true } = Astro.props;
 		<title>{title}</title>
 		<meta name="description" content={description}>
 	</head>
-	<body class="antialiased text-gray-900 dark:text-slate-400 tracking-tight bg-white dark:bg-slate-900">
+	<body class="antialiased text-gray-900 dark:text-slate-300 tracking-tight bg-white dark:bg-slate-900">
 		<Header />
 		<slot />
 		<Footer />
@@ -61,3 +61,17 @@ const { title = "", description = "", withHeader = true } = Astro.props;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     }
 </style>
+
+<script is:inline>
+	function toggleDarkMode() {
+		document.documentElement.classList.toggle("dark");
+		localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light"
+	}
+	window.toggleDarkMode = toggleDarkMode
+
+	if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		document.documentElement.classList.add('dark')
+	} else {
+		document.documentElement.classList.remove('dark')
+	}
+</script>
