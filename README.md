@@ -2,8 +2,14 @@
 
 my portfolio site !
 
+## Build
+
+```
+$ yarn run build
+```
+
 ## Development
 
 ```
-$ npm run dev
+$ yarn run dev
 ```
