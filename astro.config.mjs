@@ -7,5 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), tailwind(), image(), sitemap()]
+  integrations: [mdx(), tailwind(), image(), sitemap()],
+  site: 'https://tnyn.cafe',
+  base: '/tnyn.cafe',
 });
