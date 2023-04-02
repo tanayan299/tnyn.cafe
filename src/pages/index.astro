@@ -1,19 +1,18 @@
 ---
 import Layout from '~/layouts/Layout.astro';
-import Header from '~/components/Header.astro';
-import Footer from '~/components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '~/config.mjs';
+import BasicCTA from '~/components/BasicCTA.astro';
+import BasicFeatures from '~/components/BasicFeatures.astro';
+import StepsFeatures from '~/components/StepsFeatures.astro';
+import HeroWithImage from '~/components/HeroWithImage.astro';
 ---
 
 <Layout title="tnyn.cafe">
-	<Header />
 	<main>
-		<h1 class="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight dark:text-white text-gradient">{ SITE_TITLE }</h1>
-		<p class="mt-6 text-lg text-slate-600 max-w-3xl mx-auto dark:text-slate-400">
-			{ SITE_DESCRIPTION }
-		</p>
+		<HeroWithImage />
+		<BasicFeatures />
+		<StepsFeatures />
+		<BasicCTA />
 	</main>
-	<Footer />
 </Layout>
 
 <style>
