@@ -1,5 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import { IconTwitter, IconGithub } from "~/components/icons";
 ---
 
 <header>
@@ -7,8 +8,8 @@ import HeaderLink from './HeaderLink.astro';
 		<HeaderLink href="/">Home</HeaderLink>
 		<HeaderLink href="/blog">About</HeaderLink>
 		<HeaderLink href="/about">Blog</HeaderLink>
-		<HeaderLink href="https://twitter.com/tananyan29" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/tanayan299" target="_blank">GitHub</HeaderLink>
+		<HeaderLink href="https://twitter.com/tananyan29" target="_blank"><IconTwitter />Twitter</HeaderLink>
+		<HeaderLink href="https://github.com/tanayan299" target="_blank"><IconGithub />GitHub</HeaderLink>
 	</nav>
 </header>
 <style>
