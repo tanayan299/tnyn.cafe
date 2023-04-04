@@ -1,6 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { IconTwitter, IconGithub, IconSun } from "~/components/icons";
+import { IconTwitter, IconGithub, IconSun, IconMenu } from "~/components/icons";
 ---
 
 <header class="fixed top-0 z-40 flex-none mx-auto w-full bg-white/90 dark:bg-slate-900 backdrop-blur-sm border-b dark:border-b-0">
@@ -20,7 +20,7 @@ import { IconTwitter, IconGithub, IconSun } from "~/components/icons";
 				<HeaderLink href="https://twitter.com/tananyan29" target="_blank"><IconTwitter /></HeaderLink>
 				<HeaderLink href="https://github.com/tanayan299" target="_blank"><IconGithub /></HeaderLink>
 				<button
-					aria-label="Toggle Dark Mode"
+					aria-label="Toggle between Dark and Light mode"
 					onclick="window.toggleDarkMode()"
 				>
 				<IconSun />
