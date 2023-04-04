@@ -1,25 +1,33 @@
 ---
+import { Picture } from '@astrojs/image/components';
+const { } = Astro.props;
 ---
 
 <section>
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="pt-32 pb-12 md:pt-40 md:pb-20">
-      <div class="text-center pb-12 md:pb-16">
-        <h1 class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 ">
-          tnyn.cafe with
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-pink-500">Astro</span> +
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-pink-500">Tailwind</span>
-        </h1>
-        <div class="max-w-3xl mx-auto">
-          <p class="text-xl text-gray-600 mb-8 ">
-            This is tanayan's portfolio site!
-          </p>
-        </div>
-      </div>
-      <div>
-        <div class="relative flex justify-center mb-8  ">
-          <div class="flex flex-col justify-center"><img class="mx-auto rounded-md" src="/hero-astro.jpg"
-              width="768" height="432" alt="Hero">
+      <div class="relative">
+        <Picture
+          src="../src/assets/bacground-astro.png"
+          class="mx-auto rounded-md w-full h-full"
+          widths={[400, 768]}
+          sizes="(max-width: 768px) 100vw, 768px"
+          alt="Background Image"
+          aspectRatio="16:9"
+          class="mx-auto rounded-md opacity-30"
+          style="transform: translateY(-20px);"
+        />
+        <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+          <div class="text-center">
+            <h1 class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 ">
+              Welcome to 
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-pink-500">tnyn.cafe</span>
+            </h1>
+            <div class="max-w-3xl mx-auto">
+              <p class="text-xl text-gray-500 mb-8 ">
+                This is tanayan's portfolio site!
+              </p>
+            </div>
           </div>
         </div>
       </div>
