@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
@@ -6,13 +6,15 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(),
+  integrations: [
+    mdx(),
     tailwind({
       config: {
         applyBaseStyles: false,
       },
     }),
     image(),
-    sitemap()],
-  site: 'https://tnyn.cafe',
+    sitemap(),
+  ],
+  site: "https://tnyn.cafe",
 });

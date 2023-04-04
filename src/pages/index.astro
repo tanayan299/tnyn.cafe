@@ -1,34 +1,31 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import BasicCTA from '~/components/BasicCTA.astro';
-import BasicFeatures from '~/components/BasicFeatures.astro';
-import StepsFeatures from '~/components/StepsFeatures.astro';
-import HeroWithImage from '~/components/HeroWithImage.astro';
+import Layout from "~/layouts/Layout.astro";
+import BasicCTA from "~/components/BasicCTA.astro";
+import BasicFeatures from "~/components/BasicFeatures.astro";
+import StepsFeatures from "~/components/StepsFeatures.astro";
+import HeroWithImage from "~/components/HeroWithImage.astro";
 ---
 
-<Layout
-    title="tnyn.cafe"
-    description="This is tanayan's portfolio site!"
->
-	<main>
-		<HeroWithImage />
-		<BasicFeatures />
-		<StepsFeatures />
-		<BasicCTA />
-	</main>
+<Layout title="tnyn.cafe" description="This is tanayan's portfolio site!">
+  <main>
+    <HeroWithImage />
+    <BasicFeatures />
+    <StepsFeatures />
+    <BasicCTA />
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 120ch;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 120ch;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
 </style>

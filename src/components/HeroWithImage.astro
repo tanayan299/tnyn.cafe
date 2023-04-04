@@ -1,7 +1,7 @@
 ---
-import { Picture } from '@astrojs/image/components';
-import backgroundImage from '~/assets/bacground-astro.png';
-const { } = Astro.props;
+import { Picture } from "@astrojs/image/components";
+import backgroundImage from "~/assets/bacground-astro.png";
+const {} = Astro.props;
 ---
 
 <section>
@@ -9,7 +9,7 @@ const { } = Astro.props;
     <div class="pt-32 pb-12 md:pt-40 md:pb-20">
       <div class="relative">
         <Picture
-          src={ backgroundImage }
+          src={backgroundImage}
           class="mx-auto rounded-md w-full h-full"
           widths={[400, 768]}
           sizes="(max-width: 768px) 100vw, 768px"
@@ -18,14 +18,21 @@ const { } = Astro.props;
           class="mx-auto rounded-md opacity-30"
           style="transform: translateY(-20px);"
         />
-        <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+        <div
+          class="absolute top-0 left-0 w-full h-full flex justify-center items-center"
+        >
           <div class="text-center">
-            <h1 class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 ">
-              Welcome to 
-              <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-pink-500">tnyn.cafe</span>
+            <h1
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4"
+            >
+              Welcome to
+              <span
+                class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-pink-500"
+                >tnyn.cafe</span
+              >
             </h1>
             <div class="max-w-3xl mx-auto">
-              <p class="text-xl text-gray-500 mb-8 ">
+              <p class="text-xl text-gray-500 mb-8">
                 This is tanayan's portfolio site!
               </p>
             </div>

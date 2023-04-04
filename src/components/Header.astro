@@ -1,31 +1,49 @@
 ---
-import HeaderLink from './HeaderLink.astro';
+import HeaderLink from "./HeaderLink.astro";
 import { IconTwitter, IconGithub, IconSun, IconMenu } from "~/components/icons";
 ---
 
-<header class="fixed top-0 z-40 flex-none mx-auto w-full bg-white/90 dark:bg-slate-900 backdrop-blur-sm border-b dark:border-b-0">
-	<div class="py-3 px-3 mx-auto w-full lg:flex lg:justify-between max-w-6xl lg:px-4">
-		<div class="flex justify-between">
-		  <a class="flex items-center" href="/">
-			<span class="self-center ml-2 text-2xl font-extrabold text-gray-900 whitespace-nowrap dark:text-white">
-			  tnyn.cafe
-			</span>
-		  </a>
-		</div>
-		<div class="flex items-center justify-between mt-4 lg:mt-0">
-			<nav class="flex items-center justify-between space-x-4">
-				<HeaderLink href="/">Home</HeaderLink>
-				<HeaderLink href="/blog">About</HeaderLink>
-				<HeaderLink href="/about">Blog</HeaderLink>
-				<HeaderLink href="https://twitter.com/tananyan29" target="_blank"><IconTwitter /></HeaderLink>
-				<HeaderLink href="https://github.com/tanayan299" target="_blank"><IconGithub /></HeaderLink>
-				<button
-					aria-label="Toggle between Dark and Light mode"
-					onclick="window.toggleDarkMode()"
-				>
-				<IconSun />
-				</button>
-			</nav>
-		</div>
-	</div>
+<header
+  class="fixed top-0 z-40 flex-none mx-auto w-full bg-white/90 dark:bg-slate-900 backdrop-blur-sm border-b dark:border-b-0"
+>
+  <div
+    class="py-3 px-3 mx-auto w-full lg:flex lg:justify-between max-w-6xl lg:px-4"
+  >
+    <div class="flex justify-between">
+      <a class="flex items-center" href="/">
+        <span
+          class="self-center ml-2 text-2xl font-extrabold text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          tnyn.cafe
+        </span>
+      </a>
+    </div>
+    <div class="flex items-center justify-between mt-4 lg:mt-0">
+      <nav class="flex items-center justify-between space-x-4">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">About</HeaderLink>
+        <HeaderLink href="/about">Blog</HeaderLink>
+        <HeaderLink
+          href="https://twitter.com/tananyan29"
+          target="_blank"
+          aria-label="tanayan Twitter"
+        >
+          <IconTwitter />
+        </HeaderLink>
+        <HeaderLink
+          href="https://github.com/tanayan299"
+          target="_blank"
+          aria-label="tnyn.cafe Github"
+        >
+          <IconGithub />
+        </HeaderLink>
+        <button
+          aria-label="Toggle between Dark and Light mode"
+          onclick="window.toggleDarkMode()"
+        >
+          <IconSun />
+        </button>
+      </nav>
+    </div>
+  </div>
 </header>
