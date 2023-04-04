@@ -1,5 +1,6 @@
 ---
 import { Picture } from '@astrojs/image/components';
+import backgroundImage from '~/assets/bacground-astro.png';
 const { } = Astro.props;
 ---
 
@@ -8,7 +9,7 @@ const { } = Astro.props;
     <div class="pt-32 pb-12 md:pt-40 md:pb-20">
       <div class="relative">
         <Picture
-          src="../src/assets/bacground-astro.png"
+          src={ backgroundImage }
           class="mx-auto rounded-md w-full h-full"
           widths={[400, 768]}
           sizes="(max-width: 768px) 100vw, 768px"
