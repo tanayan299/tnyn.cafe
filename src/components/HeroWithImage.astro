@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import Picture from "~/components/Picture.astro";
 import backgroundImage from "~/assets/images/bacground-astro.png";
 const {} = Astro.props;
 ---
@@ -27,7 +27,7 @@ const {} = Astro.props;
             >
               Welcome to
               <span
-                class="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-blue-400"
+                class="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-blue-400 whitespace-nowrap"
                 >tnyn.cafe</span
               >
             </h1>
