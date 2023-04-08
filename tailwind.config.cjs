@@ -1,11 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  extend: {
-    fontFamily: {
-      "ibm-plex-sans": ['"IBM Plex Sans"', "sans-serif"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"IBM Plex Sans"', ...defaultTheme.fontFamily.sans],
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
   darkMode: "class",
 };
