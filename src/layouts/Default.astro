@@ -7,43 +7,15 @@ export interface Props {
 import "~/assets/styles/base.css";
 import Header from "~/components/Header.astro";
 import Footer from "~/components/Footer.astro";
-import { getImage } from "@astrojs/image";
-
-const { src: defaultImage } = await getImage({
-  src: "~/assets/images/background-astro.jpg",
-  width: 768,
-  aspectRatio: "16:9",
-  alt: "tnyn.cafe",
-});
-
-const {
-  title = "tnyn.cafe",
-  description = "This is tanayan's portfolio site!",
-  image = defaultImage,
-  withHeader = true,
-} = Astro.props;
+import MetaTags from "~/components/utils/MetaTags.astro";
+import BasicScripts from "~/components/utils/BasicScripts.astro";
+const { title, description, image } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-
-    <!-- Google / Search Engine Tags -->
-    <meta itemprop="name" content={title} />
-    <meta itemprop="description" content={description} />
-    <meta itemprop="image" content={image} />
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <MetaTags title={title} description={description} image={image} />
   </head>
   <body
     class="antialiased text-gray-900 dark:text-slate-300 tracking-tight bg-white dark:bg-slate-900 font-ibm-plex-sans"
@@ -51,82 +23,59 @@ const {
     <Header />
     <slot />
     <Footer />
+    <style is:global>
+      :root {
+        --accent: 124, 58, 237;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          #da62c4 30%,
+          white 60%
+        );
+      }
+      body {
+        font-family: "IBM Plex Sans", sans-serif;
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background-color: #f6f6f6;
+      }
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+      .btn,
+      .btn-sm {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.25rem;
+        border-width: 1px;
+        border-color: transparent;
+        font-weight: 500;
+        line-height: 1.375;
+        transition-property: color, background-color, border-color, fill, stroke,
+          opacity, box-shadow, transform, filter, -webkit-text-decoration-color,
+          -webkit-backdrop-filter;
+        transition-property: color, background-color, border-color,
+          text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+          filter, backdrop-filter;
+        transition-property: color, background-color, border-color,
+          text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+          filter, backdrop-filter, -webkit-text-decoration-color,
+          -webkit-backdrop-filter;
+        transition-duration: 0.15s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0.75rem 1.5rem;
+        --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+          0 4px 6px -2px rgba(0, 0, 0, 0.02);
+        --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+          0 4px 6px -2px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+    </style>
+
+    <BasicScripts />
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-  }
-  body {
-    font-family: "IBM Plex Sans", sans-serif;
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-  .btn,
-  .btn-sm {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.25rem;
-    border-width: 1px;
-    border-color: transparent;
-    font-weight: 500;
-    line-height: 1.375;
-    transition-property: color, background-color, border-color, fill, stroke,
-      opacity, box-shadow, transform, filter, -webkit-text-decoration-color,
-      -webkit-backdrop-filter;
-    transition-property: color, background-color, border-color,
-      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
-      filter, backdrop-filter;
-    transition-property: color, background-color, border-color,
-      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
-      filter, backdrop-filter, -webkit-text-decoration-color,
-      -webkit-backdrop-filter;
-    transition-duration: 0.15s;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0.75rem 1.5rem;
-    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
-      0 4px 6px -2px rgba(0, 0, 0, 0.02);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
-      0 4px 6px -2px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
-</style>
-
-<script is:inline>
-  function toggleDarkMode() {
-    document.documentElement.classList.toggle("dark");
-    localStorage.theme = document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
-  }
-  window.toggleDarkMode = toggleDarkMode;
-
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("hidden");
-  }
-  window.toggleMenu = toggleMenu;
-</script>
