@@ -2,9 +2,9 @@
 import Layout from "~/layouts/PageLayout.astro";
 import Picture from "~/components/widgets/Picture.astro";
 import { SITE } from "~/config.mjs";
-import { getAllPosts } from "~/utils/getAllPosts";
+import { getPosts } from "~/utils/getPosts";
 export async function getStaticPaths() {
-  const posts = await getAllPosts();
+  const posts = await getPosts();
   return posts.map((post: any) => ({
     params: { slug: post.slug },
     props: { post },

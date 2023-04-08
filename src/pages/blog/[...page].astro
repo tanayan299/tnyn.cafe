@@ -1,7 +1,7 @@
 ---
 import Layout from "~/layouts/PageLayout.astro";
 import { SITE } from "~/config.mjs";
-import { getAllPosts } from "~/utils/getAllPosts";
+import { getPosts } from "~/utils/getPosts";
 import BlogPostCard from "~/components/widgets/BlogPostCard.astro";
 import Pagination from "~/components/widgets/Pagination.astro";
 
@@ -13,7 +13,7 @@ interface PaginateFunction<T> {
 }
 
 export async function getStaticPaths({ paginate }: { paginate: PaginateFunction<any> }) {
-  const posts = await getAllPosts();
+  const posts = await getPosts();
   return paginate(posts, {
     pageSize: SITE.postsPerPage,
   });
