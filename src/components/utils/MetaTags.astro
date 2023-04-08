@@ -1,5 +1,7 @@
 ---
 import { getImage } from "@astrojs/image";
+import { any } from "astro/zod";
+import { getRelativeUrlByFilePath } from "~/utils/getRelativeUrlByFilePath";
 
 const { src: defaultImage } = await getImage({
   src: "~/assets/images/background-astro.jpg",
@@ -11,11 +13,16 @@ const { src: defaultImage } = await getImage({
 const {
   title = "tnyn.cafe",
   description = "",
-  image = defaultImage,
+  image: _image = defaultImage,
   canonical,
 } = Astro.props;
 
-const absoluteImageUrl = new URL(image, Astro.site);
+const image =
+typeof _image === "string"
+  ? new URL(_image, Astro.site)
+  : typeof _image === "object" && _image !== null && _image["src"] !== null && typeof _image["src"] !== "undefined"
+  ? new URL(getRelativeUrlByFilePath(_image.src) || "", Astro.site)
+  : null;
 ---
 
 <meta charset="UTF-8" />
@@ -29,13 +36,13 @@ const absoluteImageUrl = new URL(image, Astro.site);
 <!-- Google / Search Engine Tags -->
 <meta itemprop="name" content={title} />
 <meta itemprop="description" content={description} />
-<meta itemprop="image" content={absoluteImageUrl} />
+{image && <meta itemprop="image" content={image} />}
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={absoluteImageUrl} />
+{image && <meta itemprop="image" content={image} />}
 
 <!-- Fonts -->
 <link
