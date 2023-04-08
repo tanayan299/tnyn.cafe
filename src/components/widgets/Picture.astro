@@ -5,7 +5,7 @@ const {
   alt,
   sizes,
   widths,
-  aspectRatio,
+  aspectRatio = 1,
   formats = ["avif", "webp"],
   loading = "lazy",
   decoding = "async",
@@ -13,21 +13,28 @@ const {
   ...attrs
 } = Astro.props;
 
-const { image, sources = [] } =
-  !src ? { image: {}}
-    : (typeof src === "string"
-      ? { image: { src } }
-      :
-      await getPicture({
-        src,
-        widths,
-        formats,
-        aspectRatio,
-        alt,
-      }))
+// const { image, sources = [] } =
+//   !src ? { image: {}}
+//     : (typeof src === "string"
+//       ? { image: { src } }
+//       :
+let picture = null;
+try {
+  picture = await getPicture({
+    src,
+    widths,
+    formats,
+    aspectRatio,
+    alt,
+  })
+}
+catch (e) {
+  console.log(e);
+}
+const { image = {}, sources = [] } = picture || {}
 ---
 
-{ (src || !image) &&
+{ (src && image?.src) &&
 <picture {...attrs}>
   {sources.map((attrs) => <source {...attrs} {sizes} />)}
   <img {...image} {loading} {decoding} {alt} class={className} />
