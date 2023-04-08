@@ -7,7 +7,7 @@ export const getNormalizedPost = async (post) => {
     pubDate: frontmatter.pubDate,
     draft: frontmatter.draft,
     canonical: frontmatter.canonical,
-    slug: file.split("/").pop().split(".").shift(),
+    slug: frontmatter.slug || ID,
     title: frontmatter.title,
     description: frontmatter.description,
     body: compiledContent(),
