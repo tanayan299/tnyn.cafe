@@ -1,7 +1,8 @@
 ---
+import { SITE } from "~/config.mjs";
+import { getCanonical, getHomePermalink } from "~/utils/permalinks";
 import Layout from "~/layouts/PageLayout.astro";
 
-import { SITE } from "~/config.mjs";
 import HeroWithImage from "~/components/widgets/HeroWithImage.astro";
 import BasicCTA from "~/components/widgets/BasicCTA.astro";
 import BasicFeatures from "~/components/widgets/BasicFeatures.astro";
@@ -10,9 +11,15 @@ import StepsFeatures from "~/components/widgets/StepsFeatures.astro";
 const title = SITE.title;
 const description = SITE.description;
 const canonical = new URL("", Astro.site);
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  canonical: getCanonical(getHomePermalink()),
+}
 ---
 
-<Layout meta={{ title, description, canonical }}>
+<Layout meta={meta}>
   <HeroWithImage />
   <BasicFeatures />
   <StepsFeatures />

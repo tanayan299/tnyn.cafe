@@ -22,7 +22,7 @@ export default defineConfig({
     sitemap(),
   ],
   site: SITE.domain,
-  base: "/",
+  base: SITE.baseUrl,
 
   output: "static",
 

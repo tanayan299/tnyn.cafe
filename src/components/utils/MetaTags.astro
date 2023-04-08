@@ -16,6 +16,8 @@ const {
   description = "",
   image: _image = defaultImage,
   canonical,
+  noindex = false,
+  nofollow = false
 } = Astro.props;
 
 const image =
@@ -33,6 +35,8 @@ typeof _image === "string"
 <title>{title}</title>
 <meta name="description" content={description} />
 {canonical && <link rel="canonical" href={canonical} />}
+
+<meta name="robots" content={`${noindex ? "noindex": "index"}, ${nofollow ? "nofollow" : "follow"}`} />
 
 <!-- Google / Search Engine Tags -->
 <meta itemprop="name" content={title} />

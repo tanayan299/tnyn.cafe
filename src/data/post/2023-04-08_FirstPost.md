@@ -3,6 +3,8 @@ pubDate: "Apr 08 2023"
 title: "ポートフォリオサイトを新規開設しました"
 description: "Sint sit cillum pariatur eiusmod nulla pariatur ipsum. Sit laborum anim qui mollit tempor pariatur nisi minim dolor. Aliquip et adipisicing sit sit fugiat"
 image: "../../assets/images/background-astro.png"
+category: "BLOG"
+tags: [Astro]
 ---
 
 自分のブログが欲しいなぁと思いつつ過ごすこと早幾年、ついに自分のポートフォリオサイトをつくりました！
