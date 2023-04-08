@@ -1,5 +1,6 @@
 ---
 import Picture from "~/components/widgets/Picture.astro";
+import { getFormattedDate } from "~/utils/getFormatedDate";
 const { post } = Astro.props;
 ---
 
@@ -7,15 +8,7 @@ const { post } = Astro.props;
   <article>
     <header>
       <p class="max-w-3xl mx-auto text-center">
-        <time datetime={post.pubDate}>
-          {
-            new Date(post.pubDate).toLocaleDateString("en-us", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            })
-          }
-        </time> ~ {Math.ceil(post.readingTime)} min
+        <time datetime={post.pubDate}>{getFormattedDate(post.pubDate)}</time> ~ {Math.ceil(post.readingTime)} min
       </p>
       <h1
         class="px-4 sm:px-6 max-w-3xl mx-auto text-center text-5xl md:text-[3.50rem] font-bold leading-tighter tracking-tighter mb-6 md:mb-8"
