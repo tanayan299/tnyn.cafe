@@ -1,9 +1,8 @@
 ---
 import Layout from "~/layouts/PageLayout.astro";
 import { SITE } from "~/config.mjs";
-import { getPosts } from "~/utils/getPosts";
+import { fetchPosts } from "~/utils/fetchPosts.js";
 import BlogList from "~/components/widgets/BlogList.astro";
-import Pagination from "~/components/widgets/Pagination.astro";
 
 interface PaginateFunction<T> {
   (data: T[], options: { pageSize: number }): {
@@ -13,7 +12,7 @@ interface PaginateFunction<T> {
 }
 
 export async function getStaticPaths({ paginate }: { paginate: PaginateFunction<any> }) {
-  const posts = await getPosts();
+  const posts = await fetchPosts();
   return paginate(posts, {
     pageSize: SITE.postsPerPage,
   });

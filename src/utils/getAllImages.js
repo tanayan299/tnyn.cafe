@@ -1,5 +1,8 @@
 const load = async function () {
-  const images = import.meta.glob("~/assets/images/*");
+  let images = [];
+  try {
+    images = import.meta.glob("~/assets/images/*");
+  } catch (e) {}
 
   return images;
 };
