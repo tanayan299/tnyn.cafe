@@ -20,15 +20,11 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction<
 
 const { page } = Astro.props;
 const currentPage = page.currentPage ?? 1;
-const title = `Blog ${currentPage > 1 ? `— Page ${currentPage} ` : ""}— ${
-  SITE.name
-}`;
-const description = 'tanayan\'s portfolio site';
+const title = `Blog ${currentPage > 1 ? `— Page ${currentPage} ` : ""}— ${SITE.name}`;
+const description = SITE.description;
 const canonical = new URL(page.url.current, Astro.site);
 ---
 
 <Layout meta={{ title, description, canonical }}>
-  <main>
-    <BlogList page={page} />
-  </main>
+  <BlogList page={page} />
 </Layout>

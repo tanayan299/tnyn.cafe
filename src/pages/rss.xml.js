@@ -8,8 +8,7 @@ const posts = await fetchPosts();
 export const get = () =>
   rss({
     title: `${SITE.name}’s Blog`,
-    description:
-      "tanayan's portfolio site.",
+    description: SITE.description,
     site: import.meta.env.SITE,
     items: posts.map((post) => ({
       link: `blog/${post.slug}`,

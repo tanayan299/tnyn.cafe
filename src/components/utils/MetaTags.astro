@@ -1,7 +1,8 @@
 ---
 import { getImage } from "@astrojs/image";
-import { any } from "astro/zod";
 import { getRelativeUrlByFilePath } from "~/utils/getRelativeUrlByFilePath";
+
+import { SITE } from "~/config.mjs";
 
 const { src: defaultImage } = await getImage({
   src: "~/assets/images/background-astro.jpg",
@@ -11,7 +12,7 @@ const { src: defaultImage } = await getImage({
 });
 
 const {
-  title = "tnyn.cafe",
+  title = SITE.name,
   description = "",
   image: _image = defaultImage,
   canonical,
