@@ -4,7 +4,7 @@ import { fetchPosts } from "~/utils/fetchPosts";
 import Layout from "~/layouts/BlogLayout.astro";
 import BlogList from "~/components/widgets/BlogList.astro";
 import Pagination from "~/components/widgets/Pagination.astro";
-import { getCanonical, getPermalink, getSlug, CATEGORY_BASE } from "~/utils/permalinks";
+import { getCanonical, getPermalink, cleanSlug, CATEGORY_BASE } from "~/utils/permalinks";
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   if (BLOG?.disabled || BLOG?.category?.disabled) return [];
   const posts = await fetchPosts();
@@ -14,7 +14,7 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
   })
   return Array.from(categories).map((category) => (
     paginate(posts.filter((post: { category: string; }) => typeof post.category === "string" && category === post.category.toLowerCase()), {
-      params: { category: getSlug(category), categories: CATEGORY_BASE || undefined },
+      params: { category: cleanSlug(category), categories: CATEGORY_BASE || undefined },
       pageSize: BLOG.postsPerPage,
       props: { category }
     })
@@ -33,6 +33,6 @@ const meta = {
   <Fragment slot="title">
     Category: {category}
   </Fragment>
-  <BlogList page={page} />
+  <BlogList posts={page.data} />
   <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
 </Layout>
