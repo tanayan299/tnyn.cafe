@@ -1,12 +1,18 @@
 ---
-import Layout from "~/layouts/Default.astro";
+import Layout from "~/layouts/PageLayout.astro";
+
+import { SITE } from "~/config.mjs";
+import HeroWithImage from "~/components/widgets/HeroWithImage.astro";
 import BasicCTA from "~/components/widgets/BasicCTA.astro";
 import BasicFeatures from "~/components/widgets/BasicFeatures.astro";
 import StepsFeatures from "~/components/widgets/StepsFeatures.astro";
-import HeroWithImage from "~/components/widgets/HeroWithImage.astro";
+
+const title = `${SITE.name}`;
+const description = "This is tanayan's portfolio site!";
+const canonical = new URL("", Astro.site);
 ---
 
-<Layout title="tnyn.cafe" description="This is tanayan's portfolio site!">
+<Layout meta={{ title, description, canonical }}>
   <main>
     <HeroWithImage />
     <BasicFeatures />

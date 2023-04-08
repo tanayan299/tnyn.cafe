@@ -1,8 +1,11 @@
 ---
-import Layout from "~/layouts/Empty.astro";
+import Layout from "~/layouts/BaseLayout.astro";
+import { SITE } from "~/config.mjs";
+
+const title = `Error 404 — ${SITE.name}`;
 ---
 
-<Layout title="Error 404 — tnyn.cafe">
+<Layout meta={{ title }}>
   <main>
     <section class="flex items-center h-full p-16">
       <div

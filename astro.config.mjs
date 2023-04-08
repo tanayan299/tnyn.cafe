@@ -4,6 +4,8 @@ import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 
+import { SITE } from "./src/config.mjs";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -16,5 +18,5 @@ export default defineConfig({
     image(),
     sitemap(),
   ],
-  site: "https://tnyn.cafe",
+  site: SITE.domain,
 });
