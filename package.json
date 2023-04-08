@@ -12,9 +12,11 @@
   "dependencies": {
     "@astrojs/image": "^0.16.4",
     "@astrojs/mdx": "^0.18.2",
+    "@astrojs/partytown": "^1.2.0",
     "@astrojs/rss": "^2.3.2",
     "@astrojs/sitemap": "^1.2.1",
     "@astrojs/tailwind": "^3.1.1",
+    "@napi-rs/pinyin-linux-x64-musl": "^1.7.1",
     "@tailwindcss/typography": "^0.5.9",
     "astro": "^2.1.9",
     "astro-icon": "^0.8.0",
