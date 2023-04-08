@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const title = `${post.title} — ${SITE.name}`;
 const description = post.description;
-const canonical = new URL(`blog/${post.slug}/`, Astro.site);
+const canonical = new URL(`blog/${post.slug}`, Astro.site);
 const images = import.meta.glob("../../assets/images/*");
 const imageSrc =
   typeof images[post.image] === "function"
