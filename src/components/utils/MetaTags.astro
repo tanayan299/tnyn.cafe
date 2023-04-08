@@ -10,10 +10,11 @@ const { src: defaultImage } = await getImage({
 
 const {
   title = "tnyn.cafe",
-  description = "This is tanayan's portfolio site!",
+  description = "",
   image = defaultImage,
+  canonical,
 } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
 const absoluteImageUrl = new URL(image, Astro.site);
 ---
 
@@ -23,7 +24,7 @@ const absoluteImageUrl = new URL(image, Astro.site);
 
 <title>{title}</title>
 <meta name="description" content={description} />
-<link rel="canonical" href={canonicalURL} />
+{canonical && <link rel="canonical" href={canonical} />}
 
 <!-- Google / Search Engine Tags -->
 <meta itemprop="name" content={title} />
@@ -32,14 +33,11 @@ const absoluteImageUrl = new URL(image, Astro.site);
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={absoluteImageUrl} />
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
   href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap"
   rel="stylesheet"

@@ -1,5 +1,5 @@
 ---
-import Picture from "~/components/Picture.astro";
+import Picture from "~/components/widgets/Picture.astro";
 import backgroundImage from "~/assets/images/bacground-astro.png";
 const {} = Astro.props;
 ---
@@ -10,7 +10,7 @@ const {} = Astro.props;
       <div class="relative">
         <Picture
           src={backgroundImage}
-          class="mx-auto rounded-md w-full h-full"
+          class="mx-auto rounded-md shadow-lg w-full h-full"
           widths={[400, 768]}
           sizes="(max-width: 768px) 100vw, 768px"
           alt="Background Image"
