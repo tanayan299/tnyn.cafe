@@ -1,5 +1,6 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+import Logo from "~/components/widgets/Logo.astro";
 import { IconTwitter, IconGithub, IconSun } from "~/components/icons";
 ---
 
@@ -11,11 +12,7 @@ import { IconTwitter, IconGithub, IconSun } from "~/components/icons";
   >
     <div class="flex justify-between">
       <a class="flex items-center" href="/">
-        <span
-          class="self-center ml-2 text-2xl font-extrabold text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          tnyn.cafe
-        </span>
+        <Logo />
       </a>
     </div>
     <div class="flex items-center justify-between mt-4 md:mt-0">
