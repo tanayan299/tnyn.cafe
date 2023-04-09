@@ -24,7 +24,9 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
   return Array.from(tags).map((tag) =>
     paginate(
       posts.filter(
-        (post: any) => Array.isArray(post.tags) && post.tags.includes(tag)
+        (post: any) =>
+          Array.isArray(post.tags) &&
+          post.tags.find((elem: any) => elem.toLowerCase() === tag)
       ),
       {
         params: { tag: cleanSlug(tag), tags: TAG_BASE || undefined },
