@@ -4,8 +4,8 @@ import { getCanonical, getHomePermalink } from "~/utils/permalinks";
 import Layout from "~/layouts/PageLayout.astro";
 
 import HeroWithImage from "~/components/widgets/HeroWithImage.astro";
-import BasicCTA from "~/components/widgets/BasicCTA.astro";
-import BasicFeatures from "~/components/widgets/BasicFeatures.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import Features from "~/components/widgets/Features.astro";
 import StepsFeatures from "~/components/widgets/StepsFeatures.astro";
 
 const title = SITE.title;
@@ -21,9 +21,9 @@ const meta = {
 
 <Layout meta={meta}>
   <HeroWithImage />
-  <BasicFeatures />
+  <Features />
   <StepsFeatures />
-  <BasicCTA />
+  <CallToAction />
 </Layout>
 
 <style>

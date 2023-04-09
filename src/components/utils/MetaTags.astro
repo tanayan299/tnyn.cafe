@@ -5,6 +5,9 @@ import { getRelativeUrlByFilePath } from "~/utils/directories";
 import { SITE } from "~/config.mjs";
 import defaultImageSrc from "~/assets/images/default.png";
 
+import Fonts from "../atoms/Fonts.astro";
+import ExtraMetaTags from "../atoms/ExtraMetaTags.astro";
+
 const { src: defaultImage } = await getImage({
   src: defaultImageSrc,
   width: 768,
@@ -56,9 +59,6 @@ const image =
 {image && <meta itemprop="image" content={image} />}
 
 <!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap"
-  rel="stylesheet"
-/>
+<Fonts />
+
+<ExtraMetaTags />

@@ -38,5 +38,10 @@ const { meta = {} } = Astro.props;
       }
     </style>
     <BasicScripts />
+    <style is:global>
+      img {
+        content-visibility: auto;
+      }
+    </style>
   </body>
 </html>

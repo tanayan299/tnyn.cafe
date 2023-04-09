@@ -2,7 +2,7 @@
 import { SITE, BLOG } from "~/config.mjs";
 
 import Layout from "~/layouts/PageLayout.astro";
-import BlogPost from "~/components/widgets/BlogPost.astro";
+import SinglePost from "~/components/blog/SinglePost.astro";
 
 import {
   getCanonical,
@@ -34,5 +34,5 @@ const meta = {
 ---
 
 <Layout meta={meta}>
-  <BlogPost post={{ ...post, image: meta.image }} />
+  <SinglePost post={{ ...post, image: meta.image }} />
 </Layout>
