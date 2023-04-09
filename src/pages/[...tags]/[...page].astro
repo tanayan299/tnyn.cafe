@@ -5,13 +5,8 @@ import Layout from "~/layouts/PageLayout.astro";
 import BlogList from "~/components/blog/List.astro";
 import Pagination from "~/components/common/Pagination.astro";
 
-import { fetchPosts } from "~/utils/posts";
-import {
-  getCanonical,
-  getPermalink,
-  cleanSlug,
-  TAG_BASE,
-} from "~/utils/permalinks";
+import { fetchPosts } from "~/utils/blog";
+import { TAG_BASE } from "~/utils/permalinks";
 import Title from "~/components/blog/Title.astro";
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
@@ -29,7 +24,7 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
             post.tags.find((elem: any) => elem.toLowerCase() === tag)
         ),
         {
-          params: { tag: cleanSlug(String(tag)), blog: TAG_BASE || undefined },
+          params: { tag: tag, blog: TAG_BASE || undefined },
           pageSize: BLOG.postsPerPage,
           props: { tag },
         }

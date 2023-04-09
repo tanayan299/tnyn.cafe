@@ -107,7 +107,7 @@ declare module 'astro:content' {
   slug: "2023-04-08_firstpost",
   body: string,
   collection: "blog",
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] },
 },
 
