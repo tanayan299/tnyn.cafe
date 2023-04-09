@@ -1,29 +1,36 @@
 ---
-import { SITE } from '~/config.mjs';
+import { SITE } from "~/config.mjs";
 ---
 
 <script is:inline define:vars={{ defaultTheme: SITE.defaultTheme }}>
   function applyTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }
 
-  if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
-    applyTheme(defaultTheme.replace(':only', ''));
-  } else if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  if (
+    (defaultTheme && defaultTheme.endsWith(":only")) ||
+    (!localStorage.theme && defaultTheme !== "system")
   ) {
-    applyTheme('dark');
+    applyTheme(defaultTheme.replace(":only", ""));
+  } else if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    applyTheme("dark");
   } else {
-    applyTheme('light');
+    applyTheme("light");
   }
 
   function attachEvent(selector, event, fn) {
-    const matches = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
+    const matches =
+      typeof selector === "string"
+        ? document.querySelectorAll(selector)
+        : selector;
     if (matches && matches.length) {
       matches.forEach((elem) => {
         elem.addEventListener(event, (e) => fn(e, elem), false);
@@ -35,41 +42,43 @@ import { SITE } from '~/config.mjs';
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
-    attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
-      elem.classList.toggle('expanded');
-      document.body.classList.toggle('overflow-hidden');
-      document.getElementById('header')?.classList.toggle('h-screen');
-      document.querySelector('#header nav')?.classList.toggle('hidden');
+    attachEvent("[data-aw-toggle-menu]", "click", function (_, elem) {
+      elem.classList.toggle("expanded");
+      document.body.classList.toggle("overflow-hidden");
+      document.getElementById("header")?.classList.toggle("h-screen");
+      document.querySelector("#header nav")?.classList.toggle("hidden");
     });
 
-    attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
-      if (defaultTheme.endsWith(':only')) {
+    attachEvent("[data-aw-toggle-color-scheme]", "click", function () {
+      if (defaultTheme.endsWith(":only")) {
         return;
       }
-      document.documentElement.classList.toggle('dark');
-      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      document.documentElement.classList.toggle("dark");
+      localStorage.theme = document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light";
     });
 
-    attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
-      const network = elem.getAttribute('data-aw-social-share');
-      const url = encodeURIComponent(elem.getAttribute('data-aw-url'));
-      const text = encodeURIComponent(elem.getAttribute('data-aw-text'));
+    attachEvent("[data-aw-social-share]", "click", function (_, elem) {
+      const network = elem.getAttribute("data-aw-social-share");
+      const url = encodeURIComponent(elem.getAttribute("data-aw-url"));
+      const text = encodeURIComponent(elem.getAttribute("data-aw-text"));
 
       let href;
       switch (network) {
-        case 'facebook':
+        case "facebook":
           href = `https://www.facebook.com/sharer.php?u=${url}`;
           break;
-        case 'twitter':
+        case "twitter":
           href = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
           break;
-        case 'linkedin':
+        case "linkedin":
           href = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${text}`;
           break;
-        case 'whatsapp':
+        case "whatsapp":
           href = `https://wa.me/?text=${text}%20${url}`;
           break;
-        case 'mail':
+        case "mail":
           href = `mailto:?subject=%22${text}%22&body=${text}%20${url}`;
           break;
 
@@ -77,24 +86,30 @@ import { SITE } from '~/config.mjs';
           return;
       }
 
-      const newlink = document.createElement('a');
-      newlink.target = '_blank';
+      const newlink = document.createElement("a");
+      newlink.target = "_blank";
       newlink.href = href;
       newlink.click();
     });
 
     function appyHeaderStylesOnScroll() {
-      const header = document.getElementById('header');
-      if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
-        document.getElementById('header').classList.add('scroll');
-      } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
-        document.getElementById('header').classList.remove('scroll');
+      const header = document.getElementById("header");
+      if (
+        lastKnownScrollPosition > 60 &&
+        !header.classList.contains("scroll")
+      ) {
+        document.getElementById("header").classList.add("scroll");
+      } else if (
+        lastKnownScrollPosition <= 60 &&
+        header.classList.contains("scroll")
+      ) {
+        document.getElementById("header").classList.remove("scroll");
       }
       ticking = false;
     }
     appyHeaderStylesOnScroll();
 
-    attachEvent([document], 'scroll', function () {
+    attachEvent([document], "scroll", function () {
       lastKnownScrollPosition = window.scrollY;
 
       if (!ticking) {
@@ -107,13 +122,13 @@ import { SITE } from '~/config.mjs';
   };
 
   window.onpageshow = function () {
-    document.documentElement.classList.add('motion-safe:scroll-smooth');
-    const elem = document.querySelector('[data-aw-toggle-menu]');
+    document.documentElement.classList.add("motion-safe:scroll-smooth");
+    const elem = document.querySelector("[data-aw-toggle-menu]");
     if (elem) {
-      elem.classList.remove('expanded');
+      elem.classList.remove("expanded");
     }
-    document.body.classList.remove('overflow-hidden');
-    document.getElementById('header')?.classList.remove('h-screen');
-    document.querySelector('#header nav')?.classList.add('hidden');
+    document.body.classList.remove("overflow-hidden");
+    document.getElementById("header")?.classList.remove("h-screen");
+    document.querySelector("#header nav")?.classList.add("hidden");
   };
 </script>

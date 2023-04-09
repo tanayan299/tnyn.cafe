@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from "astro-icon";
 
 interface Item {
   title?: string;
@@ -15,15 +15,19 @@ export interface Props {
 }
 
 const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
+  title = await Astro.slots.render("title"),
+  subtitle = await Astro.slots.render("subtitle"),
   highlight,
   items = [],
 } = Astro.props;
 ---
 
 <section class="relative">
-  <div class="absolute inset-0 bg-blue-50 dark:bg-slate-800 pointer-events-none mb-32" aria-hidden="true"></div>
+  <div
+    class="absolute inset-0 bg-blue-50 dark:bg-slate-800 pointer-events-none mb-32"
+    aria-hidden="true"
+  >
+  </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 -mb-12">
     <div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
       {
@@ -51,7 +55,9 @@ const {
           </div>
         )
       }
-      <div class={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-12 dark:text-white items-stretch`}>
+      <div
+        class={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-12 dark:text-white items-stretch`}
+      >
         {
           items.map(({ title, description, icon }) => (
             <div class="relative flex flex-col p-6 bg-white dark:bg-slate-900 rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-slate-800">
@@ -59,7 +65,12 @@ const {
                 <Icon name={icon} class="w-10 h-10" />
                 <div class="ml-4 text-xl font-bold">{title}</div>
               </div>
-              {description && <p class="text-muted dark:text-gray-400 text-md mt-4" set:html={description} />}
+              {description && (
+                <p
+                  class="text-muted dark:text-gray-400 text-md mt-4"
+                  set:html={description}
+                />
+              )}
             </div>
           ))
         }

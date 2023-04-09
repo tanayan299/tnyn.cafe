@@ -12,14 +12,16 @@ export interface Props {
 }
 
 const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
+  title = await Astro.slots.render("title"),
+  subtitle = await Astro.slots.render("subtitle"),
   highlight,
   items = [],
 } = Astro.props;
 ---
 
-<div class="px-4 py-4 md:py-16 sm:px-6 mx-auto md:px-24 lg:px-8 lg:py-20 max-w-6xl">
+<div
+  class="px-4 py-4 md:py-16 sm:px-6 mx-auto md:px-24 lg:px-8 lg:py-20 max-w-6xl"
+>
   {
     (title || subtitle || highlight) && (
       <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -35,7 +37,10 @@ const {
           />
         )}
         {subtitle && (
-          <p class="max-w-3xl mx-auto text-center text-xl text-muted dark:text-slate-400" set:html={subtitle} />
+          <p
+            class="max-w-3xl mx-auto text-center text-xl text-muted dark:text-slate-400"
+            set:html={subtitle}
+          />
         )}
       </div>
     )
