@@ -1,7 +1,7 @@
 import defaultImage from "./assets/images/default.png";
 
 const CONFIG = {
-  name: "tntn.cafe",
+  name: "tnyn.cafe",
 
   origin: "https://tnyn.cafe",
   basePathname: "/",
@@ -20,7 +20,7 @@ const CONFIG = {
     year: "numeric",
     month: "short",
     day: "numeric",
-    timeZone: "UTC",
+    timeZone: "JST",
   }),
 
   //googleAnalyticsId: false, // or "G-XXXXXXXXXX",

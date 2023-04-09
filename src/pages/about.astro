@@ -1,6 +1,8 @@
 ---
 import { SITE } from "~/config.mjs";
+import { Picture } from "@astrojs/image/components";
 import Layout from "~/layouts/PageLayout.astro";
+import ProfileImage from "~/assets/images/profile_icon.jpeg";
 
 const meta = {
   title: SITE.title,
@@ -16,9 +18,14 @@ const meta = {
       <div
         class="w-24 h-24 rounded-full ring ring-offset-base-100 ring-offset-2"
       >
-        <img
-          src="/src/assets/images/profile_icon.jpeg"
+        <Picture
+          src={ProfileImage}
           class="w-24 h-24 rounded-full"
+          widths={[400, 768]}
+          sizes=""
+          alt="Profile Image"
+          aspectRatio="1:1"
+          style=""
         />
       </div>
     </div>
