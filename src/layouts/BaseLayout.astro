@@ -2,6 +2,12 @@
 import "~/assets/styles/base.css";
 import MetaTags from "~/components/utils/MetaTags.astro";
 import BasicScripts from "~/components/utils/BasicScripts.astro";
+
+import type { MetaSEO } from "~/types";
+export interface Props {
+  meta?: MetaSEO;
+}
+
 const { meta = {} } = Astro.props;
 ---
 

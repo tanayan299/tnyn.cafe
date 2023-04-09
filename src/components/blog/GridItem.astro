@@ -2,7 +2,8 @@
 import { Picture } from "@astrojs/image/components";
 import { findImage } from "~/utils/images";
 import { getPermalink } from "~/utils/permalinks";
-import type { Post } from "~/utils/posts";
+import type { Post } from "~/types";
+
 export interface Props {
   post: Post;
 }

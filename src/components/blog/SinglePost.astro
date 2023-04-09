@@ -5,7 +5,8 @@ import SocialShare from "~/components/atoms/SocialShare.astro";
 
 import { getFormattedDate } from "~/utils/utils";
 
-import type { Post } from "~/utils/posts";
+import type { Post } from "~/types";
+
 export interface Props {
   post: Post;
   url: string;

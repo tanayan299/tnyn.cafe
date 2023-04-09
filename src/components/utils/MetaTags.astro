@@ -9,12 +9,16 @@ import defaultImageSrc from "~/assets/images/default.png";
 import Fonts from "../atoms/Fonts.astro";
 import ExtraMetaTags from "../atoms/ExtraMetaTags.astro";
 
+import type { MetaSEO } from "~/types";
+
 const { src: defaultImage } = await getImage({
   src: defaultImageSrc,
   width: 768,
   aspectRatio: "16:9",
   alt: "tnyn.cafe",
 });
+
+export interface Props extends MetaSEO {}
 
 const {
   title = SITE.name,
@@ -32,7 +36,8 @@ const image =
   typeof _image === "string"
     ? new URL(_image, Astro.site)
     : _image && typeof _image["src"] !== "undefined"
-    ? new URL(getRelativeUrlByFilePath(_image.src) || "", Astro.site)
+    ? // @ts-ignore
+      new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
     : null;
 ---
 

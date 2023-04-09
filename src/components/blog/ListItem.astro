@@ -4,7 +4,8 @@ import PostTags from "~/components/atoms/Tags.astro";
 import { getPermalink } from "~/utils/permalinks";
 import { findImage } from "~/utils/images";
 import { getFormattedDate } from "~/utils/utils";
-import type { Post } from "~/utils/posts";
+import type { Post } from "~/types";
+
 export interface Props {
   post: Post;
 }
