@@ -11,7 +11,7 @@ module.exports = {
         secondary: colors.green,
       },
       fontFamily: {
-        sans: ["'IBM Plex Sans'", ...defaultTheme.fontFamily.sans],
+        sans: ["'Inter'", ...defaultTheme.fontFamily.sans],
       },
     },
   },
