@@ -1,17 +1,16 @@
-import slugify from 'limax';
+import slugify from "limax";
 import { SITE, BLOG } from "~/config.mjs";
 
 const trim = (str, ch) => {
-  let start = 0, end = str.length;
-  while(start < end && str[start] === ch)
-      ++start;
-  while(end > start && str[end - 1] === ch)
-      --end;
-  return (start > 0 || end < str.length) ? str.substring(start, end) : str;
-}
+  let start = 0,
+    end = str.length;
+  while (start < end && str[start] === ch) ++start;
+  while (end > start && str[end - 1] === ch) --end;
+  return start > 0 || end < str.length ? str.substring(start, end) : str;
+};
 
 const trimSlash = (s) => trim(trim(s, "/"));
-const createPath = (...params) =>  "/" + params.filter((el) => !!el).join("/")
+const createPath = (...params) => "/" + params.filter((el) => !!el).join("/");
 
 const baseUrl = trimSlash(SITE.baseUrl);
 export const cleanSlug = (text) => slugify(trimSlash(text));
@@ -27,13 +26,17 @@ export const getPermalink = (slug = "", type = "page") => {
 
   switch (type) {
     case "category":
-      return createPath(baseUrl, CATEGORY_BASE, _slug)
+      return createPath(baseUrl, CATEGORY_BASE, _slug);
 
     case "tag":
-      return createPath(baseUrl, TAG_BASE, _slug)
+      return createPath(baseUrl, TAG_BASE, _slug);
 
     case "post":
-      return createPath(baseUrl, BLOG.postsWithoutBlogSlug ? "" : BLOG_BASE, _slug);
+      return createPath(
+        baseUrl,
+        BLOG.postsWithoutBlogSlug ? "" : BLOG_BASE,
+        _slug
+      );
 
     case "page":
     default:
@@ -45,4 +48,4 @@ export const getBlogPermalink = () => getPermalink(BLOG_BASE);
 export const getHomePermalink = () => {
   const permalink = getPermalink();
   return permalink !== "/" ? permalink + "/" : permalink;
-}
+};

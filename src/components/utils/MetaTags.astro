@@ -1,11 +1,12 @@
 ---
 import { getImage } from "@astrojs/image";
-import { getRelativeUrlByFilePath } from "~/utils/getRelativeUrlByFilePath";
+import { getRelativeUrlByFilePath } from "~/utils/directories";
 
 import { SITE } from "~/config.mjs";
+import defaultImageSrc from "~/assets/images/default.png";
 
 const { src: defaultImage } = await getImage({
-  src: "~/assets/images/background-astro.jpg",
+  src: defaultImageSrc,
   width: 768,
   aspectRatio: "16:9",
   alt: "tnyn.cafe",
@@ -17,26 +18,31 @@ const {
   image: _image = defaultImage,
   canonical,
   noindex = false,
-  nofollow = false
+  nofollow = false,
 } = Astro.props;
 
 const image =
-typeof _image === "string"
-  ? new URL(_image, Astro.site)
-  : _image && typeof _image["src"] !== "undefined"
-  ? new URL(getRelativeUrlByFilePath(_image.src) || "", Astro.site)
-  : null;
+  typeof _image === "string"
+    ? new URL(_image, Astro.site)
+    : _image && typeof _image["src"] !== "undefined"
+    ? new URL(getRelativeUrlByFilePath(_image.src) || "", Astro.site)
+    : null;
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="shortcut icon" href="/favicon.ico" />
 
 <title>{title}</title>
 <meta name="description" content={description} />
 {canonical && <link rel="canonical" href={canonical} />}
 
-<meta name="robots" content={`${noindex ? "noindex": "index"}, ${nofollow ? "nofollow" : "follow"}`} />
+<meta
+  name="robots"
+  content={`${noindex ? "noindex" : "index"}, ${
+    nofollow ? "nofollow" : "follow"
+  }`}
+/>
 
 <!-- Google / Search Engine Tags -->
 <meta itemprop="name" content={title} />
@@ -49,7 +55,9 @@ typeof _image === "string"
 <meta name="twitter:description" content={description} />
 {image && <meta itemprop="image" content={image} />}
 
-<!-- Fonts -->
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
   href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap"
   rel="stylesheet"
