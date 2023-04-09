@@ -11,6 +11,7 @@ export const SITE = {
   title: "tnyn.cafe",
 
   defaultImage: defaultImage,
+  defaultTheme: "system", // "system" | "light" | "dark" | "light:only" | "dark:only"
 };
 
 export const BLOG = {
