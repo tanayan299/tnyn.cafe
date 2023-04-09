@@ -21,17 +21,41 @@ const meta = {
 
   <Hero />
 
+  <!-- Content Widget **************** -->
+  <Content
+    class="mx-auto"
+    highlight=""
+    title="About Me"
+    items={[
+      {
+        title: "Who are you?",
+        description:
+          "Ex usu illum iudico molestie. Pro ne agam facete mediocritatem, ridens labore facete mea ei. Pro id apeirian dignissim.",
+      },
+    ]}
+    image={{
+      src: import("~/assets/images/profile_icon.jpeg"),
+      alt: "Profile Image",
+      class: "rounded-lg",
+    }}
+  >
+    <Fragment slot="content">
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        I'm tanayan.
+      </h3>
+      ゲームが大好きなエンジニア。 <br
+      />デザインやイラストも好き。最近は3DCGに入門中。
+    </Fragment>
+  </Content>
+
   <!-- HighlightedPosts Widget ******* -->
 
   <LatestPosts
     title="Latest from blog"
     information={`Read the latest articles from the blog.`}
-    postIds={[
-      "get-started-website-with-astro-tailwind-css.md",
-      "how-to-customize-astrowind-to-your-brand.md",
-      "useful-resources-to-create-websites.md",
-      "astrowind-template-in-depth.md",
-    ]}
+    postIds={[]}
   />
 
   <!-- Features Widget *************** -->

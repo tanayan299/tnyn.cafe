@@ -9,6 +9,7 @@ interface Item {
 }
 
 export interface Props {
+  class?: string;
   title?: string;
   subtitle?: string;
   highlight?: string;
@@ -64,67 +65,72 @@ const {
       )
     }
   </div>
-  <div class="mx-auto max-w-7xl p-4 md:px-8">
-    <div class={`md:flex ${isReversed ? "md:flex-row-reverse" : ""} md:gap-16`}>
-      <div class="md:basis-1/2 self-center">
-        {
-          content && (
-            <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />
-          )
-        }
+  <div class="max-w-xl sm:mx-auto lg:max-w-4xl mx-auto lg:ml-auto">
+    <div class="mx-auto max-w-7xl p-4 md:px-8">
+      <div class={`md:flex ${isReversed ? "md:flex-row-reverse" : ""} md:gap-`}>
+        <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
+          {
+            image && (
+              <div class="relative m-auto max-w-4xl">
+                {typeof image === "string" ? (
+                  <Fragment set:html={image} />
+                ) : (
+                  <Picture
+                    class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                    width={300}
+                    height={300}
+                    widths={[400, 768]}
+                    sizes="(max-width: 768px) 100vw, 432px"
+                    aspectRatio="500:500"
+                    {...image}
+                  />
+                )}
+              </div>
+            )
+          }
+        </div>
+        <div class="md:basis-1/2 self-center">
+          {
+            content && (
+              <div
+                class="mb-12 text-lg dark:text-slate-400"
+                set:html={content}
+              />
+            )
+          }
 
-        {
-          items && (
-            <div class="space-y-8">
-              {items.map(({ title: title2, description, icon }) => (
-                <div class="flex">
-                  <div class="flex-shrink-0">
-                    <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-gray-50">
-                      <Icon
-                        name={icon ? icon : "tabler:check"}
-                        class="w-5 h-5"
-                      />
+          {
+            items && (
+              <div class="space-y-8">
+                {items.map(({ title: title2, description, icon }) => (
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-gray-50">
+                        <Icon
+                          name={icon ? icon : "tabler:check"}
+                          class="w-5 h-5"
+                        />
+                      </div>
+                    </div>
+                    <div class="ml-4">
+                      {title2 && (
+                        <h3 class="text-lg font-medium leading-6 dark:text-white">
+                          {title2}
+                        </h3>
+                      )}
+                      {description && (
+                        <p
+                          class="mt-2 text-muted dark:text-slate-400"
+                          set:html={description}
+                        />
+                      )}
                     </div>
                   </div>
-                  <div class="ml-4">
-                    {title2 && (
-                      <h3 class="text-lg font-medium leading-6 dark:text-white">
-                        {title2}
-                      </h3>
-                    )}
-                    {description && (
-                      <p
-                        class="mt-2 text-muted dark:text-slate-400"
-                        set:html={description}
-                      />
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )
-        }
-      </div>
-      <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
-        {
-          image && (
-            <div class="relative m-auto max-w-4xl">
-              {typeof image === "string" ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Picture
-                  class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
-                  width={500}
-                  height={500}
-                  widths={[400, 768]}
-                  sizes="(max-width: 768px) 100vw, 432px"
-                  aspectRatio="500:500"
-                  {...image}
-                />
-              )}
-            </div>
-          )
-        }
+                ))}
+              </div>
+            )
+          }
+        </div>
       </div>
     </div>
   </div>
