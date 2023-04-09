@@ -14,30 +14,18 @@ const {
       <div class="flex flex-row mx-auto container justify-between">
         <a
           href={prevUrl}
-          class={`btn font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white shadow-none mr-2 ${
+          class={`btn px-2 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white shadow-none mr-2 ${
             !prevUrl ? "invisible" : ""
           }`}
         >
           <div class="flex flex-row align-middle">
-            <svg
-              class="w-5 mr-2"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                clip-rule="evenodd"
-              />
-            </svg>
             <Icon name="tabler:arrow-left" class="w-6 h-6" />
             <p class="ml-2">{prevText}</p>
           </div>
         </a>
         <a
           href={nextUrl}
-          class={`btn font-medium text-gray-600 hover:text-gray-900 dark:hover:text-white shadow-none ${
+          class={`btn px-2 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white shadow-none ${
             !nextUrl ? "invisible" : ""
           }`}
         >
