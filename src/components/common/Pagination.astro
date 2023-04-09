@@ -1,14 +1,12 @@
 ---
 import { Icon } from "astro-icon";
-import { getRelativeLink } from "~/utils/permalinks";
-
+import { getPermalink } from "~/utils/permalinks";
 export interface Props {
   prevUrl: string;
   nextUrl: string;
   prevText?: string;
   nextText?: string;
 }
-
 const {
   prevUrl,
   nextUrl,
@@ -22,7 +20,7 @@ const {
     <div class="container flex">
       <div class="flex flex-row mx-auto container justify-between">
         <a
-          href={getRelativeLink(prevUrl)}
+          href={getPermalink(prevUrl)}
           class={`btn btn-ghost px-3 mr-2 ${!prevUrl ? "invisible" : ""}`}
         >
           <div class="flex flex-row align-middle">
@@ -31,7 +29,7 @@ const {
           </div>
         </a>
         <a
-          href={getRelativeLink(nextUrl)}
+          href={getPermalink(nextUrl)}
           class={`btn btn-ghost px-3 ${!nextUrl ? "invisible" : ""}`}
         >
           <div class="flex flex-row align-middle">

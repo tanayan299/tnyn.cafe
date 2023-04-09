@@ -19,7 +19,11 @@ const createPath = (...params: string[]) => {
 };
 
 const baseUrl = trimSlash(SITE.baseUrl);
-export const cleanSlug = (text: string) => slugify(trimSlash(text));
+export const cleanSlug = (text: string) =>
+  trimSlash(text)
+    .split("/")
+    .map((slug) => slugify(slug))
+    .join("/");
 
 export const BLOG_BASE = cleanSlug(BLOG?.blog?.pathname);
 export const POST_BASE = cleanSlug(BLOG?.post?.pathname);
@@ -34,24 +38,21 @@ export const getPermalink = (slug = "", type = "page") => {
 
   switch (type) {
     case "category":
-      return createPath(baseUrl, CATEGORY_BASE, _slug);
+      return createPath(baseUrl, CATEGORY_BASE, cleanSlug(slug));
+
     case "tag":
-      return createPath(baseUrl, TAG_BASE, _slug);
+      return createPath(baseUrl, TAG_BASE, cleanSlug(slug));
+
     case "post":
-      return createPath(baseUrl, POST_BASE, _slug);
-    case "page":
-    default:
-      return createPath(baseUrl, _slug);
+      return createPath(baseUrl, POST_BASE, cleanSlug(slug));
   }
+
+  return createPath(baseUrl, trimSlash(slug));
 };
 
 export const getHomePermalink = (): string => {
   const permalink = getPermalink();
-  return permalink !== "/" ? permalink + "/" : permalink;
-};
-
-export const getRelativeLink = (link = ""): string => {
-  return createPath(baseUrl, trimSlash(link));
+  return !permalink.startsWith("/") ? "/" + permalink : permalink;
 };
 
 export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
