@@ -15,9 +15,7 @@ const {
       <div class="flex flex-row mx-auto container justify-between">
         <a
           href={getRelativelink(prevUrl)}
-          class={`btn px-3 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white border-none mr-2 ${
-            !prevUrl ? "invisible" : ""
-          }`}
+          class={`btn btn-ghost px-3 mr-2 ${!prevUrl ? "invisible" : ""}`}
         >
           <div class="flex flex-row align-middle">
             <Icon name="tabler:arrow-left" class="w-6 h-6" />
@@ -26,9 +24,7 @@ const {
         </a>
         <a
           href={getRelativelink(nextUrl)}
-          class={`btn px-3 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white border-none ${
-            !nextUrl ? "invisible" : ""
-          }`}
+          class={`btn btn-ghost px-3 ${!nextUrl ? "invisible" : ""}`}
         >
           <div class="flex flex-row align-middle">
             <span class="mr-2">{nextText}</span>
