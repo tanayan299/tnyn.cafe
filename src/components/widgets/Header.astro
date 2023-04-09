@@ -1,6 +1,8 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import Logo from "~/components/atoms/Logo.astro";
+import ToggleTheme from "../widgets/ToggleTheme.astro";
+import ToggleMenu from "../widgets/ToggleMenu.astro";
 import {
   getPermalink,
   getBlogPermalink,
@@ -40,12 +42,7 @@ import { Icon } from "astro-icon";
         >
           <Icon name="tabler:brand-github" class="w-5 h-5" />
         </HeaderLink>
-        <button
-          data-aw-toggle-color-scheme
-          aria-label="Toggle between Dark and Light mode"
-        >
-          <Icon name="tabler:sun" class="w-5 h-5" />
-        </button>
+        <ToggleTheme iconClass="w-5 h-5" />
       </nav>
     </div>
   </div>
