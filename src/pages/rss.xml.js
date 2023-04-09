@@ -22,7 +22,7 @@ export const get = async () => {
       link: getPermalink(post.slug, "post"),
       title: post.title,
       description: post.description,
-      pubDate: post.pubDate,
+      publishDate: post.publishDate,
     })),
   });
 };

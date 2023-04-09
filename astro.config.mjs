@@ -6,6 +6,9 @@ import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
+
+import { remarkReadingTime } from "./src/utils/frontmatter.js";
+
 import { SITE } from "./src/config.mjs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -37,6 +40,12 @@ export default defineConfig({
     }),
     image(),
   ],
+
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
+    extendDefaultPlugins: true,
+  },
+
   vite: {
     resolve: {
       alias: {
