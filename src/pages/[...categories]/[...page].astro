@@ -40,7 +40,7 @@ const meta = {
     currentPage > 1 ? ` — Page ${currentPage}` : ""
   }`,
   description: SITE.description,
-  noindex: true,
+  noindex: BLOG?.category?.noindex,
 };
 ---
 

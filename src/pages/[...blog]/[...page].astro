@@ -21,7 +21,7 @@ const meta = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ""}`,
   description: SITE.description,
   ogType: "blog",
-  noindex: currentPage > 1,
+  noindex: BLOG?.blog?.noindex || currentPage > 1,
 };
 ---
 
