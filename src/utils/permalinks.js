@@ -10,7 +10,10 @@ const trim = (str, ch) => {
 };
 
 const trimSlash = (s) => trim(trim(s, "/"));
-const createPath = (...params) => "/" + params.filter((el) => !!el).join("/");
+const createPath = (...params) => {
+  const paths = params.filter((el) => !!el).join("/");
+  return "/" + paths + (SITE.trailingSlash && paths ? "/" : "");
+};
 
 const baseUrl = trimSlash(SITE.baseUrl);
 export const cleanSlug = (text) => slugify(trimSlash(text));
@@ -38,6 +41,9 @@ export const getPermalink = (slug = "", type = "page") => {
         BLOG.postsWithoutBlogSlug ? "" : BLOG_BASE,
         _slug
       );
+
+    case "raw":
+      return createPath(basePathname, trimSlash(slug));
 
     case "page":
     default:

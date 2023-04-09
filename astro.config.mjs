@@ -27,6 +27,7 @@ export default defineConfig({
   ],
   site: SITE.domain,
   base: SITE.baseUrl,
+  trailingSlash: SITE.trailingSlash ? "always" : "never",
   output: "static",
   integrations: [
     tailwind({

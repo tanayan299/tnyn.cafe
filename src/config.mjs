@@ -3,6 +3,7 @@ export const SITE = {
   description: "This is tanayan's portfolio site",
   domain: "https://tnyn.cafe",
   baseUrl: "/",
+  trailingSlash: false,
   github: "https://github.com/tanayan299",
 
   title: "tnyn.cafe",
