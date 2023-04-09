@@ -20,10 +20,10 @@ const image = await findImage(post.image);
       <Picture
         src={image}
         class="absolute inset-0 w-full h-full object-cover mb-6 rounded shadow-lg"
-        widths={[400, 768]}
-        sizes="(max-width: 767px) 400px, 768px"
+        widths={[400, 900]}
+        sizes="(max-width: 900px) 400px, 900px"
         alt={post.description}
-        aspectRatio="{1}"
+        aspectRatio="16:9"
       />
     </div>
   </a>
