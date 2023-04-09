@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-import { getPermalink } from "~/utils/permalinks";
+import { getRelativelink } from "~/utils/permalinks";
 const {
   prevUrl,
   nextUrl,
@@ -14,8 +14,8 @@ const {
     <div class="container flex">
       <div class="flex flex-row mx-auto container justify-between">
         <a
-          href={getPermalink(prevUrl, "raw")}
-          class={`btn px-2 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white shadow-none mr-2 ${
+          href={getRelativelink(prevUrl)}
+          class={`btn px-3 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white border-none mr-2 ${
             !prevUrl ? "invisible" : ""
           }`}
         >
@@ -25,8 +25,8 @@ const {
           </div>
         </a>
         <a
-          href={getPermalink(nextUrl, "raw")}
-          class={`btn px-2 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white shadow-none ${
+          href={getRelativelink(nextUrl)}
+          class={`btn px-3 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white border-none ${
             !nextUrl ? "invisible" : ""
           }`}
         >
