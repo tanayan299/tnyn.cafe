@@ -58,6 +58,23 @@ const {
         <Logo />
       </a>
       <div class="flex items-center md:hidden">
+        <HeaderLink
+          class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+          href="https://twitter.com/tananyan29"
+          target="_blank"
+          aria-label="tanayan Twitter"
+        >
+          <Icon name="tabler:brand-twitter" class="w-5 h-5" />
+        </HeaderLink>
+        <HeaderLink
+          class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+          href="https://github.com/tanayan299"
+          target="_blank"
+          aria-label="tanayan GitHub"
+        >
+          <Icon name="tabler:brand-github" class="w-5 h-5" />
+        </HeaderLink>
+
         {showToggleTheme && <ToggleTheme />}
         <ToggleMenu />
       </div>
