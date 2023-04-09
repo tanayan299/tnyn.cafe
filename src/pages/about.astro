@@ -1,6 +1,9 @@
 ---
 import { SITE } from "~/config.mjs";
 import { Picture } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+
+import HeaderLink from "~/components/widgets/HeaderLink.astro";
 import Layout from "~/layouts/PageLayout.astro";
 import ProfileImage from "~/assets/images/profile_icon.jpeg";
 
@@ -32,5 +35,26 @@ const meta = {
     <p class="my-5">
       ゲームが大好きなエンジニア。デザインやイラストも好き。最近は3DCGに入門中。
     </p>
+    <h2 class="my-1 text-2xl font-bold">Contact</h2>
+    <div class="hidden items-center md:flex">
+      <HeaderLink
+        class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+        href="https://twitter.com/tananyan29"
+        target="_blank"
+        aria-label="tanayan Twitter"
+      >
+        <Icon name="tabler:brand-twitter" class="w-5 h-5" />
+        <dev class="md:ml-1"> Twitter</dev>
+        <HeaderLink
+          class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+          href="https://github.com/tanayan299"
+          target="_blank"
+          aria-label="tanayan GitHub"
+        >
+          <Icon name="tabler:brand-github" class="w-5 h-5" />
+          <dev class="md:ml-1"> GitHub</dev>
+        </HeaderLink>
+      </HeaderLink>
+    </div>
   </main>
 </Layout>
