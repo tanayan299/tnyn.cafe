@@ -11,7 +11,8 @@ const trim = (str = "", ch?: string) => {
 
 const BASE_PATHNAME = SITE.baseUrl;
 
-const trimSlash = (s: any) => trim(trim(s, "/"));
+const trimSlash = (s: string) => trim(trim(s, "/"));
+
 const createPath = (...params: string[]) => {
   const paths = params.filter((el) => !!el).join("/");
   return "/" + paths + (SITE.trailingSlash && paths ? "/" : "");

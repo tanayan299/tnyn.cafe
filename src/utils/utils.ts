@@ -1,4 +1,4 @@
-export const getFormattedDate = (date: any) =>
+export const getFormattedDate = (date: Date) =>
   date
     ? new Date(date).toLocaleDateString("en-us", {
         year: "numeric",
