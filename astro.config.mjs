@@ -7,7 +7,7 @@ import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 
-import { remarkReadingTime } from "./src/utils/frontmatter.js";
+import { remarkReadingTime } from "./src/utils/frontmatter.mjs";
 
 import { SITE } from "./src/config.mjs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -36,9 +36,11 @@ export default defineConfig({
       },
     }),
     sitemap(),
-    partytown({
-      config: { forward: ["dataLayer.push"] },
-    }),
+    ...whenExternalScripts(() =>
+      partytown({
+        config: { forward: ["dataLayer.push"] },
+      })
+    ),
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
