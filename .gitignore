@@ -1,5 +1,9 @@
+# build output
+dist/
+.output/
+
 # dependencies
-node_modules
+node_modules/
 
 # logs
 npm-debug.log*
@@ -7,6 +11,15 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# build output
-dist/
-.output/
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+package-lock.json
+pnpm-lock.yaml
+
+.astro

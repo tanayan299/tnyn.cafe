@@ -1,5 +1,15 @@
 declare module 'astro:content' {
 	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
 		'.md': Promise<{
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
@@ -101,13 +111,13 @@ declare module 'astro:content' {
 	>;
 
 	const entryMap: {
-		"blog": {
+		"post": {
 "2023-04-08_FirstPost.md": {
   id: "2023-04-08_FirstPost.md",
   slug: "2023-04-08_firstpost",
   body: string,
-  collection: "blog",
-  data: InferEntrySchema<"blog">
+  collection: "post",
+  data: InferEntrySchema<"post">
 } & { render(): Render[".md"] },
 },
 

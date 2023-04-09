@@ -1,10 +1,12 @@
 ---
-publishDate: "Apr 08 2023"
+publishDate: 2023-04-08T09:00:00Z
 title: "ポートフォリオサイトを新規開設しました"
 description: ""
-image: "../../assets/images/background-astro.png"
-category: "Blog"
-tags: [Astro]
+excerpt: ""
+image: ~/assets/images/default.jpeg
+category: ""
+tags:
+  - Astro
 canonical: https://tnyn.cafe/2023-04-08_FirstPost
 ---
 
