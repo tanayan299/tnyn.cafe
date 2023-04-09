@@ -42,10 +42,11 @@ const meta = {
   }— ${SITE.name}`,
   description: SITE.description,
   canonical: getCanonical(getPermalink(page.url.current)),
+  noindex: true,
 };
 ---
 
-<Layout meta={{ ...meta, noindex: true }}>
+<Layout meta={meta}>
   <Fragment slot="title">
     Tag: {tag}
   </Fragment>

@@ -1,4 +1,5 @@
 ---
+import { AstroSeo } from "@astrolib/seo";
 import { getImage } from "@astrojs/image";
 import { getRelativeUrlByFilePath } from "~/utils/directories";
 
@@ -22,6 +23,9 @@ const {
   canonical,
   noindex = false,
   nofollow = false,
+
+  ogTitle = title,
+  ogType = "website",
 } = Astro.props;
 
 const image =
@@ -35,29 +39,34 @@ const image =
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>{title}</title>
-<meta name="description" content={description} />
-{canonical && <link rel="canonical" href={canonical} />}
-
-<meta
-  name="robots"
-  content={`${noindex ? "noindex" : "index"}, ${
-    nofollow ? "nofollow" : "follow"
-  }`}
+<AstroSeo
+  title={title}
+  description={description}
+  canonical={canonical}
+  noindex={noindex}
+  nofollow={nofollow}
+  openGraph={{
+    url: canonical,
+    title: ogTitle,
+    description: description,
+    type: ogType,
+    images: image
+      ? [
+          {
+            url: image.toString(),
+            alt: ogTitle,
+          },
+        ]
+      : undefined,
+    // site_name: 'SiteName',
+  }}
+  twitter={{
+    // handle: '@handle',
+    // site: '@site',
+    cardType: image ? "summary_large_image" : undefined,
+  }}
 />
 
-<!-- Google / Search Engine Tags -->
-<meta itemprop="name" content={title} />
-<meta itemprop="description" content={description} />
-{image && <meta itemprop="image" content={image} />}
-
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
-{image && <meta itemprop="image" content={image} />}
-
-<!-- Google Fonts -->
 <Fonts />
 
 <ExtraMetaTags />
