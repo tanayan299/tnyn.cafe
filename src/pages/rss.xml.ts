@@ -1,14 +1,14 @@
-import rss from "@astrojs/rss";
+import rss from '@astrojs/rss';
 
-import { SITE, BLOG } from "~/config.mjs";
-import { fetchPosts } from "~/utils/blog";
-import { getPermalink } from "~/utils/permalinks";
+import { SITE, BLOG } from '~/config.mjs';
+import { fetchPosts } from '~/utils/blog';
+import { getPermalink } from '~/utils/permalinks';
 
 export const get = async () => {
   if (BLOG.disabled) {
     return new Response(null, {
       status: 404,
-      statusText: "Not found",
+      statusText: 'Not found',
     });
   }
 
@@ -18,11 +18,14 @@ export const get = async () => {
     title: `${SITE.name}’s Blog`,
     description: SITE.description,
     site: import.meta.env.SITE,
-    items: posts.map((post: any) => ({
-      link: getPermalink(post.slug, "post"),
+
+    items: posts.map((post) => ({
+      link: getPermalink(post.permalink, 'post'),
       title: post.title,
       description: post.description,
       pubDate: post.publishDate,
     })),
+
+    trailingSlash: SITE.trailingSlash
   });
 };

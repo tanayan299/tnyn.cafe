@@ -1,5 +1,15 @@
 declare module 'astro:content' {
 	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
 		'.md': Promise<{
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
@@ -101,13 +111,41 @@ declare module 'astro:content' {
 	>;
 
 	const entryMap: {
-		"blog": {
-"2023-04-08_FirstPost.md": {
-  id: "2023-04-08_FirstPost.md",
-  slug: "2023-04-08_firstpost",
+		"post": {
+"astrowind-template-in-depth.md": {
+  id: "astrowind-template-in-depth.md",
+  slug: "astrowind-template-in-depth",
   body: string,
-  collection: "blog",
-  data: InferEntrySchema<"blog">
+  collection: "post",
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] },
+"get-started-website-with-astro-tailwind-css.md": {
+  id: "get-started-website-with-astro-tailwind-css.md",
+  slug: "get-started-website-with-astro-tailwind-css",
+  body: string,
+  collection: "post",
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] },
+"how-to-customize-astrowind-to-your-brand.md": {
+  id: "how-to-customize-astrowind-to-your-brand.md",
+  slug: "how-to-customize-astrowind-to-your-brand",
+  body: string,
+  collection: "post",
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] },
+"markdown-elements-demo-post.mdx": {
+  id: "markdown-elements-demo-post.mdx",
+  slug: "markdown-elements-demo-post",
+  body: string,
+  collection: "post",
+  data: InferEntrySchema<"post">
+} & { render(): Render[".mdx"] },
+"useful-resources-to-create-websites.md": {
+  id: "useful-resources-to-create-websites.md",
+  slug: "useful-resources-to-create-websites",
+  body: string,
+  collection: "post",
+  data: InferEntrySchema<"post">
 } & { render(): Render[".md"] },
 },
 

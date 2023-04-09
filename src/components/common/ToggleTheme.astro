@@ -1,5 +1,7 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from 'astro-icon';
+
+import { SITE } from '~/config.mjs';
 
 export interface Props {
   label?: string;
@@ -9,35 +11,18 @@ export interface Props {
 }
 
 const {
-  label = "Toggle between Dark and Light mode",
+  label = 'Toggle between Dark and Light mode',
   class:
-    className = "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center",
-  iconClass = "w-6 h-6",
+    className = 'text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
+  iconClass = 'w-6 h-6',
+  iconName = 'tabler:sun',
 } = Astro.props;
 ---
 
-<button
-  type="button"
-  class={className}
-  aria-label={label}
-  data-aw-toggle-color-scheme
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class={iconClass}
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    stroke-width="1.75"
-    stroke="currentColor"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <circle cx="12" cy="12" r="4"></circle>
-    <path
-      d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
-    ></path>
-  </svg>
-</button>
+{
+  !(SITE?.defaultTheme && SITE.defaultTheme.endsWith(':only')) && (
+    <button type="button" class={className} aria-label={label} data-aw-toggle-color-scheme>
+      <Icon name={iconName} class={iconClass} />
+    </button>
+  )
+}

@@ -1,61 +1,82 @@
-import slugify from "limax";
-import { SITE, BLOG } from "~/config.mjs";
+import slugify from 'limax';
 
-const trim = (str = "", ch?: string) => {
-  let start = 0,
-    end = str.length || 0;
-  while (start < end && str[start] === ch) ++start;
-  while (end > start && str[end - 1] === ch) --end;
-  return start > 0 || end < str.length ? str.substring(start, end) : str;
-};
+import { SITE, BLOG } from '~/config.mjs';
+import { trim } from '~/utils/utils';
 
-const BASE_PATHNAME = SITE.baseUrl;
-
-const trimSlash = (s: string) => trim(trim(s, "/"));
-
+export const trimSlash = (s: string) => trim(trim(s, '/'));
 const createPath = (...params: string[]) => {
-  const paths = params.filter((el) => !!el).join("/");
-  return "/" + paths + (SITE.trailingSlash && paths ? "/" : "");
+  const paths = params
+    .map((el) => trimSlash(el))
+    .filter((el) => !!el)
+    .join('/');
+  return '/' + paths + (SITE.trailingSlash && paths ? '/' : '');
 };
 
-const baseUrl = trimSlash(SITE.baseUrl);
-export const cleanSlug = (text: string) =>
+const BASE_PATHNAME = SITE.basePathname;
+
+export const cleanSlug = (text = '') =>
   trimSlash(text)
-    .split("/")
+    .split('/')
     .map((slug) => slugify(slug))
-    .join("/");
+    .join('/');
 
-export const BLOG_BASE = cleanSlug(BLOG?.blog?.pathname);
-export const POST_BASE = cleanSlug(BLOG?.post?.pathname);
-export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname);
-export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname);
+export const POST_PERMALINK_PATTERN = trimSlash(BLOG?.post?.permalink || '/%slug%');
 
-export const getCanonical = (path = ""): string | URL =>
-  new URL(path, SITE.domain);
+export const BLOG_BASE = cleanSlug(BLOG?.list?.pathname);
+export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname || 'category');
+export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
 
-export const getPermalink = (slug = "", type = "page") => {
-  const _slug = cleanSlug(slug);
+/** */
+export const getCanonical = (path = ''): string | URL => {
+  const url = String(new URL(path, SITE.origin));
+  if (SITE.trailingSlash == false && path && url.endsWith('/')) {
+    return url.slice(0,-1)
+  }
+  else if (SITE.trailingSlash == true && path && !url.endsWith('/') ) {
+    return url + '/';
+  }
+  return url;
+}
+
+/** */
+export const getPermalink = (slug = '', type = 'page'): string => {
+  let permalink: string;
 
   switch (type) {
-    case "category":
-      return createPath(baseUrl, CATEGORY_BASE, cleanSlug(slug));
+    case 'category':
+      permalink = createPath(CATEGORY_BASE, trimSlash(slug));
+      break;
 
-    case "tag":
-      return createPath(baseUrl, TAG_BASE, cleanSlug(slug));
+    case 'tag':
+      permalink = createPath(TAG_BASE, trimSlash(slug));
+      break;
 
-    case "post":
-      return createPath(baseUrl, POST_BASE, cleanSlug(slug));
+    case 'post':
+      permalink = createPath(trimSlash(slug));
+      break;
+
+    case 'page':
+    default:
+      permalink = createPath(slug);
+      break;
   }
 
-  return createPath(baseUrl, trimSlash(slug));
+  return definitivePermalink(permalink);
 };
 
-export const getHomePermalink = (): string => {
-  const permalink = getPermalink();
-  return !permalink.startsWith("/") ? "/" + permalink : permalink;
-};
+/** */
+export const getHomePermalink = (): string => getPermalink('/');
 
+/** */
 export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
 
-const definitivePermalink = (permalink: string): string =>
-  createPath(BASE_PATHNAME, permalink);
+/** */
+export const getAsset = (path: string): string =>
+  '/' +
+  [BASE_PATHNAME, path]
+    .map((el) => trimSlash(el))
+    .filter((el) => !!el)
+    .join('/');
+
+/** */
+const definitivePermalink = (permalink: string): string => createPath(BASE_PATHNAME, permalink);
