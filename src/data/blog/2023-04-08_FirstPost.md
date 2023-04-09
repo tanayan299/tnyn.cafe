@@ -5,6 +5,7 @@ description: "Sint sit cillum pariatur eiusmod nulla pariatur ipsum. Sit laborum
 image: "../../assets/images/background-astro.png"
 category: "BLOG"
 tags: [Astro]
+url: https://tnyn.cafe/2023-04-08_FirstPost
 ---
 
 自分のブログが欲しいなぁと思いつつ過ごすこと早幾年、ついに自分のポートフォリオサイトをつくりました！
