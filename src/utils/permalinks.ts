@@ -25,7 +25,8 @@ export const POST_BASE = cleanSlug(BLOG?.post?.pathname);
 export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname);
 export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname);
 
-export const getCanonical = (path = "") => new URL(path, SITE.domain);
+export const getCanonical = (path = ""): string | URL =>
+  new URL(path, SITE.domain);
 
 export const getPermalink = (slug = "", type = "page") => {
   const _slug = cleanSlug(slug);

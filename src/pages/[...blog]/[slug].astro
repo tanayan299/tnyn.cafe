@@ -3,6 +3,7 @@ import { SITE, BLOG } from "~/config.mjs";
 
 import Layout from "~/layouts/PageLayout.astro";
 import SinglePost from "~/components/blog/SinglePost.astro";
+import ToBlogLink from "~/components/blog/ToBlogLink.astro";
 
 import {
   getCanonical,
@@ -40,4 +41,5 @@ const meta = {
 const urlString = new URL(url).toString();
 <Layout meta={meta}>
   <SinglePost post={{ ...post, image: meta.image }} url={urlString} />
+  <ToBlogLink />
 </Layout>

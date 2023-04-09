@@ -1,3 +1,5 @@
+import defaultImage from "./assets/images/default.png";
+
 export const SITE = {
   name: "tnyn.cafed",
   description: "This is tanayan's portfolio site",
@@ -7,6 +9,8 @@ export const SITE = {
   github: "https://github.com/tanayan299",
 
   title: "tnyn.cafe",
+
+  defaultImage: defaultImage,
 };
 
 export const BLOG = {

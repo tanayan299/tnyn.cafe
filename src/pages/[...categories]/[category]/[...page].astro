@@ -1,9 +1,9 @@
 ---
 import { SITE, BLOG } from "~/config.mjs";
 
-import Layout from "~/layouts/BlogLayout.astro";
+import Layout from "~/layouts/PageLayout.astro";
 import BlogList from "~/components/blog/List.astro";
-import Pagination from "~/components/atoms/Pagination.astro";
+import Pagination from "~/components/common/Pagination.astro";
 
 import { fetchPosts } from "~/utils/posts";
 import {
@@ -12,12 +12,13 @@ import {
   cleanSlug,
   CATEGORY_BASE,
 } from "~/utils/permalinks";
+import Title from "~/components/blog/Title.astro";
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   if (BLOG?.disabled || BLOG?.category?.disabled) return [];
   const posts = await fetchPosts();
   const categories = new Set();
-  posts.map((post: { category: string }) => {
+  posts.map((post) => {
     typeof post.category === "string" &&
       categories.add(post.category.toLowerCase());
   });
@@ -52,9 +53,9 @@ const meta = {
 ---
 
 <Layout meta={meta}>
-  <Fragment slot="title">
-    Category: {category}
-  </Fragment>
-  <BlogList posts={page.data} />
-  <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">
+    <Title>Category {category}</Title>
+    <BlogList posts={page.data} />
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </section>
 </Layout>

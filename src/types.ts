@@ -28,7 +28,7 @@ export interface MetaSEO {
   description?: string;
   image?: string;
 
-  canonical?: string;
+  canonical?: string | URL;
   noindex?: boolean;
   nofollow?: boolean;
 
