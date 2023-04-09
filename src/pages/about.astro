@@ -1,0 +1,29 @@
+---
+import { SITE } from "~/config.mjs";
+import Layout from "~/layouts/PageLayout.astro";
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+  <main class="container mx-auto w-5/6 lg:w-2/3">
+    <h1 class="my-5 text-4xl font-bold">About Me</h1>
+    <div class="avatar my-5">
+      <div
+        class="w-24 h-24 rounded-full ring ring-offset-base-100 ring-offset-2"
+      >
+        <img
+          src="/src/assets/images/profile_icon.jpeg"
+          class="w-24 h-24 rounded-full"
+        />
+      </div>
+    </div>
+    <p class="my-5">
+      ゲームが大好きなエンジニア。デザインやイラストも好き。最近は3DCGに入門中。
+    </p>
+  </main>
+</Layout>
