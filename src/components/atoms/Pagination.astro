@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-import { getRelativelink } from "~/utils/permalinks";
+import { getRelativeLink } from "~/utils/permalinks";
 
 export interface Props {
   prevUrl: string;
@@ -22,7 +22,7 @@ const {
     <div class="container flex">
       <div class="flex flex-row mx-auto container justify-between">
         <a
-          href={getRelativelink(prevUrl)}
+          href={getRelativeLink(prevUrl)}
           class={`btn btn-ghost px-3 mr-2 ${!prevUrl ? "invisible" : ""}`}
         >
           <div class="flex flex-row align-middle">
@@ -31,7 +31,7 @@ const {
           </div>
         </a>
         <a
-          href={getRelativelink(nextUrl)}
+          href={getRelativeLink(nextUrl)}
           class={`btn btn-ghost px-3 ${!nextUrl ? "invisible" : ""}`}
         >
           <div class="flex flex-row align-middle">
