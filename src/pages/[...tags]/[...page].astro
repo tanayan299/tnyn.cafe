@@ -29,7 +29,7 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
             post.tags.find((elem: any) => elem.toLowerCase() === tag)
         ),
         {
-          params: { tag: cleanSlug(String(tag)), tags: TAG_BASE || undefined },
+          params: { tag: cleanSlug(String(tag)), blog: TAG_BASE || undefined },
           pageSize: BLOG.postsPerPage,
           props: { tag },
         }
