@@ -38,7 +38,9 @@ export default defineConfig({
     partytown({
       config: { forward: ["dataLayer.push"] },
     }),
-    image(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
   ],
 
   markdown: {
