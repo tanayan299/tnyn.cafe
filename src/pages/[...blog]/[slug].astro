@@ -37,6 +37,7 @@ const meta = {
 };
 ---
 
+const urlString = new URL(url).toString();
 <Layout meta={meta}>
-  <SinglePost post={{ ...post, image: meta.image }} url={url} />
+  <SinglePost post={{ ...post, image: meta.image }} url={urlString} />
 </Layout>
