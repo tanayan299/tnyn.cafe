@@ -8,18 +8,18 @@ import {
   getCanonical,
   getPermalink,
   cleanSlug,
-  BLOG_BASE,
+  POST_BASE,
 } from "~/utils/permalinks";
 import { fetchPosts } from "~/utils/posts";
 import { findImage } from "~/utils/images";
 
 export async function getStaticPaths() {
-  if (BLOG?.disabled) return [];
+  if (BLOG?.disabled || BLOG?.post?.disabled) return [];
   const posts = await fetchPosts();
   return posts.map((post: any) => ({
     params: {
       slug: cleanSlug(post.slug),
-      blog: BLOG.postsWithoutBlogSlug ? undefined : BLOG_BASE || undefined,
+      blog: POST_BASE || undefined,
     },
     props: { post },
   }));

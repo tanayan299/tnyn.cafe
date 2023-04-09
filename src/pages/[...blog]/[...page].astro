@@ -8,7 +8,7 @@ import { fetchPosts } from "~/utils/posts";
 import { getCanonical, getPermalink, BLOG_BASE } from "~/utils/permalinks";
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
-  if (BLOG?.disabled) return [];
+  if (BLOG?.disabled || BLOG?.blog?.disabled) return [];
   const posts = await fetchPosts();
   return paginate(posts, {
     params: { blog: BLOG_BASE || undefined },
@@ -24,6 +24,7 @@ const meta = {
   description: SITE.description,
   canonical: getCanonical(getPermalink(page.url.current)),
   ogType: "blog",
+  noindex: currentPage > 1,
 };
 ---
 
