@@ -1,12 +1,12 @@
 const load = async function () {
-  let images = [];
+  let images: Record<string, () => Promise<unknown>> | undefined = undefined;
   try {
     images = import.meta.glob("~/assets/images/**");
   } catch (e) {}
   return images;
 };
 
-let _images;
+let _images: any;
 
 /** */
 export const fetchLocalImages = async () => {
@@ -14,7 +14,7 @@ export const fetchLocalImages = async () => {
   return await _images;
 };
 
-export const findImage = async (imagePath) => {
+export const findImage = async (imagePath?: string) => {
   if (typeof imagePath !== "string") {
     return null;
   }

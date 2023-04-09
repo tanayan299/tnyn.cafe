@@ -1,11 +1,13 @@
 ---
 import { Picture } from "@astrojs/image/components";
 import PostTags from "~/components/atoms/Tags.astro";
-
 import { getPermalink } from "~/utils/permalinks";
 import { findImage } from "~/utils/images";
 import { getFormattedDate } from "~/utils/utils";
-
+import type { Post } from "~/utils/posts";
+export interface Props {
+  post: Post;
+}
 const { post } = Astro.props;
 const image = await findImage(post.image);
 ---
@@ -50,7 +52,7 @@ const image = await findImage(post.image);
     <footer class="mt-4">
       <div>
         <span class="text-gray-500 dark:text-slate-400">
-          <time datetime={post.publishDate}
+          <time datetime={String(post.publishDate)}
             >{getFormattedDate(post.publishDate)}</time
           > ~
           {Math.ceil(post.readingTime)} min read

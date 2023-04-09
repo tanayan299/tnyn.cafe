@@ -107,11 +107,11 @@ declare module 'astro:content' {
   slug: "2023-04-08_firstpost",
   body: string,
   collection: "blog",
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] },
 },
 
 	};
 
-	type ContentConfig = typeof import("../src/content/config.js");
+	type ContentConfig = typeof import("../src/content/config");
 }

@@ -1,12 +1,17 @@
 ---
 import Item from "~/components/blog/ListItem.astro";
+import type { Post } from "~/utils/posts";
+
+export interface Props {
+  posts: Array<Post>;
+}
 const { posts } = Astro.props;
 ---
 
 <ul>
   {
-    posts.map((post: any) => (
-      <li class="mb-10 md:mb-16">
+    posts.map((post) => (
+      <li class="mb-12 md:mb-20">
         <Item post={post} />
       </li>
     ))

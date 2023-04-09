@@ -18,7 +18,7 @@ export const get = async () => {
     title: `${SITE.name}’s Blog`,
     description: SITE.description,
     site: import.meta.env.SITE,
-    items: posts.map((post) => ({
+    items: posts.map((post: any) => ({
       link: getPermalink(post.slug, "post"),
       title: post.title,
       description: post.description,

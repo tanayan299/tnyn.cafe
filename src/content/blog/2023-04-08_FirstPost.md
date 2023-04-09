@@ -1,11 +1,11 @@
 ---
 publishDate: "Apr 08 2023"
 title: "ポートフォリオサイトを新規開設しました"
-description: "Sint sit cillum pariatur eiusmod nulla pariatur ipsum. Sit laborum anim qui mollit tempor pariatur nisi minim dolor. Aliquip et adipisicing sit sit fugiat"
+description: ""
 image: "../../assets/images/background-astro.png"
-category: "BLOG"
+category: "Blog"
 tags: [Astro]
-url: https://tnyn.cafe/2023-04-08_FirstPost
+canonical: https://tnyn.cafe/2023-04-08_FirstPost
 ---
 
 自分のブログが欲しいなぁと思いつつ過ごすこと早幾年、ついに自分のポートフォリオサイトをつくりました！

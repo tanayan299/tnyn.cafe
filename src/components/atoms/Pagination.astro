@@ -1,6 +1,14 @@
 ---
 import { Icon } from "astro-icon";
 import { getRelativelink } from "~/utils/permalinks";
+
+export interface Props {
+  prevUrl: string;
+  nextUrl: string;
+  prevText?: string;
+  nextText?: string;
+}
+
 const {
   prevUrl,
   nextUrl,
