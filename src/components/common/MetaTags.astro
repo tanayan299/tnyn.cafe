@@ -1,10 +1,11 @@
 ---
 import { AstroSeo } from "@astrolib/seo";
 import { getImage } from "@astrojs/image";
-import { getRelativeUrlByFilePath } from "~/utils/directories";
 
 import { SITE } from "~/config.mjs";
 import defaultImageSrc from "~/assets/images/default.png";
+import { getCanonical } from "~/utils/permalinks";
+import { getRelativeUrlByFilePath } from "~/utils/directories";
 
 import Fonts from "~/components/common/Fonts.astro";
 import ExtraMetaTags from "~/components/common/ExtraMetaTags.astro";
@@ -28,7 +29,7 @@ const {
   title = SITE.name,
   description = "",
   image: _image = defaultImage,
-  canonical,
+  canonical = getCanonical(String(Astro.url.pathname)),
   noindex = false,
   nofollow = false,
 
