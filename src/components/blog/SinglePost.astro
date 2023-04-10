@@ -50,12 +50,12 @@ const { post, url } = Astro.props;
         </p>
       </div>
       <h1
-        class="px-4 sm:px-6 sm:-mb-2 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        class="px-4 sm:px-6 sm:-mb-2 max-w-3xl mx-auto text-3xl md:text-3xl font-bold leading-tighter tracking-tighter font-heading"
       >
         {post.title}
       </h1>
       <p
-        class="max-w-3xl mx-auto mt-4 -mb-4 px-4 sm:px-6 text-lg md:text-2xl text-muted dark:text-slate-400 text-justify"
+        class="max-w-3xl mx-auto mt-4 -mb-4 px-4 sm:px-6 text-xl md:text-xl text-muted dark:text-slate-400 text-justify"
       >
         {post.excerpt}
       </p>
@@ -93,10 +93,12 @@ const { post, url } = Astro.props;
     >
       {
         post.Content ? (
-          <>
-            {/* @ts-ignore */}
-            <post.Content />
-          </>
+          <div>
+            <dev class="text-sm md:text-sm">
+              {/* @ts-ignore */}
+              <post.Content />
+            </dev>
+          </div>
         ) : (
           <Fragment set:html={post.content} />
         )
