@@ -2,7 +2,7 @@
 publishDate: 2023-04-08T09:00:00Z
 title: "ポートフォリオサイトを新規開設しました"
 description: ""
-excerpt: ""
+excerpt: "tnyn.cafe、始めました☕"
 image: ~/assets/images/default.jpeg
 category: ""
 tags:
