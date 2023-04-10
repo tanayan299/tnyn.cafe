@@ -3,7 +3,7 @@ publishDate: 2023-04-08T09:00:00Z
 title: "ポートフォリオサイトを新規開設しました"
 description: ""
 excerpt: "tnyn.cafe、始めました☕"
-image: ~/assets/images/default.jpeg
+image: ~/assets/images/default.jpg
 category: ""
 tags:
   - Astro

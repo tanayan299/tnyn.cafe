@@ -1,6 +1,6 @@
 ---
 import { Picture } from "@astrojs/image/components";
-import backgroundImage from "~/assets/images/bacground-astro.png";
+import backgroundImage from "~/assets/images/bacground.png";
 ---
 
 <section>
@@ -10,10 +10,10 @@ import backgroundImage from "~/assets/images/bacground-astro.png";
         <Picture
           src={backgroundImage}
           class="mx-auto rounded-md w-full"
-          widths={[400, 768]}
-          sizes="(max-width: 768px) 100vw, 768px"
+          widths={[400, 400]}
+          sizes="(max-width: 400px) 100vw, 400px"
           alt="Background Image"
-          aspectRatio="16:9"
+          aspectRatio="1:1"
           class="mx-auto rounded-md opacity-30"
           style="transform: translateY(-20px);"
         />
