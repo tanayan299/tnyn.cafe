@@ -6,6 +6,8 @@ import { Icon } from "astro-icon";
 import HeaderLink from "~/components/widgets/HeaderLink.astro";
 import Layout from "~/layouts/PageLayout.astro";
 import ProfileImage from "~/assets/images/profile_icon.jpeg";
+import TimeLine from "~/components/common/TimeLine.astro";
+import Round from "~/components/common/Round.astro";
 
 const meta = {
   title: SITE.title,
@@ -32,8 +34,9 @@ const meta = {
         />
       </div>
     </div>
-    <p class="my-5 text-sm">
-      ゲームが大好きなエンジニア。デザインやイラストも好き。最近は3DCGに入門中。
+    <p class="my-5 text-base">
+      ゲームが大好きなエンジニア。<br />
+      デザインやイラストも好き。最近は3DCGに入門中。
     </p>
     <h2 class="my-1 text-2xl font-bold">Contact</h2>
     <div class="items-center md:flex">
@@ -55,6 +58,60 @@ const meta = {
           <dev class="md:ml-1"> GitHub</dev>
         </HeaderLink>
       </HeaderLink>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="w-full sm:w-1/2">
+        <h3 class="my-1 text-2xl font-bold mt-6">Interest</h3>
+        <ul class="list-disc pl-8 text-sm">
+          <li>Cloud Native Computing Foundation</li>
+          <li>3DCG (Blender, UnrealEngine)</li>
+          <li>Design</li>
+          <li>Illustration</li>
+          <li>FullStack</li>
+        </ul>
+      </div>
+      <div class="w-full sm:w-1/2">
+        <h3 class="my-1 text-2xl font-bold mt-6">Skills</h3>
+        <ul class="list-disc pl-8 text-sm">
+          <li>TBD</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BackGround Section -->
+    <div
+      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-600 rounded-xl"
+    >
+      <div class="card-body dark:text-gray-300">
+        <h2 class="card-title text-xl p-4">Background</h2>
+        <div class="time-line-container mx-8 mb-3">
+          <Round title="Hewlett Packard Japan, G.K." date="Apr 2019 - Now" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Extra Activities Section -->
+    <div
+      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-600 rounded-xl"
+    >
+      <div class="card-body dark:text-gray-300">
+        <h2 class="card-title text-xl p-4">Extra Activities</h2>
+        <div class="time-line-container mx-8 mb-3">
+          <TimeLine
+            title="Platform Engineering Meetup"
+            date="Feb 2023 - Now"
+            link_title="Compass / Platform Engineering Meetup"
+            link_url="https://platformengineering.connpass.com/"
+          />
+          <Round
+            title="CloudNative Days"
+            date="Apr 2022 - Now"
+            link_title="CloudNative Days Portal Site"
+            link_url="https://cloudnativedays.jp/"
+          />
+        </div>
+      </div>
     </div>
   </main>
 </Layout>
