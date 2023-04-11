@@ -5,7 +5,7 @@ import backgroundImage from "~/assets/images/bacground.png";
 
 <section>
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="pt-12 pb-12 md:pt-20 md:pb-15">
+    <div class="pt-12 md:pt-20">
       <div class="relative">
         <Picture
           src={backgroundImage}
@@ -14,7 +14,7 @@ import backgroundImage from "~/assets/images/bacground.png";
           sizes="(max-width: 400px) 100vw, 400px"
           alt="Background Image"
           aspectRatio="1:1"
-          class="mx-auto rounded-md opacity-30"
+          class="mx-auto rounded-md opacity-30 dark:opacity-60"
           style="transform: translateY(-20px);"
         />
         <div
@@ -31,7 +31,7 @@ import backgroundImage from "~/assets/images/bacground.png";
               >
             </h1>
             <div class="max-w-3xl mx-auto">
-              <p class="text-xl text-gray-500 dark:text-gray-300 mb-8">
+              <p class="text-2xl text-gray-500 dark:text-gray-300 mb-8">
                 This is tanayan's portfolio site!
               </p>
             </div>
@@ -41,3 +41,16 @@ import backgroundImage from "~/assets/images/bacground.png";
     </div>
   </div>
 </section>
+<div>
+  <svg
+    class="absolute left-0 right-0 w-full pointer-events-none"
+    style={{ height: "100px" }}
+    viewBox="0 0 2560 100"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+  >
+    <polygon
+      class="text-white dark:text-custon_dark fill-current"
+      points="2560 0 1280 100 0 0"></polygon>
+  </svg>
+</div>

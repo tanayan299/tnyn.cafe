@@ -37,10 +37,10 @@ const {
 <section
   class:list={[
     { "pt-0 md:pt-0": isAfterContent },
-    "bg-blue-50 dark:bg-slate-800 pt-16 pb-8 md:pt-16 md:pb-8",
+    "bg-blue-50 dark:bg-slate-800 pt-24 pb-8 md:pt-24 md:pb-8",
   ]}
 >
-  <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
+  <div class="max-w-xl sm:mx-auto lg:max-w-2xl pt-12">
     {
       (title || subtitle || highlight) && (
         <div class="md:mx-auto text-center md:-mb-8 max-w-3xl -mb-24">
@@ -52,7 +52,7 @@ const {
           )}
           {title && (
             <h2
-              class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading"
+              class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-2 font-heading"
               set:html={title}
             />
           )}
@@ -68,7 +68,7 @@ const {
     }
   </div>
   <div class="w-full max-w-xl sm:mx-auto lg:max-w-4xl mx-auto lg:ml-auto">
-    <div class="mx-auto max-w-7xl p-20 md:px-10">
+    <div class="mx-auto max-w-7xl pt-20 pb-4 px-20 md:px-10">
       <div
         class={`md:flex ${isReversed ? "md:flex-row-reverse" : ""} md:gap-10`}
       >
@@ -149,3 +149,16 @@ const {
     </div>
   </div>
 </section>
+<div>
+  <svg
+    class="absolute left-0 right-0 w-full pointer-events-none"
+    style={{ height: "100px" }}
+    viewBox="0 0 2560 100"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+  >
+    <polygon
+      class="text-blue-50 dark:text-slate-800 fill-current"
+      points="2560 0 1280 100 0 0"></polygon>
+  </svg>
+</div>

@@ -8,6 +8,7 @@ module.exports = {
         primary: "var(--aw-color-primary)",
         secondary: "var(--aw-color-secondary)",
         accent: "var(--aw-color-accent)",
+        custon_dark: "#2e3545",
       },
       fontFamily: {
         sans: ["var(--aw-font-sans)", ...defaultTheme.fontFamily.sans],
