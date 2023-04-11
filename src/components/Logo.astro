@@ -1,8 +1,23 @@
 ---
+import { Picture } from "@astrojs/image/components";
+import backgroundImage from "~/assets/images/bacground.png";
 ---
 
-<span
-  class="self-center ml-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  ☕ tnyn.cafe</span
->
+<div class="flex items-center">
+  <div>
+    <Picture
+      src={backgroundImage}
+      class="w-8 h-8"
+      widths={[400, 768]}
+      sizes=""
+      alt="Profile Image"
+      aspectRatio="1:1"
+      style=""
+    />
+  </div>
+  <span
+    class="self-center ml-2 mt-[-3px] text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
+  >
+    tnyn.cafe
+  </span>
+</div>
