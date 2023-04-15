@@ -1,10 +1,13 @@
 ---
 import { SITE } from "~/config.mjs";
-import Layout from "~/layouts/PageLayout.astro";
+import Layout from "~/layouts/BaseLayout.astro";
 
 import Hero from "~/components/widgets/Hero.astro";
 import Content from "~/components/widgets/Content.astro";
 import LatestPosts from "~/components/blog/LatestPosts.astro";
+
+import { footerData } from "~/data";
+import Footer from "~/components/widgets/Footer.astro";
 
 const meta = {
   title: SITE.title,
@@ -19,6 +22,7 @@ const meta = {
   <Hero />
 
   <!-- Content Widget **************** -->
+  <!--
   <Content
     highlight=""
     title="About Me"
@@ -41,8 +45,15 @@ const meta = {
       3DCGにも入門中。<br />
     </Fragment>
   </Content>
+  -->
 
   <!-- HighlightedPosts Widget ******* -->
 
+  <!--
   <LatestPosts title="Latest from blog" information={``} postIds={[]} />
+  -->
+
+  <!--
+  <Footer {...footerData} />
+  -->
 </Layout>

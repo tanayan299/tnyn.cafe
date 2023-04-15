@@ -1,56 +1,154 @@
 ---
 import { Picture } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+import { headerData } from "~/data";
+
 import backgroundImage from "~/assets/images/bacground.png";
+import HeaderLink from "./HeaderLink.astro";
+import { getAsset } from "~/utils/permalinks";
+
+const {
+  showRssFeed = true,
+  footNote = "© ${today.getFullYear()} tanayan / All rights reserved.",
+} = Astro.props;
+
+const today = new Date();
+const footerData = {
+  footNote: ` © ${today.getFullYear()} tanayan / All rights reserved.`,
+};
 ---
 
-<section>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="pt-12 md:pt-20">
-      <div class="relative">
-        <Picture
-          src={backgroundImage}
-          class="mx-auto rounded-md w-full"
-          widths={[400, 400]}
-          sizes="(max-width: 400px) 100vw, 400px"
-          alt="Background Image"
-          aspectRatio="1:1"
-          class="mx-auto rounded-md opacity-30 dark:opacity-60"
-          style="transform: translateY(-20px);"
-        />
+<div class="hero min-h-screen flex flex-col justify-between">
+  <section class="flex justify-center items-center flex-1">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="pt-12 md:pt-20">
         <div
-          class="absolute top-0 left-0 w-full h-full flex justify-center items-center"
+          class="relative"
+          style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
         >
-          <div class="text-center">
-            <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4"
-            >
-              Welcome to
-              <span
-                class="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-blue-400 sm:whitespace-nowrap"
-                >tnyn.cafe</span
+          <Picture
+            src={backgroundImage}
+            class="mx-auto rounded-md w-full"
+            widths={[400, 400]}
+            sizes="(max-width: 400px) 100vw, 400px"
+            alt="Background Image"
+            aspectRatio="1:1"
+            class="mx-auto rounded-md opacity-30 dark:opacity-60"
+            style="transform: translateY(-20px);"
+          />
+          <div
+            class="absolute top-0 left-0 w-full h-full flex justify-center items-center"
+          >
+            <div class="text-center">
+              <h1
+                class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 text-gray-200 whitespace-nowrap"
               >
-            </h1>
-            <div class="max-w-3xl mx-auto">
-              <p class="text-2xl text-gray-500 dark:text-gray-300 mb-8">
-                This is tanayan's portfolio site!
-              </p>
+                Welcome to
+                <span
+                  class="bg-clip-text text-transparent bg-gradient-to-r text-cyan-200 sm:whitespace-nowra"
+                  >tnyn.cafe</span
+                >
+              </h1>
+              <div class="max-w-3xl mx-auto">
+                <p class="text-xl text-gray-500 dark:text-gray-300 mb-8">
+                  Hi, I'm tanayan who is an infrastructure engineer. <br />
+                  I also enjoy illustration and design, and I have an interest in
+                  UI/web front-end development and 3DCG.
+                </p>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <HeaderLink
+            class="text-muted dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+            href="https://twitter.com/tananyan29"
+            target="_blank"
+            aria-label="tanayan Twitter"
+          >
+            <Icon name="tabler:brand-twitter" class="w-6 h-6 icon" />
+          </HeaderLink>
+          <HeaderLink
+            class="text-muted dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+            href="https://github.com/tanayan299"
+            target="_blank"
+            aria-label="tanayan GitHub"
+          >
+            <Icon name="tabler:brand-github" class="w-6 h-6 icon" />
+          </HeaderLink>
+          {
+            showRssFeed && (
+              <a
+                class="text-muted dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                aria-label="RSS Feed"
+                href={getAsset("/rss.xml")}
+              >
+                <Icon name="tabler:rss" class="w-6 h-6 icon" />
+              </a>
+            )
+          }
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="py-4 flex justify-center">
+            <ul class="flex">
+              {
+                headerData.links.map((link) => {
+                  const maxLength = Math.max(
+                    ...headerData.links.map((link) => link.text.length)
+                  );
+                  const width = `${maxLength * 0.75 + 1}rem`;
+
+                  return (
+                    <li class="mr-4">
+                      <div class="relative inline-block">
+                        <div
+                          class="flex justify-center items-center border border-gray-300 p-2 rounded-sm bg-gray-100 dark:bg-gray-800 text-gray-300"
+                          style={{ width: width }}
+                        >
+                          <a
+                            href={link.href}
+                            style={{
+                              textShadow:
+                                "0 0 5px rgba(0, 255, 255, 0.2), 0 0 10px rgba(0, 255, 255, 0.1)",
+                            }}
+                          >
+                            {link.text}
+                          </a>
+                        </div>
+                        <div
+                          class="absolute top-0 left-0 w-full h-full rounded-sm"
+                          style={{
+                            boxShadow:
+                              "0 0 3px 2px rgba(0, 255, 255, 0.4), 0 0 6px 4px rgba(0, 255, 255, 0.25)",
+                            zIndex: "-1",
+                            width: width,
+                          }}
+                        />
+                      </div>
+                    </li>
+                  );
+                })
+              }
+            </ul>
           </div>
         </div>
       </div>
     </div>
+  </section>
+  <!--
+  <div class="text-sm mr-4 dark:text-slate-400 flex justify-center">
+    <div class="text-center pb-4">
+      <Fragment set:html={footerData.footNote} />
+    </div>
   </div>
-</section>
-<div>
-  <svg
-    class="absolute left-0 right-0 w-full pointer-events-none"
-    style={{ height: "100px" }}
-    viewBox="0 0 2560 100"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="none"
-  >
-    <polygon
-      class="text-white dark:text-custon_dark fill-current"
-      points="2560 0 1280 100 0 0"></polygon>
-  </svg>
+  -->
 </div>
+
+<style>
+  .icon {
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.2))
+      drop-shadow(0 0 5px rgba(0, 255, 255, 0.2));
+  }
+</style>
