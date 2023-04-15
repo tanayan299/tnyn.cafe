@@ -16,6 +16,7 @@ module.exports = {
         heading: ["var(--aw-font-heading)", ...defaultTheme.fontFamily.sans],
       },
       backgroundColor: {
+        white: "#2e3545",
         dark: "#2e3545", // Dark Modeの背景色を変更
       },
     },
