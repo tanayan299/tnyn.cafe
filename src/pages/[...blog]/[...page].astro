@@ -30,7 +30,12 @@ const meta = {
 
 <Layout {meta}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline subtitle="tanayan's blog">Blog</Headline>
+    <dev
+      class="dark:text-gray-200"
+      style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+    >
+      <Headline subtitle="">Blog</Headline>
+    </dev>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>

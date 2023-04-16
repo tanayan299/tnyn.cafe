@@ -19,13 +19,17 @@ const meta = {
 
 <Layout {meta}>
   <main class="container mx-auto w-5/6 lg:w-2/3">
-    <section class="px-6 sm:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-4xl">
-      <Headline subtitle="Who am I ?">About Me</Headline>
+    <section
+      class="px-6 sm:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-4xl dark:text-gray-200"
+      style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+    >
+      <Headline subtitle="">About Me</Headline>
     </section>
-    <div class="flex flex-wrap flex-row items-center my-5">
+    <div class="flex flex-wrap flex-row items-center my-5 mb-10">
       <div class="avatar mr-5">
         <div
-          class="w-24 h-24 rounded-full ring ring-offset-base-100 ring-offset-2"
+          class="w-24 h-24 rounded-full ring ring-offset-base-100 ring-offset-2 ring-cyan-400"
+          style="box-shadow: 0 0 15px cyan;"
         >
           <Picture
             src={ProfileImage}
@@ -48,10 +52,16 @@ const meta = {
         これまで不足していたアウトプットを増やそうと画策中。<br />
       </div>
     </div>
-    <h2 class="my-1 text-2xl font-bold">Contact</h2>
+    <h2
+      class="my-1 text-2xl font-bold dark:text-gray-200 flex items-center"
+      style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+    >
+      <Icon name="tabler:link" class="w-6 h-6 mr-1 icon" />
+      Links
+    </h2>
     <div class="items-center md:flex">
       <HeaderLink
-        class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+        class="text-muted dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
         href="https://twitter.com/tananyan29"
         target="_blank"
         aria-label="tanayan Twitter"
@@ -59,7 +69,7 @@ const meta = {
         <Icon name="tabler:brand-twitter" class="w-5 h-5" />
         <dev class="md:ml-1"> Twitter</dev>
         <HeaderLink
-          class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+          class="text-muted dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
           href="https://github.com/tanayan299"
           target="_blank"
           aria-label="tanayan GitHub"
@@ -72,7 +82,13 @@ const meta = {
 
     <div class="flex flex-wrap">
       <div class="w-full sm:w-1/2">
-        <h3 class="my-1 text-2xl font-bold mt-6">Interest</h3>
+        <h3
+          class="my-1 text-2xl font-bold mt-6 dark:text-gray-200 flex items-center"
+          style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+        >
+          <Icon name="tabler:map-pin" class="w-6 h-6 mr-1 icon" />
+          Interest
+        </h3>
         <ul class="list-disc pl-8 text-sm">
           <li>Cloud Native</li>
           <li>UI, Web Frontend</li>
@@ -82,7 +98,13 @@ const meta = {
         </ul>
       </div>
       <div class="w-full sm:w-1/2">
-        <h3 class="my-1 text-2xl font-bold mt-6">Skills</h3>
+        <h3
+          class="my-1 text-2xl font-bold mt-6 dark:text-gray-200 flex items-center"
+          style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+        >
+          <Icon name="tabler:edit" class="w-6 h-6 mr-1 icon" />
+          Skills
+        </h3>
         <ul class="list-disc pl-8 text-sm">
           <li>TBD</li>
         </ul>
@@ -91,10 +113,20 @@ const meta = {
 
     <!-- BackGround Section -->
     <div
-      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-600 rounded-xl"
+      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-800 rounded-sm"
+      style={{
+        boxShadow:
+          "0 0 3px 2px rgba(0, 255, 255, 0.4), 0 0 6px 4px rgba(0, 255, 255, 0.25)",
+        zIndex: "-1",
+      }}
     >
       <div class="card-body dark:text-gray-300">
-        <h2 class="card-title text-lg p-4">Background</h2>
+        <h2
+          class="card-title text-lg p-4"
+          style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+        >
+          Background
+        </h2>
         <div class="time-line-container mx-8 mb-3">
           <Round title="Hewlett Packard Japan, G.K." date="Apr 2019 - Now" />
         </div>
@@ -104,10 +136,20 @@ const meta = {
     <!-- Extra Activities Section -->
 
     <div
-      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-600 rounded-xl"
+      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-800 rounded-sm"
+      style={{
+        boxShadow:
+          "0 0 3px 2px rgba(0, 255, 255, 0.4), 0 0 6px 4px rgba(0, 255, 255, 0.25)",
+        zIndex: "-1",
+      }}
     >
       <div class="card-body dark:text-gray-300">
-        <h2 class="card-title text-lg p-4">Extra Activities (Tech)</h2>
+        <h2
+          class="card-title text-lg p-4"
+          style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+        >
+          Extra Activities (Tech)
+        </h2>
         <div class="time-line-container mx-8 mb-3">
           <TimeLine
             title="Platform Engineering Meetup"
@@ -126,10 +168,20 @@ const meta = {
     </div>
 
     <div
-      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-600 rounded-xl"
+      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-800 rounded-sm"
+      style={{
+        boxShadow:
+          "0 0 3px 2px rgba(0, 255, 255, 0.4), 0 0 6px 4px rgba(0, 255, 255, 0.25)",
+        zIndex: "-1",
+      }}
     >
       <div class="card-body dark:text-gray-300">
-        <h2 class="card-title text-lg p-4">Extra Activities (Design)</h2>
+        <h2
+          class="card-title text-lg p-4"
+          style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+        >
+          Extra Activities (Design)
+        </h2>
         <div class="time-line-container mx-8 mb-3">
           <TimeLine
             title="Adobe クリエイティブカレッジ 第一期生: Adobe Premiere Pro コース"
@@ -148,3 +200,10 @@ const meta = {
     </div>
   </main>
 </Layout>
+
+<style>
+  .icon {
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5))
+      drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
+  }
+</style>
