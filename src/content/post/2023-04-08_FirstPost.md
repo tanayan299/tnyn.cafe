@@ -3,8 +3,8 @@ publishDate: 2023-04-08T09:00:00Z
 title: "ポートフォリオサイトを新規開設しました"
 description: ""
 excerpt: "tnyn.cafe、始めました☕"
-image: ~/assets/images/default.jpg
-category: ""
+image: ~/assets/images/tnyncafe_header.jpg
+category: "POEM"
 tags:
   - Astro
 canonical: https://tnyn.cafe/2023-04-08_FirstPost
