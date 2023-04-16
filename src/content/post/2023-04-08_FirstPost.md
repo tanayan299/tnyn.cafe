@@ -4,7 +4,7 @@ title: "ポートフォリオサイトを新規開設しました"
 description: ""
 excerpt: "tnyn.cafe、始めました☕"
 image: ~/assets/images/tnyncafe_header.jpg
-category: "POEM"
+category: "Poem"
 tags:
   - Astro
 canonical: https://tnyn.cafe/2023-04-08_FirstPost

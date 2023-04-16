@@ -54,20 +54,12 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, "post") : "";
     <header>
       <div class="mb-1">
         <span class="text-sm">
-          <Icon
-            name="tabler:clock"
-            class="w-3.5 h-3.5 inline-block -mt-0.5 dark:text-gray-400"
-          />
-          <time datetime={String(post.publishDate)}
-            >{getFormattedDate(post.publishDate)}</time
-          >
           {
             post.category && (
               <>
                 {" "}
-                ·{" "}
                 <a
-                  class="capitalize hover:underline"
+                  class="capitalize hover:underline font-bold pr-2"
                   href={getPermalink(post.category, "category")}
                 >
                   {post.category.replaceAll("-", " ")}
@@ -75,6 +67,14 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, "post") : "";
               </>
             )
           }
+          <Icon
+            name="tabler:clock"
+            class="w-3.5 h-3.5 inline-block -mt-0.5 dark:text-gray-400"
+          />
+
+          <time datetime={String(post.publishDate)}
+            >{getFormattedDate(post.publishDate)}</time
+          >
         </span>
       </div>
       <h2

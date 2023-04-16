@@ -35,20 +35,12 @@ const { post, url } = Astro.props;
           class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center"
         >
           <p>
-            <Icon
-              name="tabler:clock"
-              class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400"
-            />
-            <time datetime={String(post.publishDate)}
-              >{getFormattedDate(post.publishDate)}</time
-            >
             {
               post.category && (
                 <>
                   {" "}
-                  ·{" "}
                   <a
-                    class="capitalize hover:underline"
+                    class="capitalize hover:underline font-bold pr-2"
                     href={getPermalink(post.category, "category")}
                   >
                     {post.category.replaceAll("-", " ")}
@@ -56,6 +48,14 @@ const { post, url } = Astro.props;
                 </>
               )
             }
+            <Icon
+              name="tabler:clock"
+              class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400"
+            />
+            <time datetime={String(post.publishDate)}
+              >{getFormattedDate(post.publishDate)}</time
+            >
+
             <!--
           {post.readingTime && <> · {post.readingTime} min read</>}
           -->
