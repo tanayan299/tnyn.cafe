@@ -1,0 +1,38 @@
+---
+import { WORKS } from "~/config.mjs";
+
+import Layout from "~/layouts/PageLayout.astro";
+import SinglePost from "~/components/works/SinglePost.astro";
+import ToBlogLink from "~/components/works/ToBlogLink.astro";
+
+import { getCanonical, getPermalink } from "~/utils/permalinks";
+import { fetchPosts } from "~/utils/works";
+import { findImage } from "~/utils/images";
+
+export async function getStaticPaths() {
+  if (WORKS?.disabled || WORKS?.works?.disabled) return [];
+  return (await fetchPosts()).map((works) => ({
+    params: {
+      works: works.permalink,
+    },
+    props: { works },
+  }));
+}
+
+const { works } = Astro.props;
+const url = getCanonical(getPermalink(works.permalink, "works"));
+
+const meta = {
+  title: works.title,
+  description: works.description,
+  canonical: works.canonical || url,
+  image: await findImage(works.image),
+  noindex: WORKS?.works?.noindex,
+  ogType: "article",
+};
+---
+
+<Layout {meta}>
+  <SinglePost post={{ ...works, image: meta.image }} url={url} />
+  <ToBlogLink />
+</Layout>

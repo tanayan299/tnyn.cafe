@@ -1,0 +1,20 @@
+---
+import Item from "~/components/works/ListItem.astro";
+import type { Works } from "~/types";
+
+export interface Props {
+  works: Array<Works>;
+}
+
+const { works } = Astro.props;
+---
+
+<ul>
+  {
+    works.map((work) => (
+      <li class="mb-12 md:mb-20">
+        <Item works={work} />
+      </li>
+    ))
+  }
+</ul>

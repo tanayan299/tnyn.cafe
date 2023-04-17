@@ -28,9 +28,9 @@ const CONFIG = {
 
   blog: {
     disabled: false,
-    postsPerPage: 4,
+    workesPerPage: 4,
 
-    post: {
+    works: {
       permalink: "/%slug%", // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       noindex: false,
       disabled: false,
@@ -54,8 +54,41 @@ const CONFIG = {
       disabled: false,
     },
   },
+
+  works: {
+    disabled: false,
+    postsPerPage: 12,
+
+    post: {
+      permalink: "/%slug%", // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      noindex: false,
+      disabled: false,
+    },
+
+    list: {
+      pathname: "works", // Blog main path, you can change this to "articles" (/articles)
+      noindex: false,
+      disabled: false,
+    },
+
+    category: {
+      pathname: "category", // Category main path /category/some-category
+      noindex: true,
+      disabled: false,
+    },
+
+    tag: {
+      pathname: "tag", // Tag main path /tag/some-tag
+      noindex: true,
+      disabled: false,
+    },
+  },
 };
 
 export const SITE = { ...CONFIG, blog: undefined };
 export const BLOG = CONFIG.blog;
+
+export const WORKSITE = { ...CONFIG, works: undefined };
+export const WORKS = CONFIG.works;
+
 export const DATE_FORMATTER = CONFIG.dateFormatter;

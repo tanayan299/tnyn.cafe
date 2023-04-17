@@ -1,4 +1,5 @@
 import { getPermalink, getBlogPermalink, getAsset } from "./utils/permalinks";
+import { getWorksPermalink } from "./utils/workspermalinks";
 const today = new Date();
 
 export const headerData = {
@@ -13,7 +14,7 @@ export const headerData = {
     },
     {
       text: "Works",
-      href: "#",
+      href: getWorksPermalink(),
     },
   ],
   actions: [],

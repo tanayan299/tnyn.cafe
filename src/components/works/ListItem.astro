@@ -1,0 +1,122 @@
+---
+import { Icon } from "astro-icon";
+import { Picture } from "@astrojs/image/components";
+import WorksTags from "~/components/works/Tags.astro";
+
+import { WORKS } from "~/config.mjs";
+import type { Works } from "~/types";
+
+import { getPermalink } from "~/utils/workspermalinks";
+import { findImage } from "~/utils/images";
+import { getFormattedDate } from "~/utils/utils";
+
+export interface Props {
+  works: Works;
+}
+
+const { works } = Astro.props;
+const image = await findImage(works.image);
+
+const link = !WORKS?.works?.disabled
+  ? getPermalink(works.permalink, "works")
+  : "";
+---
+
+<article
+  class={`max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 bg-gray-200 dark:bg-gray-800 rounded-sm ${
+    image ? "md:grid-cols-2" : ""
+  }`}
+  style={{
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.25)",
+    padding: "1rem",
+    borderTop: "2px solid cyan",
+    borderTopWidth: "0.67px",
+    position: "relative",
+  }}
+>
+  {
+    image && (
+      <a class="relative block group" href={link ?? "javascript:void(0)"}>
+        <div class="aspect-w-16 aspect-h-9 overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
+          <Picture
+            src={image}
+            class="object-cover w-full h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+            widths={[400, 900]}
+            sizes="(max-width: 900px) 400px, 900px"
+            alt={works.title}
+            aspectRatio="21:9"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </a>
+    )
+  }
+  <div class="mt-2">
+    <header>
+      <div class="mb-1">
+        <span class="text-sm">
+          {
+            works.category && (
+              <>
+                {" "}
+                <a
+                  class="capitalize hover:underline font-bold pr-2"
+                  href={getPermalink(works.category, "category")}
+                >
+                  {works.category.replaceAll("-", " ")}
+                </a>
+              </>
+            )
+          }
+          <Icon
+            name="tabler:clock"
+            class="w-3.5 h-3.5 inline-block -mt-0.5 dark:text-gray-400"
+          />
+
+          <time datetime={String(works.publishDate)}
+            >{getFormattedDate(works.publishDate)}</time
+          >
+        </span>
+      </div>
+      <h2
+        class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300"
+      >
+        {
+          link ? (
+            <a
+              class="hover:text-primary dark:hover:text-cyan-100 transition ease-in duration-200"
+              href={link}
+            >
+              {works.title}
+            </a>
+          ) : (
+            works.title
+          )
+        }
+      </h2>
+    </header>
+
+    {
+      works.excerpt && (
+        <p class="flex-grow text-muted dark:text-slate-400 text-lg">
+          {works.excerpt}
+        </p>
+      )
+    }
+    <footer class="mt-5">
+      <WorksTags tags={works.tags} />
+    </footer>
+  </div>
+  <hr
+    style={{
+      borderTop: "2px solid cyan",
+      borderTopWidth: "0.67px",
+      boxShadow: "0 0 5px 2px rgba(0, 255, 255, 0.5)",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+    }}
+  />
+</article>
