@@ -121,62 +121,6 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] },
 },
 "works": {
-"2023-04-17_CICD2023 copy 2.md": {
-  id: "2023-04-17_CICD2023 copy 2.md",
-  slug: "2023-04-17_cicd2023-copy-2",
-  body: string,
-  collection: "works",
-  data: InferEntrySchema<"works">
-} & { render(): Render[".md"] },
-"2023-04-17_CICD2023 copy 3.md": {
-  id: "2023-04-17_CICD2023 copy 3.md",
-  slug: "2023-04-17_cicd2023-copy-3",
-  body: string,
-  collection: "works",
-  data: InferEntrySchema<"works">
-} & { render(): Render[".md"] },
-"2023-04-17_CICD2023 copy 4.md": {
-  id: "2023-04-17_CICD2023 copy 4.md",
-  slug: "2023-04-17_cicd2023-copy-4",
-  body: string,
-  collection: "works",
-  data: InferEntrySchema<"works">
-} & { render(): Render[".md"] },
-"2023-04-17_CICD2023 copy 5.md": {
-  id: "2023-04-17_CICD2023 copy 5.md",
-  slug: "2023-04-17_cicd2023-copy-5",
-  body: string,
-  collection: "works",
-  data: InferEntrySchema<"works">
-} & { render(): Render[".md"] },
-"2023-04-17_CICD2023 copy 6.md": {
-  id: "2023-04-17_CICD2023 copy 6.md",
-  slug: "2023-04-17_cicd2023-copy-6",
-  body: string,
-  collection: "works",
-  data: InferEntrySchema<"works">
-} & { render(): Render[".md"] },
-"2023-04-17_CICD2023 copy 7.md": {
-  id: "2023-04-17_CICD2023 copy 7.md",
-  slug: "2023-04-17_cicd2023-copy-7",
-  body: string,
-  collection: "works",
-  data: InferEntrySchema<"works">
-} & { render(): Render[".md"] },
-"2023-04-17_CICD2023 copy 8.md": {
-  id: "2023-04-17_CICD2023 copy 8.md",
-  slug: "2023-04-17_cicd2023-copy-8",
-  body: string,
-  collection: "works",
-  data: InferEntrySchema<"works">
-} & { render(): Render[".md"] },
-"2023-04-17_CICD2023 copy.md": {
-  id: "2023-04-17_CICD2023 copy.md",
-  slug: "2023-04-17_cicd2023-copy",
-  body: string,
-  collection: "works",
-  data: InferEntrySchema<"works">
-} & { render(): Render[".md"] },
 "2023-04-17_CICD2023.md": {
   id: "2023-04-17_CICD2023.md",
   slug: "2023-04-17_cicd2023",

@@ -19,11 +19,11 @@ const {
 
 {
   (prevUrl || nextUrl) && (
-    <div class="container flex">
-      <div class="flex flex-row mx-auto container justify-between">
+    <div class="flex pb-16">
+      <div class="flex flex-row mx-auto justify-between max-w-3xl">
         <a
           href={getPermalink(prevUrl)}
-          class={`btn btn-ghost md:px-3 px-3 mr-2 ${
+          class={`btn btn-rectangular md:px-3 px-3 mr-4 ${
             !prevUrl ? "invisible" : ""
           }`}
         >
@@ -34,7 +34,9 @@ const {
         </a>
         <a
           href={getPermalink(nextUrl)}
-          class={`btn btn-ghost md:px-3 px-3 ${!nextUrl ? "invisible" : ""}`}
+          class={`btn btn-rectangular md:px-3 px-3 ${
+            !nextUrl ? "invisible" : ""
+          }`}
         >
           <div class="flex flex-row align-middle">
             <span class="mr-2">{nextText}</span>
@@ -45,3 +47,12 @@ const {
     </div>
   )
 }
+
+<style>
+  .btn-rectangular {
+    border: 2px solid cyan;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 1px cyan;
+  }
+</style>

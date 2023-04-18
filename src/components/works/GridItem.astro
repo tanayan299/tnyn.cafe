@@ -19,10 +19,8 @@ const { works } = Astro.props;
 const image = await findImage(works.image);
 ---
 
-<article class="mb-14 transition drop-shadow-lg">
-  <div
-    class="relative md:h-64 bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-6"
-  >
+<article class="mb-8 transition drop-shadow-lg">
+  <div class="relative md:h-64 bg-gray-400 dark:bg-slate-700">
     {
       image && (
         <a href={getPermalink(works.permalink, "works")}>
@@ -41,8 +39,10 @@ const image = await findImage(works.image);
         </a>
       )
     }
+  </div>
+  <div class="border-2 border-gray-800 bg-gray-800 p-4">
     <h3
-      class="z-10 p-4 text-lg font-bold leading-tight sm:text-md font-heading"
+      class="z-10 px-4 text-lg font-bold leading-tight sm:text-md font-heading"
     >
       {
         WORKS?.works?.disabled ? (
@@ -57,11 +57,11 @@ const image = await findImage(works.image);
         )
       }
     </h3>
+    <p class="px-4 text-muted dark:text-slate-400 text-lg p-2">
+      {works.description}
+    </p>
     <div class="px-4 text-base font-bold leading-tight sm:text-md">
       <WorksTags tags={works.tags} class="mr-5 mt-1 text-base" />
     </div>
   </div>
-  <p class="text-muted dark:text-slate-400 text-lg p-4">
-    {works.description}
-  </p>
 </article>

@@ -28,7 +28,7 @@ const CONFIG = {
 
   blog: {
     disabled: false,
-    workesPerPage: 4,
+    postsPerPage: 4,
 
     works: {
       permalink: "/%slug%", // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
