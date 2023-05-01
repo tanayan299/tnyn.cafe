@@ -49,14 +49,18 @@ const meta = {
 
 <Layout meta={meta}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    {/*
     <dev
       style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
     >
+    */}
       <Headline>
         Category: <span class="capitalize">{category.replaceAll("-", " ")}</span
         >
       </Headline>
+    {/*
     </dev>
+    */}
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
