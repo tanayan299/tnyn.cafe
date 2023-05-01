@@ -5,10 +5,20 @@ import { getWorksPermalink } from "~/utils/workspermalinks";
 
 <div class="mx-auto px-6 sm:px-6 max-w-3xl pt-8 md:pt-4 pb-12 md:pb-20">
   <a class="btn btn-rectangular px-3 md:px-3" href={getWorksPermalink()}
-    ><Icon name="tabler:chevron-left" class="w-5 h-5 mr-1 -ml-1.5" /> Back to Works</a
-  >
+    ><Icon name="tabler:chevron-left" class="w-5 h-5 mr-1 -ml-1.5 text-gray-600 dark:text-gray-200" />
+    <div class="text-gray-600 dark:text-gray-200">Back to Works</div>
+    </a>
 </div>
 
+<style>
+  .btn-rectangular {
+    border: 2px solid gray;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+</style>
+
+<!-- 発光エフェクト
 <style>
   .btn-rectangular {
     border: 2px solid cyan;
@@ -17,3 +27,4 @@ import { getWorksPermalink } from "~/utils/workspermalinks";
     box-shadow: 0px 0px 4px 1px cyan;
   }
 </style>
+-->

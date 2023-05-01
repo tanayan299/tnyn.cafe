@@ -21,14 +21,16 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, "post") : "";
 ---
 
 <article
-  class={`max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 bg-gray-200 dark:bg-gray-800 rounded-sm ${
+  class={`max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 rounded-sm 
+  bg-custom_bg_cream border border-gray-800 
+  dark:bg-gray-800 dark:border dark:border-gray-300 ${
     image ? "md:grid-cols-2" : ""
   }`}
   style={{
     boxShadow: "0 2px 8px rgba(0, 0, 0, 0.25)",
     padding: "1rem",
-    borderTop: "2px solid cyan",
-    borderTopWidth: "0.67px",
+    borderTop: "2px solid skyblue",
+    borderTopWidth: "8px",
     position: "relative",
   }}
 >
@@ -106,6 +108,7 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, "post") : "";
       <PostTags tags={post.tags} />
     </footer>
   </div>
+  {/*
   <hr
     style={{
       borderTop: "2px solid cyan",
@@ -117,4 +120,5 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, "post") : "";
       right: 0,
     }}
   />
+  */}
 </article>

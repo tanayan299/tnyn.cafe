@@ -21,15 +21,19 @@ const meta = {
   <main class="container mx-auto w-5/6 lg:w-2/3">
     <section
       class="px-6 sm:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-4xl dark:text-gray-200"
+      {/* 発光エフェクト
       style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+      */}
     >
       <Headline subtitle="">About Me</Headline>
     </section>
     <div class="flex flex-wrap flex-row items-center justify-center my-5 mb-10">
       <div class="avatar mr-5">
         <div
-          class="w-24 h-24 rounded-full ring ring-offset-base-100 ring-offset-2 ring-cyan-400"
+          class="w-24 h-24 rounded-full ring ring-offset-base-100 ring-offset-2 dark:ring-cyan-400 ring-blue-200"
+          {/* 発光エフェクト
           style="box-shadow: 0 0 10px cyan;"
+          */}
         >
           <Picture
             src={ProfileImage}
@@ -54,9 +58,11 @@ const meta = {
     </div>
     <h2
       class="my-1 text-2xl font-bold dark:text-gray-200 flex items-center"
+      {/*
       style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+      */}
     >
-      <Icon name="tabler:link" class="w-6 h-6 mr-1 icon" />
+      <Icon name="tabler:link" class="w-6 h-6 mr-1" />
       Links
     </h2>
     <div class="items-center md:flex">
@@ -84,9 +90,11 @@ const meta = {
       <div class="w-full sm:w-1/2">
         <h3
           class="my-1 text-2xl font-bold mt-6 dark:text-gray-200 flex items-center"
+          {/*
           style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+          */}
         >
-          <Icon name="tabler:map-pin" class="w-6 h-6 mr-1 icon" />
+          <Icon name="tabler:map-pin" class="w-6 h-6 mr-1" />
           Interest
         </h3>
         <ul class="list-disc pl-8 text-sm">
@@ -100,9 +108,11 @@ const meta = {
       <div class="w-full sm:w-1/2">
         <h3
           class="my-1 text-2xl font-bold mt-6 dark:text-gray-200 flex items-center"
+          {/*
           style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+          */}
         >
-          <Icon name="tabler:edit" class="w-6 h-6 mr-1 icon" />
+          <Icon name="tabler:edit" class="w-6 h-6 mr-1" />
           Skills
         </h3>
         <ul class="list-disc pl-8 text-sm">
@@ -113,17 +123,21 @@ const meta = {
 
     <!-- BackGround Section -->
     <div
-      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-800 rounded-sm"
+      class="card card-bordered shadow-lg my-8 bg-custom_bg_cream dark:bg-gray-800 rounded-sm border border-gray-800 dark:border dark:border-gray-300"
+      {/*
       style={{
         boxShadow:
           "0 0 3px 2px rgba(0, 255, 255, 0.4), 0 0 6px 4px rgba(0, 255, 255, 0.25)",
         zIndex: "-1",
       }}
+      */}
     >
       <div class="card-body dark:text-gray-300">
         <h2
           class="card-title text-lg p-4"
+          {/* 
           style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+          */}
         >
           Background
         </h2>
@@ -136,17 +150,21 @@ const meta = {
     <!-- Extra Activities Section -->
 
     <div
-      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-800 rounded-sm"
+      class="card card-bordered shadow-lg my-8 bg-custom_bg_cream dark:bg-gray-800 rounded-sm border border-gray-800 dark:border dark:border-gray-300"
+      {/* 
       style={{
         boxShadow:
           "0 0 3px 2px rgba(0, 255, 255, 0.4), 0 0 6px 4px rgba(0, 255, 255, 0.25)",
         zIndex: "-1",
       }}
+      */}
     >
       <div class="card-body dark:text-gray-300">
         <h2
           class="card-title text-lg p-4"
+          {/*
           style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+          */}
         >
           Extra Activities (Tech)
         </h2>
@@ -168,17 +186,21 @@ const meta = {
     </div>
 
     <div
-      class="card card-bordered shadow-lg my-8 bg-base-100 bg-gray-200 dark:bg-gray-800 rounded-sm"
+      class="card card-bordered shadow-lg my-8 bg-custom_bg_cream dark:bg-gray-800 rounded-sm border border-gray-800 dark:border dark:border-gray-300"
+      {/* 
       style={{
         boxShadow:
           "0 0 3px 2px rgba(0, 255, 255, 0.4), 0 0 6px 4px rgba(0, 255, 255, 0.25)",
         zIndex: "-1",
       }}
+      */}
     >
       <div class="card-body dark:text-gray-300">
         <h2
           class="card-title text-lg p-4"
+          {/*
           style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
+          */}
         >
           Extra Activities (Design)
         </h2>
@@ -201,6 +223,7 @@ const meta = {
   </main>
 </Layout>
 
+<!-- 発光エフェクト -->
 <style>
   .icon {
     filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5))

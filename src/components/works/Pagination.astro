@@ -28,8 +28,8 @@ const {
           }`}
         >
           <div class="flex flex-row align-middle">
-            <Icon name="tabler:chevron-left" class="w-6 h-6" />
-            <p class="ml-2">{prevText}</p>
+            <Icon name="tabler:chevron-left" class="w-6 h-6 text-gray-600 dark:text-gray-200" />
+            <p class="ml-2 mr-2 text-gray-600 dark:text-gray-200">{prevText}</p>
           </div>
         </a>
         <a
@@ -39,8 +39,8 @@ const {
           }`}
         >
           <div class="flex flex-row align-middle">
-            <span class="mr-2">{nextText}</span>
-            <Icon name="tabler:chevron-right" class="w-6 h-6" />
+            <span class="ml-2 r-2 text-gray-600 dark:text-gray-200">{nextText}</span>
+            <Icon name="tabler:chevron-right" class="w-6 h-6 text-gray-600 dark:text-gray-200" />
           </div>
         </a>
       </div>
@@ -50,9 +50,19 @@ const {
 
 <style>
   .btn-rectangular {
+    border: 2px solid gray;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+</style>
+
+<!-- 発光エフェクト
+<style>
+  .btn-rectangular {
     border: 2px solid cyan;
     padding: 8px 12px;
     border-radius: 4px;
     box-shadow: 0px 0px 4px 1px cyan;
   }
 </style>
+-->

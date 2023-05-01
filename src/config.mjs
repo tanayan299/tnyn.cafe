@@ -11,7 +11,7 @@ const CONFIG = {
   description: "This is tanayan's portfolio site",
   defaultImage: defaultImage,
 
-  defaultTheme: "dark", // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  defaultTheme: "light", // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
   language: "en",
   textDirection: "ltr",

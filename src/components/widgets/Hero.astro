@@ -5,10 +5,12 @@ import { headerData } from "~/data";
 
 import backgroundImage from "~/assets/images/bacground.png";
 import HeaderLink from "./HeaderLink.astro";
+import ToggleTheme from "~/components/common/ToggleTheme.astro";
 import { getAsset } from "~/utils/permalinks";
 
 const {
   showRssFeed = true,
+  showToggleTheme = true,
   footNote = "© ${today.getFullYear()} tanayan / All rights reserved.",
 } = Astro.props;
 
@@ -22,10 +24,13 @@ const footerData = {
   <section class="flex justify-center items-center flex-1">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="pt-12 md:pt-20">
+        <div class="relative">
+          <!-- 発光エフェクト/上記置換
         <div
           class="relative"
           style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
         >
+          -->
           <Picture
             src={backgroundImage}
             class="mx-auto rounded-md w-full"
@@ -33,7 +38,7 @@ const footerData = {
             sizes="(max-width: 400px) 100vw, 400px"
             alt="Background Image"
             aspectRatio="1:1"
-            class="mx-auto rounded-md opacity-30 dark:opacity-60"
+            class="mx-auto rounded-md opacity-20 dark:opacity-60"
             style="transform: translateY(-20px);"
           />
           <div
@@ -44,12 +49,13 @@ const footerData = {
                 class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 dark:text-gray-200 md:whitespace-nowrap"
               >
                 Welcome to
-                <span class="bg-clip-text bg-gradient-to-r dark:text-cyan-200"
+                <span
+                  class="bg-clip-text bg-gradient-to-r dark:text-cyan-200 text-cyan-600"
                   >tnyn.cafe</span
                 >
               </h1>
               <div class="max-w-3xl mx-auto">
-                <p class="text-xl text-gray-500 dark:text-gray-300 mb-8">
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
                   Hi, I'm tanayan who is an infrastructure engineer. <br />
                   I also enjoy illustration and design, and I have an interest in
                   UI/web front-end development and 3DCG.
@@ -66,7 +72,7 @@ const footerData = {
             target="_blank"
             aria-label="tanayan Twitter"
           >
-            <Icon name="tabler:brand-twitter" class="w-6 h-6 icon" />
+            <Icon name="tabler:brand-twitter" class="w-6 h-6" />
           </HeaderLink>
           <HeaderLink
             class="text-muted dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
@@ -74,8 +80,13 @@ const footerData = {
             target="_blank"
             aria-label="tanayan GitHub"
           >
-            <Icon name="tabler:brand-github" class="w-6 h-6 icon" />
+            <Icon name="tabler:brand-github" class="w-6 h-6" />
           </HeaderLink>
+          <dev
+            class="text-muted dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+          >
+            {showToggleTheme && <ToggleTheme />}
+          </dev>
           {
             showRssFeed && (
               <a
@@ -83,7 +94,7 @@ const footerData = {
                 aria-label="RSS Feed"
                 href={getAsset("/rss.xml")}
               >
-                <Icon name="tabler:rss" class="w-6 h-6 icon" />
+                <Icon name="tabler:rss" class="w-6 h-6" />
               </a>
             )
           }
@@ -103,9 +114,13 @@ const footerData = {
                     <li class="mr-4">
                       <div class="relative inline-block">
                         <div
-                          class="flex justify-center items-center border border-gray-300 p-2 rounded-sm bg-gray-100 dark:bg-gray-800 text-gray-300"
+                          class="flex justify-center items-center p-2 rounded-sm
+                          border border-gray-800 bg-custom_bg_cream text-gray-800
+                          dark:border dark:border-gray-300 dark:bg-gray-800 dark:text-gray-300"
                           style={{ width: width }}
                         >
+                          <a href={link.href}>
+                            {/* 発光エフェクト/上記置換
                           <a
                             href={link.href}
                             style={{
@@ -113,9 +128,18 @@ const footerData = {
                                 "0 0 5px rgba(0, 255, 255, 0.2), 0 0 10px rgba(0, 255, 255, 0.1)",
                             }}
                           >
+                          */}
                             {link.text}
                           </a>
                         </div>
+                        <div
+                          class="absolute top-0 left-0 w-full h-full rounded-sm"
+                          style={{
+                            zIndex: "-1",
+                            width: width,
+                          }}
+                        />
+                        {/* 発光エフェクト/上記置換
                         <div
                           class="absolute top-0 left-0 w-full h-full rounded-sm"
                           style={{
@@ -125,6 +149,7 @@ const footerData = {
                             width: width,
                           }}
                         />
+                        */}
                       </div>
                     </li>
                   );
@@ -145,6 +170,7 @@ const footerData = {
   -->
 </div>
 
+<!-- 発光エフェクト -->
 <style>
   .icon {
     filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.2))
