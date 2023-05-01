@@ -112,18 +112,18 @@ declare module 'astro:content' {
 
 	const entryMap: {
 		"post": {
-"2023-04-08_FirstPost.md": {
-  id: "2023-04-08_FirstPost.md",
-  slug: "2023-04-08_firstpost",
+"2023/2023-04-08_FirstPost.md": {
+  id: "2023/2023-04-08_FirstPost.md",
+  slug: "2023/2023-04-08_firstpost",
   body: string,
   collection: "post",
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] },
 },
 "works": {
-"2023-04-17_CICD2023.md": {
-  id: "2023-04-17_CICD2023.md",
-  slug: "2023-04-17_cicd2023",
+"2023/2023-04-17_CICD2023.md": {
+  id: "2023/2023-04-17_CICD2023.md",
+  slug: "2023/2023-04-17_cicd2023",
   body: string,
   collection: "works",
   data: InferEntrySchema<"works">
