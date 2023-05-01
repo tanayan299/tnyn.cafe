@@ -24,7 +24,7 @@ const { post, url } = Astro.props;
     style={{
       boxShadow: "0 2px 8px rgba(0, 0, 0, 0.25)",
       padding: "1rem",
-      borderTop: "2px solid skyblue",
+      borderTop: "2px solid green",
       borderTopWidth: "8px",
       position: "relative",
     }}
@@ -83,8 +83,8 @@ const { post, url } = Astro.props;
               <Picture
                 src={post.image}
                 class="w-full lg:max-w-6xl mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
-                widths={[400, 900]}
-                sizes="(max-width: 900px) 400px, 900px"
+                widths={[400, 1080]}
+                sizes="(max-width: 1080px) 400px, 1080px"
                 alt={post.description || ""}
                 loading="eager"
                 aspectRatio={21 / 9}
@@ -103,12 +103,12 @@ const { post, url } = Astro.props;
         </div>
       </header>
       <div
-        class="mx-auto px-6 sm:px-6 max-w-3xl prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
+        class="mx-auto px-4 sm:px-2 max-w-3xl prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
       >
         {
           post.Content ? (
             <div>
-              <dev class="text-base md:text-base">
+              <dev class="text-base md:text-sm">
                 {/* @ts-ignore */}
                 <post.Content />
               </dev>
