@@ -119,6 +119,13 @@ declare module 'astro:content' {
   collection: "post",
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] },
+"2023/2023-05-24_ReadLearningGo.mdx": {
+  id: "2023/2023-05-24_ReadLearningGo.mdx",
+  slug: "2023/2023-05-24_readlearninggo",
+  body: string,
+  collection: "post",
+  data: InferEntrySchema<"post">
+} & { render(): Render[".mdx"] },
 },
 "works": {
 "2023/2023-04-17_CICD2023.md": {
