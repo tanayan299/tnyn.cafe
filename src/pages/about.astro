@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-import { Picture } from "@astrojs/image/components";
+import Image from "~/components/common/Image.astro";
 import { SITE } from "~/config.mjs";
 
 import Headline from "~/components/blog/Headline.astro";
@@ -29,7 +29,7 @@ const meta = {
         <div
           class="w-24 h-24 rounded-full ring ring-offset-base-100 ring-offset-2 dark:ring-cyan-400 ring-blue-200"
         >
-          <Picture
+          <Image
             src={ProfileImage}
             class="w-24 h-24 rounded-full"
             widths={[400, 768]}

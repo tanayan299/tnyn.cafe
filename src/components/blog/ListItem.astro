@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon";
-import { Picture } from "@astrojs/image/components";
+import Image from "~/components/common/Image.astro";
+
 import PostTags from "~/components/blog/Tags.astro";
 
 import { BLOG } from "~/config.mjs";
@@ -38,7 +39,7 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, "post") : "";
     image && (
       <a class="relative block group" href={link ?? "javascript:void(0)"}>
         <div class="aspect-w-16 aspect-h-9 overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
-          <Picture
+          <Image
             src={image}
             class="object-cover w-full h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
             widths={[400, 900]}
@@ -108,7 +109,8 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, "post") : "";
       <PostTags tags={post.tags} />
     </footer>
   </div>
-  {/*
+  {
+    /*
   <hr
     style={{
       borderTop: "2px solid cyan",
@@ -120,5 +122,6 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, "post") : "";
       right: 0,
     }}
   />
-  */}
+  */
+  }
 </article>

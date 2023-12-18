@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-import { Picture } from "@astrojs/image/components";
+import Image from "~/components/common/Image.astro";
 import WorksTags from "~/components/works/Tags.astro";
 
 import { WORKS } from "~/config.mjs";
@@ -38,7 +38,7 @@ const link = !WORKS?.works?.disabled
     image && (
       <a class="relative block group" href={link ?? "javascript:void(0)"}>
         <div class="aspect-w-16 aspect-h-9 overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
-          <Picture
+          <Image
             src={image}
             class="object-cover w-full h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
             widths={[400, 900]}

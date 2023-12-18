@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import Image from "~/components/common/Image.astro";
 import { Icon } from "astro-icon";
 import { headerData } from "~/data";
 
@@ -31,7 +31,7 @@ const footerData = {
           style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
         >
           -->
-          <Picture
+          <Image
             src={backgroundImage}
             class="mx-auto rounded-md w-full"
             widths={[400, 400]}

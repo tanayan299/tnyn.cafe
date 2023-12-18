@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-import { Picture } from "@astrojs/image/components";
+import Image from "~/components/common/Image.astro";
 
 interface Item {
   title: string;
@@ -13,6 +13,8 @@ export interface Props {
   title?: string;
   subtitle?: string;
   highlight?: string;
+  allPostsText?: string;
+  allPostsLink?: string;
   content?: string;
   items?: Array<Item>;
   image?: string | any; // TODO: find HTMLElementProps
@@ -79,7 +81,7 @@ const {
                 {typeof image === "string" ? (
                   <Fragment set:html={image} />
                 ) : (
-                  <Picture
+                  <Image
                     class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
                     width={300}
                     height={300}
