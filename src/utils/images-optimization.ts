@@ -15,7 +15,7 @@ type Layout =
 export interface AttributesProps extends HTMLAttributes<"img"> {}
 
 export interface ImageProps extends Omit<HTMLAttributes<"img">, "src"> {
-  src?: string | ImageMetadata | null;
+  src?: string;
   width?: string | number | null;
   height?: string | number | null;
   alt?: string | null;
