@@ -25,7 +25,6 @@
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "astro": "^4.0.6",
-    "astro-compress": "^1.1.35",
     "astro-icon": "^0.8.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.37.0",
@@ -50,6 +49,7 @@
     }
   },
   "dependencies": {
+    "astro-compress": "^2.2.5",
     "unpic": "^3.16.0"
   }
 }
