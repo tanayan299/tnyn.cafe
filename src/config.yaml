@@ -11,7 +11,7 @@ site:
 metadata:
   title:
     default: 'tnyn.cafe'
-    template: '%s — tnyn.cafe'
+    template: '%s - tnyn.cafe'
   description: "This is tanayan's portfolio site"
   robots:
     index: true
