@@ -1,14 +1,14 @@
 ---
-import { Icon } from "astro-icon";
-import Image from "~/components/common/Image.astro";
+import { Icon } from 'astro-icon/components';
 
-import PostTags from "~/components/blog/Tags.astro";
-import SocialShare from "~/components/common/SocialShare.astro";
+import Image from '~/components/common/Image.astro';
+import PostTags from '~/components/blog/Tags.astro';
+import SocialShare from '~/components/common/SocialShare.astro';
 
-import { getPermalink } from "~/utils/permalinks";
-import { getFormattedDate } from "~/utils/utils";
+import { getPermalink } from '~/utils/permalinks';
+import { getFormattedDate } from '~/utils/utils';
 
-import type { Post } from "~/types";
+import type { Post } from '~/types';
 
 export interface Props {
   post: Post;
@@ -20,7 +20,7 @@ const { post, url } = Astro.props;
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <div
-    class="py-10 sm:py-10 lg:py-10 border border-gray-400 dark:border-gray-700 border-2 rounded p-4 md:p-2 max-w-3xl mx-auto"
+    class="py-10 sm:py-10 lg:py-10 border-gray-400 dark:border-gray-700 border-2 rounded p-4 md:p-2 max-w-3xl mx-auto"
     style={{
       boxShadow: "0 2px 8px rgba(0, 0, 0, 0.25)",
       padding: "1rem",
@@ -72,7 +72,7 @@ const { post, url } = Astro.props;
           {post.excerpt}
         </p>
         <div
-          class="mx-auto px-6 mt-4 sm:mb-4 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row"
+          class="mx-auto px-6 sm:mb-4 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row"
         >
           <PostTags tags={post.tags} class="mr-5" />
         </div>
@@ -82,14 +82,11 @@ const { post, url } = Astro.props;
             post.image ? (
               <Image
                 src={post.image}
-                class="w-full lg:max-w-6xl mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+                class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
                 widths={[400, 1080]}
                 sizes="(max-width: 1080px) 400px, 1080px"
-                alt={post.description || ""}
-                loading="eager"
+                alt={post?.excerpt || ''}
                 aspectRatio={21 / 9}
-                width={100}
-                height={386}
                 loading="eager"
                 decoding="async"
               />

@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "./common/Image.astro";
 import backgroundImage from "~/assets/images/neon_tnyncafe_logo.png";
 ---
 
@@ -8,9 +8,10 @@ import backgroundImage from "~/assets/images/neon_tnyncafe_logo.png";
     <Image
       src={backgroundImage}
       class="w-8 h-8"
-      width={400}
-      height={400}
+      widths={[400, 768]}
+      sizes=""
       alt="Profile Image"
+      aspectRatio="1:1"
       style=""
     />
   </div>

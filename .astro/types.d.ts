@@ -200,15 +200,6 @@ declare module 'astro:content' {
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
 };
-"works": {
-"2023/2023-04-17_CICD2023.md": {
-	id: "2023/2023-04-17_CICD2023.md";
-  slug: "2023/2023-04-17_cicd2023";
-  body: string;
-  collection: "works";
-  data: InferEntrySchema<"works">
-} & { render(): Render[".md"] };
-};
 
 	};
 

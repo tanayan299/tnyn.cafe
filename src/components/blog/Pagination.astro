@@ -1,68 +1,36 @@
 ---
-import { Icon } from "astro-icon";
-import { getPermalink } from "~/utils/permalinks";
+import { Icon } from 'astro-icon/components';
+import { getPermalink } from '~/utils/permalinks';
+import Button from '~/components/ui/Button.astro';
 
 export interface Props {
-  prevUrl: string;
-  nextUrl: string;
+  prevUrl?: string;
+  nextUrl?: string;
   prevText?: string;
   nextText?: string;
 }
 
-const {
-  prevUrl,
-  nextUrl,
-  prevText = "Newer posts",
-  nextText = "Older posts",
-} = Astro.props;
+const { prevUrl, nextUrl, prevText = 'Newer posts', nextText = 'Older posts' } = Astro.props;
 ---
 
 {
   (prevUrl || nextUrl) && (
-    <div class="flex pb-16">
-      <div class="flex flex-row mx-auto justify-between max-w-3xl">
-        <a
+    <div class="container flex">
+      <div class="flex flex-row mx-auto container justify-between">
+        <Button
+          variant="tertiary"
+          class={`md:px-3 px-3 mr-2 ${!prevUrl ? 'invisible' : ''}`}
           href={getPermalink(prevUrl)}
-          class={`btn btn-rectangular md:px-3 px-3 mr-4 ${
-            !prevUrl ? "invisible" : ""
-          }`}
         >
-          <div class="flex flex-row align-middle">
-            <Icon name="tabler:chevron-left" class="w-6 h-6 text-gray-600 dark:text-gray-200" />
-            <p class="ml-2 text-gray-600 dark:text-gray-200">{prevText}</p>
-          </div>
-        </a>
-        <a
-          href={getPermalink(nextUrl)}
-          class={`btn btn-rectangular md:px-3 px-3 ${
-            !nextUrl ? "invisible" : ""
-          }`}
-        >
-          <div class="flex flex-row align-middle">
-            <span class="mr-2 text-gray-600 dark:text-gray-200">{nextText}</span>
-            <Icon name="tabler:chevron-right" class="w-6 h-6 text-gray-600 dark:text-gray-200" />
-          </div>
-        </a>
+          <Icon name="tabler:chevron-left" class="w-6 h-6" />
+          <p class="ml-2">{prevText}</p>
+        </Button>
+
+        <Button variant="tertiary" class={`md:px-3 px-3 ${!nextUrl ? 'invisible' : ''}`} href={getPermalink(nextUrl)}>
+          <span class="mr-2">{nextText}</span>
+          <Icon name="tabler:chevron-right" class="w-6 h-6" />
+        </Button>
       </div>
     </div>
   )
 }
-
-<style>
-  .btn-rectangular {
-    border: 2px solid gray;
-    padding: 8px 12px;
-    border-radius: 4px;
-  }
-</style>
-
-<!-- 発光エフェクト
-<style>
-  .btn-rectangular {
-    border: 2px solid cyan;
-    padding: 8px 12px;
-    border-radius: 4px;
-    box-shadow: 0px 0px 4px 1px cyan;
-  }
-</style>
--->

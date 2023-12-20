@@ -1,7 +1,7 @@
 ---
-import { Icon } from "astro-icon";
-import { SITE } from "~/config.mjs";
-import { getHomePermalink } from "~/utils/permalinks";
+import { Icon } from 'astro-icon/components';
+import { SITE } from '~/utils/config';
+import { getHomePermalink } from '~/utils/permalinks';
 
 interface Link {
   text?: string;
@@ -23,13 +23,7 @@ export interface Props {
   theme?: string;
 }
 
-const {
-  socialLinks = [],
-  secondaryLinks = [],
-  links = [],
-  footNote = "",
-  theme = "light",
-} = Astro.props;
+const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
 ---
 
 <footer

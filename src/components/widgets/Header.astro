@@ -1,11 +1,12 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import Logo from "~/components/Logo.astro";
 import ToggleTheme from "~/components/common/ToggleTheme.astro";
 import ToggleMenu from "~/components/common/ToggleMenu.astro";
 
-import { getHomePermalink, getAsset } from "~/utils/permalinks";
+import { getHomePermalink } from "~/utils/permalinks";
+import { getAsset } from "~/utils/permalinks";
+import HeaderLink from "./HeaderLink.astro";
 
 interface Link {
   text?: string;
@@ -14,17 +15,12 @@ interface Link {
   icon?: string;
 }
 
-interface ActionLink extends Link {
-  type?: string;
-}
-
 interface MenuLink extends Link {
-  links?: Array<Link>;
+  links?: Array<MenuLink>;
 }
 
 export interface Props {
   links?: Array<MenuLink>;
-  actions?: Array<ActionLink>;
   isSticky?: boolean;
   showToggleTheme?: boolean;
   showRssFeed?: boolean;
@@ -33,12 +29,12 @@ export interface Props {
 
 const {
   links = [],
-  actions = [],
   isSticky = false,
   showToggleTheme = false,
   showRssFeed = false,
   position = "center",
 } = Astro.props;
+
 ---
 
 <header
@@ -140,28 +136,6 @@ const {
             >
               <Icon name="tabler:rss" class="w-5 h-5" />
             </a>
-          )
-        }
-        {
-          actions?.length ? (
-            <span class="ml-4">
-              {actions.map(({ text, href, type }) => (
-                <a
-                  class:list={[
-                    "btn ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm",
-                    {
-                      "btn-ghost": type === "ghost",
-                      "btn-primary": type === "primary",
-                    },
-                  ]}
-                  href={href}
-                >
-                  <Fragment set:html={text} />
-                </a>
-              ))}
-            </span>
-          ) : (
-            ""
           )
         }
       </div>
