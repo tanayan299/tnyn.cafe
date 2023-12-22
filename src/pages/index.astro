@@ -1,59 +1,31 @@
 ---
-import { SITE } from "~/config.mjs";
-import Layout from "~/layouts/BaseLayout.astro";
+import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from "~/components/widgets/Hero.astro";
-import Content from "~/components/widgets/Content.astro";
-import LatestPosts from "~/components/blog/LatestPosts.astro";
+import Hero from '~/components/widgets/Hero.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import WorkLatestPosts from '~/components/widgets/WorkLatestPosts.astro';
 
-import { footerData } from "~/data";
-import Footer from "~/components/widgets/Footer.astro";
-
-const meta = {
-  title: SITE.title,
-  description: SITE.description,
-  dontUseTitleTemplate: true,
+const metadata = {
+  title: 'tnyn.cafe',
+  ignoreTitleTemplate: true,
 };
 ---
 
-<Layout {meta}>
+<Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero />
-
-  <!-- Content Widget **************** -->
-  <!--
-  <Content
-    highlight=""
-    title="About Me"
-    items={[]}
-    image={{
-      src: import("~/assets/images/profile_icon.jpeg"),
-      alt: "Profile Image",
-      class: "rounded-lg",
-    }}
-  >
-    <Fragment slot="content">
-      <h3
-        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
-      >
-        I'm tanayan !
-      </h3>
-      ゲームが大好きなインフラ寄りのエンジニア。 <br />
-      デザインやイラストも好きで最近はUIやWebフロントエンドに興味があります。<br
-      />
-      3DCGにも入門中。<br />
-    </Fragment>
-  </Content>
-  -->
-
+  <Hero/>
+  
   <!-- HighlightedPosts Widget ******* -->
 
-  <!--
-  <LatestPosts title="Latest from blog" information={``} postIds={[]} />
-  -->
+  <BlogLatestPosts
+    title="Latest Blog Posts"
+    information={``}
+  />
 
-  <!--
-  <Footer {...footerData} />
-  -->
+  <WorkLatestPosts
+  title="Latest Work Posts"
+  information={``}
+/>
+
 </Layout>

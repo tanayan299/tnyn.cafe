@@ -1,23 +1,23 @@
 ---
-import { Picture } from "@astrojs/image/components";
-import { Icon } from "astro-icon";
-import { headerData } from "~/data";
+import Image from '~/components/common/Image.astro';
+import { Icon } from "astro-icon/components";
+import { headerData } from '../data';
 
-import backgroundImage from "~/assets/images/bacground.png";
 import HeaderLink from "./HeaderLink.astro";
 import ToggleTheme from "~/components/common/ToggleTheme.astro";
 import { getAsset } from "~/utils/permalinks";
 
+export interface Props {
+  showRssFeed?: boolean;
+  showToggleTheme?: boolean;
+}
+
+import backgroundImage from "~/assets/images/bacground.png";
+
 const {
   showRssFeed = true,
   showToggleTheme = true,
-  footNote = "© ${today.getFullYear()} tanayan / All rights reserved.",
 } = Astro.props;
-
-const today = new Date();
-const footerData = {
-  footNote: ` © ${today.getFullYear()} tanayan / All rights reserved.`,
-};
 ---
 
 <div class="hero min-h-screen flex flex-col justify-between">
@@ -31,7 +31,7 @@ const footerData = {
           style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.2);"
         >
           -->
-          <Picture
+          <Image
             src={backgroundImage}
             class="mx-auto rounded-md w-full"
             widths={[400, 400]}
@@ -56,7 +56,7 @@ const footerData = {
               </h1>
               <div class="max-w-3xl mx-auto">
                 <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
-                  Hi, I'm tanayan who is an infrastructure engineer. <br />
+                  Hi, I'm tanayan who is a frontend/backend engineer. <br />
                   I also enjoy illustration and design, and I have an interest in
                   UI/web front-end development and 3DCG.
                 </p>

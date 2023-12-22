@@ -1,11 +1,11 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import Image from "./common/Image.astro";
 import backgroundImage from "~/assets/images/neon_tnyncafe_logo.png";
 ---
 
 <div class="flex items-center">
   <div>
-    <Picture
+    <Image
       src={backgroundImage}
       class="w-8 h-8"
       widths={[400, 768]}
