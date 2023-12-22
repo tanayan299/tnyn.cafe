@@ -23,41 +23,33 @@ export interface I18NConfig {
   textDirection: string;
   dateFormatter?: Intl.DateTimeFormat;
 }
-export interface AppBlogConfig {
+interface RobotsConfig {
+  index: boolean;
+  follow: boolean;
+}
+
+interface CommonConfig {
+  isEnabled: boolean;
+  pathname?: string;
+  permalink?: string;
+  robots: RobotsConfig;
+}
+
+interface AppConfig {
   isEnabled: boolean;
   postsPerPage: number;
-  post: {
-    isEnabled: boolean;
-    permalink: string;
-    robots: {
-      index: boolean;
-      follow: boolean;
-    };
-  };
-  list: {
-    isEnabled: boolean;
-    pathname: string;
-    robots: {
-      index: boolean;
-      follow: boolean;
-    };
-  };
-  category: {
-    isEnabled: boolean;
-    pathname: string;
-    robots: {
-      index: boolean;
-      follow: boolean;
-    };
-  };
-  tag: {
-    isEnabled: boolean;
-    pathname: string;
-    robots: {
-      index: boolean;
-      follow: boolean;
-    };
-  };
+  post?: CommonConfig;
+  list: CommonConfig;
+  category: CommonConfig;
+  tag: CommonConfig;
+}
+
+export interface AppBlogConfig extends AppConfig {
+  post: CommonConfig;
+}
+
+export interface AppWorkConfig extends AppConfig {
+  work: CommonConfig;
 }
 export interface AnalyticsConfig {
   vendors: {
@@ -74,6 +66,7 @@ const config = yaml.load(fs.readFileSync('src/config.yaml', 'utf8')) as {
   i18n?: I18NConfig;
   apps?: {
     blog?: AppBlogConfig;
+    work?: AppWorkConfig;
   };
   ui?: unknown;
   analytics?: unknown;
@@ -175,6 +168,47 @@ const getAppBlog = () => {
   return merge({}, _default, config?.apps?.blog ?? {}) as AppBlogConfig;
 };
 
+const getAppWork = () => {
+  const _default = {
+    isEnabled: false,
+    postsPerPage: 6,
+    work: {
+      isEnabled: true,
+      permalink: '/work/%slug%',
+      robots: {
+        index: true,
+        follow: true,
+      },
+    },
+    list: {
+      isEnabled: true,
+      pathname: 'work',
+      robots: {
+        index: true,
+        follow: true,
+      },
+    },
+    category: {
+      isEnabled: true,
+      pathname: 'category',
+      robots: {
+        index: true,
+        follow: true,
+      },
+    },
+    tag: {
+      isEnabled: true,
+      pathname: 'tag',
+      robots: {
+        index: false,
+        follow: true,
+      },
+    },
+  };
+
+  return merge({}, _default, config?.apps?.work ?? {}) as AppWorkConfig;
+};
+
 const getUI = () => {
   const _default = {
     theme: 'system',
@@ -202,5 +236,6 @@ export const SITE = getSite();
 export const I18N = getI18N();
 export const METADATA = getMetadata();
 export const APP_BLOG = getAppBlog();
+export const APP_WORK = getAppWork();
 export const UI = getUI();
 export const ANALYTICS = getAnalytics();

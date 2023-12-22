@@ -3,6 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import WorkLatestPosts from '~/components/widgets/WorkLatestPosts.astro';
 
 const metadata = {
   title: 'tnyn.cafe',
@@ -21,4 +22,10 @@ const metadata = {
     title="Latest Blog Posts"
     information={``}
   />
+
+  <WorkLatestPosts
+  title="Latest Work Posts"
+  information={``}
+/>
+
 </Layout>

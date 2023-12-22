@@ -2,14 +2,14 @@ import type { PaginateFunction } from 'astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
-import { APP_BLOG } from '~/utils/config';
+import { APP_WORK } from '~/utils/config';
 import {
   cleanSlug,
   trimSlash,
-  BLOG_BASE,
+  WORK_BASE,
   POST_PERMALINK_PATTERN,
-  BLOG_CATEGORY_BASE,
-  BLOG_TAG_BASE,
+  WORK_CATEGORY_BASE,
+  WORK_TAG_BASE,
 } from './permalinks';
 
 const generatePermalink = async ({
@@ -47,9 +47,9 @@ const generatePermalink = async ({
     .join('/');
 };
 
-const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> => {
-  const { id, slug: rawSlug = '', data } = post;
-  const { Content, remarkPluginFrontmatter } = await post.render();
+const getNormalizedPost = async (work: CollectionEntry<'work'>): Promise<Post> => {
+  const { id, slug: rawSlug = '', data } = work;
+  const { Content, remarkPluginFrontmatter } = await work.render();
 
   const {
     publishDate: rawPublishDate = new Date(),
@@ -98,50 +98,50 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
 };
 
 const load = async function (): Promise<Array<Post>> {
-  const posts = await getCollection('post');
-  const normalizedPosts = posts.map(async (post) => await getNormalizedPost(post));
+  const works = await getCollection('work');
+  const normalizedPosts = works.map(async (work) => await getNormalizedPost(work));
 
   const results = (await Promise.all(normalizedPosts))
     .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())
-    .filter((post) => !post.draft);
+    .filter((work) => !work.draft);
 
   return results;
 };
 
-let _posts: Array<Post>;
+let _works: Array<Post>;
 
 /** */
-export const isBlogEnabled = APP_BLOG.isEnabled;
-export const isBlogListRouteEnabled = APP_BLOG.list.isEnabled;
-export const isBlogPostRouteEnabled = APP_BLOG.post.isEnabled;
-export const isBlogCategoryRouteEnabled = APP_BLOG.category.isEnabled;
-export const isBlogTagRouteEnabled = APP_BLOG.tag.isEnabled;
+export const isWorkEnabled = APP_WORK.isEnabled;
+export const isWorkListRouteEnabled = APP_WORK.list.isEnabled;
+export const isWorkPostRouteEnabled = APP_WORK.work.isEnabled;
+export const isWorkCategoryRouteEnabled = APP_WORK.category.isEnabled;
+export const isWorkTagRouteEnabled = APP_WORK.tag.isEnabled;
 
-export const blogListRobots = APP_BLOG.list.robots;
-export const blogPostRobots = APP_BLOG.post.robots;
-export const blogCategoryRobots = APP_BLOG.category.robots;
-export const blogTagRobots = APP_BLOG.tag.robots;
+export const workListRobots = APP_WORK.list.robots;
+export const workPostRobots = APP_WORK.work.robots;
+export const workCategoryRobots = APP_WORK.category.robots;
+export const workTagRobots = APP_WORK.tag.robots;
 
-export const blogPostsPerPage = APP_BLOG?.postsPerPage;
+export const workPostsPerPage = APP_WORK?.postsPerPage;
 
 /** */
 export const fetchPosts = async (): Promise<Array<Post>> => {
-  if (!_posts) {
-    _posts = await load();
+  if (!_works) {
+    _works = await load();
   }
 
-  return _posts;
+  return _works;
 };
 
 /** */
 export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post>> => {
   if (!Array.isArray(slugs)) return [];
 
-  const posts = await fetchPosts();
+  const works = await fetchPosts();
 
   return slugs.reduce(function (r: Array<Post>, slug: string) {
-    posts.some(function (post: Post) {
-      return slug === post.slug && r.push(post);
+    works.some(function (work: Post) {
+      return slug === work.slug && r.push(work);
     });
     return r;
   }, []);
@@ -151,11 +151,11 @@ export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post
 export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> => {
   if (!Array.isArray(ids)) return [];
 
-  const posts = await fetchPosts();
+  const works = await fetchPosts();
 
   return ids.reduce(function (r: Array<Post>, id: string) {
-    posts.some(function (post: Post) {
-      return id === post.id && r.push(post);
+    works.some(function (work: Post) {
+      return id === work.id && r.push(work);
     });
     return r;
   }, []);
@@ -164,47 +164,47 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
 /** */
 export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
   const _count = count || 4;
-  const posts = await fetchPosts();
+  const works = await fetchPosts();
 
-  return posts ? posts.slice(0, _count) : [];
+  return works ? works.slice(0, _count) : [];
 };
 
 /** */
-export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
-  if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
+export const getStaticPathsWorkList = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isWorkEnabled || !isWorkListRouteEnabled) return [];
   return paginate(await fetchPosts(), {
-    params: { blog: BLOG_BASE || undefined },
-    pageSize: blogPostsPerPage,
+    params: { work: WORK_BASE || undefined },
+    pageSize: workPostsPerPage,
   });
 };
 
 /** */
-export const getStaticPathsBlogPost = async () => {
-  if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
-  return (await fetchPosts()).flatMap((post) => ({
+export const getStaticPathsWorkPost = async () => {
+  if (!isWorkEnabled || !isWorkPostRouteEnabled) return [];
+  return (await fetchPosts()).flatMap((work) => ({
     params: {
-      blog: post.permalink,
+      work: work.permalink,
     },
-    props: { post },
+    props: { work },
   }));
 };
 
 /** */
-export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: PaginateFunction }) => {
-  if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
+export const getStaticPathsWorkCategory = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isWorkEnabled || !isWorkCategoryRouteEnabled) return [];
 
-  const posts = await fetchPosts();
+  const works = await fetchPosts();
   const categories = new Set<string>();
-  posts.map((post) => {
-    typeof post.category === 'string' && categories.add(post.category.toLowerCase());
+  works.map((work) => {
+    typeof work.category === 'string' && categories.add(work.category.toLowerCase());
   });
 
   return Array.from(categories).flatMap((category) =>
     paginate(
-      posts.filter((post) => typeof post.category === 'string' && category === post.category.toLowerCase()),
+      works.filter((work) => typeof work.category === 'string' && category === work.category.toLowerCase()),
       {
-        params: { category: category, blog: BLOG_CATEGORY_BASE || undefined },
-        pageSize: blogPostsPerPage,
+        params: { category: category, work: WORK_CATEGORY_BASE || undefined },
+        pageSize: workPostsPerPage,
         props: { category },
       }
     )
@@ -212,21 +212,21 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
 };
 
 /** */
-export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFunction }) => {
-  if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
+export const getStaticPathsWorkTag = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isWorkEnabled || !isWorkTagRouteEnabled) return [];
 
-  const posts = await fetchPosts();
+  const works = await fetchPosts();
   const tags = new Set<string>();
-  posts.map((post) => {
-    Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
+  works.map((work) => {
+    Array.isArray(work.tags) && work.tags.map((tag) => tags.add(tag.toLowerCase()));
   });
 
   return Array.from(tags).flatMap((tag) =>
     paginate(
-      posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.toLowerCase() === tag)),
+      works.filter((work) => Array.isArray(work.tags) && work.tags.find((elem) => elem.toLowerCase() === tag)),
       {
-        params: { tag: tag, blog: BLOG_TAG_BASE || undefined },
-        pageSize: blogPostsPerPage,
+        params: { tag: tag, work: WORK_TAG_BASE || undefined },
+        pageSize: workPostsPerPage,
         props: { tag },
       }
     )
