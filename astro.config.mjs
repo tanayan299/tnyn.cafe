@@ -1,7 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -73,5 +73,9 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src'),
       },
     },
+  },
+
+  image: {
+    service: squooshImageService(),
   },
 });
