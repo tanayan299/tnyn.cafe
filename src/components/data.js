@@ -24,16 +24,16 @@ export const footerData = {
   secondaryLinks: [],
   socialLinks: [
     {
-      ariaLabel: 'Twitter',
-      icon: 'tabler:brand-twitter',
+      ariaLabel: 'X',
+      icon: 'brand-x',
       href: 'https://twitter.com/tananyan29',
     },
     {
       ariaLabel: 'Github',
-      icon: 'tabler:brand-github',
+      icon: 'brand-github',
       href: 'https://github.com/tanayan299',
     },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
+    { ariaLabel: 'RSS', icon: 'rss', href: getAsset('/rss.xml') },
   ],
   footNote: ` © ${today.getFullYear()} tanayan / All rights reserved.`,
 };

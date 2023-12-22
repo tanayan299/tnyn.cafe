@@ -668,7 +668,7 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/tabler@^1.1.100":
+"@iconify-json/tabler@^1.1.102":
   version "1.1.102"
   resolved "https://registry.yarnpkg.com/@iconify-json/tabler/-/tabler-1.1.102.tgz#ccbce44b8847a94ca5f183ed2270b6217667b415"
   integrity sha512-gNu23uz9aA1Xv8aoDmfkyEgMYwDdoK7c43/X2AieXbTLMofP0PepgLQ5afBRI3aJAvCrU22WW+DqObwgq7sGcA==

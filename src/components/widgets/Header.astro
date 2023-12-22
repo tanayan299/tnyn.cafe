@@ -84,7 +84,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
               {links?.length ? (
                 <>
                   <button class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
-                    {text} <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
+                    {text} <Icon name="chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
                   <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
                     {links.map(({ text: text2, href: href2 }) => (
@@ -132,7 +132,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
           target="_blank"
           aria-label="tanayan Twitter"
         >
-          <Icon name="tabler:brand-x" class="w-5 h-5" />
+          <Icon name="brand-x" class="w-5 h-5" />
         </HeaderLink>
         <HeaderLink
           class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
@@ -140,7 +140,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
           target="_blank"
           aria-label="tanayan GitHub"
         >
-          <Icon name="tabler:brand-github" class="w-5 h-5" />
+          <Icon name="brand-github" class="w-5 h-5" />
         </HeaderLink>
           {showToggleTheme && <ToggleTheme iconClass="w-5 h-5 md:w-5 md:h-5 md:inline-block" />}
           {
@@ -150,7 +150,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
                 aria-label="RSS Feed"
                 href={getAsset('/rss.xml')}
               >
-                <Icon name="tabler:rss" class="w-5 h-5" />
+                <Icon name="rss" class="w-5 h-5" />
               </a>
             )
           }
