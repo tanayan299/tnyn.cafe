@@ -26,6 +26,10 @@ jobs:
         with:
           node-version: '21.4.0'
 
+      #  pnpm install sharp
+      - name: Install sharp
+        run: pnpm install sharp
+
       - name: Install, build, and upload your site
         uses: withastro/action@v0
         # with:

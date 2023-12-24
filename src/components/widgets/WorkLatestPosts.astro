@@ -31,8 +31,6 @@ const {
 } = Astro.props;
 
 const posts = APP_WORK.isEnabled ? await findLatestPosts({ count }) : [];
-
-console.log(posts);
 ---
 
 {
