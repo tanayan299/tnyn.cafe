@@ -1,0 +1,103 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Icon } from 'astro-icon/components';
+import Image from '../../components/common/Image.astro';
+import PostTags from '../../components/blog/Tags.astro';
+
+import { APP_WORK } from '../../utils/config';
+import type { Post } from '../../types';
+
+import { getPermalink } from '../../utils/permalinks';
+import { findImage } from '../../utils/images';
+import { getFormattedDate } from '../../utils/utils';
+
+export interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const image = (await findImage(post.image)) as ImageMetadata | undefined;
+
+const link = APP_WORK?.work?.isEnabled ? getPermalink(post.permalink, 'work') : '';
+---
+
+<article
+  class={`max-w-md mx-auto md:max-w-none grid gap-2 md:gap-2 rounded-sm 
+  bg-custom_bg_cream border border-gray-800 
+  dark:bg-gray-800 dark:border dark:border-gray-300 ${
+    image ? "md:grid-cols-1" : ""
+  }`}
+  style={{
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.25)",
+    padding: "1rem",
+    borderTop: "2px solid skyblue",
+    borderTopWidth: "8px",
+    position: "relative",
+  }}
+>
+  {
+    image && (
+      <a class="relative block group" href={link ?? "javascript:void(0)"}>
+        <div class="bg-gray-400 dark:bg-slate-700 rounded shadow-md">
+          <Image
+            src={image}
+            class="object-cover w-full h-full bg-gray-400 dark:bg-slate-700"
+            widths={[400, 900]}
+            sizes="(max-width: 900px) 400px, 900px"
+            alt={post.title}
+            aspectRatio="1:1"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </a>
+    )
+  }
+  <div class="">
+    <header>
+      <div class="mb-1">
+        <span class="text-sm">
+          <Icon
+            name="clock"
+            class="w-3 h-3 inline-block -mt-0.5 dark:text-gray-400"
+          />
+          <time datetime={String(post.publishDate)}
+            >{getFormattedDate(post.publishDate)}</time
+          >
+        </span>
+      </div>
+      <h2
+        class="text-md sm:text-md font-bold leading-tight mb-2 font-heading dark:text-slate-300"
+      >
+        {
+          link ? (
+            <a
+              class="hover:text-primary dark:hover:text-cyan-100 transition ease-in duration-200"
+              href={link}
+            >
+              {post.title}
+            </a>
+          ) : (
+            post.title
+          )
+        }
+      </h2>
+    </header>
+    <footer class="mt-2">
+      <PostTags tags={post.tags} />
+    </footer>
+  </div>
+  {/*
+  <hr
+    style={{
+      borderTop: "2px solid cyan",
+      borderTopWidth: "0.67px",
+      boxShadow: "0 0 5px 2px rgba(0, 255, 255, 0.5)",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+    }}
+  />
+  */}
+</article>

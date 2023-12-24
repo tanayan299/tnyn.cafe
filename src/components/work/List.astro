@@ -1,0 +1,44 @@
+---
+import Item from './ListItem.astro';
+import type { Post } from '../../types';
+
+export interface Props {
+  posts: Array<Post>;
+}
+
+const { posts } = Astro.props as Props;
+
+// Postsをcategoryごとにグルーピング
+const postsByCategory = posts.reduce((groups, post) => {
+  const category = post.category || 'undefined';
+  if (!groups[category]) {
+    groups[category] = [];
+  }
+  groups[category].push(post);
+  return groups;
+}, {});
+
+// categoryをアルファベット順にソート
+// undefinedは最後にする
+const sortedCategories: [string, Post[]][] = Object.entries(postsByCategory as Record<string, Post[]>).sort(([cat1], [cat2]) => {
+  if (cat1 === 'undefined') return 1;
+  if (cat2 === 'undefined') return -1;
+  return cat1.localeCompare(cat2);
+});
+
+---
+
+{
+  sortedCategories.map(([category, posts]) => (
+    <>
+      <div class="text-2xl mb-2">{category}</div>
+      <div class="grid gap-6 row-gap-5 grid-cols-2 lg:grid-cols-4 mb-4">
+        {
+          posts.map((post) => (
+            <Item post={post} />
+          ))
+        }
+      </div>
+    </>
+  ))
+}
