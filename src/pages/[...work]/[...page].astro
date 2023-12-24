@@ -1,13 +1,13 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
-import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
-import Pagination from '~/components/blog/Pagination.astro';
+import Layout from '../../layouts/PageLayout.astro';
+import BlogList from '../../components/blog/List.astro';
+import Headline from '../../components/blog/Headline.astro';
+import Pagination from '../../components/blog/Pagination.astro';
 // import PostTags from "~/components/blog/Tags.astro";
 
-import { workListRobots, getStaticPathsWorkList } from '~/utils/work';
+import { workListRobots, getStaticPathsWorkList } from '../../utils/work';
 
 export const prerender = true;
 
@@ -40,7 +40,7 @@ const metadata = {
     <dev
       class="dark:text-gray-200"
     >
-      <Headline subtitle="">Blog</Headline>
+      <Headline subtitle="">Work</Headline>
     </dev>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />

@@ -1,11 +1,11 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-import { workTagRobots, getStaticPathsWorkTag } from '~/utils/work';
+import { workTagRobots, getStaticPathsWorkTag } from '../../../utils/work';
 
-import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
-import Pagination from '~/components/blog/Pagination.astro';
+import Layout from '../../../layouts/PageLayout.astro';
+import BlogList from '../../../components/blog/List.astro';
+import Headline from '../../../components/blog/Headline.astro';
+import Pagination from '../../../components/blog/Pagination.astro';
 
 export const prerender = true;
 
