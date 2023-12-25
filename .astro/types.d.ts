@@ -208,6 +208,13 @@ declare module 'astro:content' {
   collection: "work";
   data: any
 } & { render(): Render[".md"] };
+"2023/2023-12-25_CNIA-logo.md": {
+	id: "2023/2023-12-25_CNIA-logo.md";
+  slug: "2023/2023-12-25_cnia-logo";
+  body: string;
+  collection: "work";
+  data: any
+} & { render(): Render[".md"] };
 };
 
 	};
