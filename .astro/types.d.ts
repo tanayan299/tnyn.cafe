@@ -215,6 +215,13 @@ declare module 'astro:content' {
   collection: "work";
   data: any
 } & { render(): Render[".md"] };
+"2023/2023-12-26_CNDF2023.md": {
+	id: "2023/2023-12-26_CNDF2023.md";
+  slug: "2023/2023-12-26_cndf2023";
+  body: string;
+  collection: "work";
+  data: any
+} & { render(): Render[".md"] };
 };
 
 	};
