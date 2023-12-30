@@ -222,6 +222,13 @@ declare module 'astro:content' {
   collection: "work";
   data: any
 } & { render(): Render[".md"] };
+"2023/2023-12-30_TRF-logo.md": {
+	id: "2023/2023-12-30_TRF-logo.md";
+  slug: "2023/2023-12-30_trf-logo";
+  body: string;
+  collection: "work";
+  data: any
+} & { render(): Render[".md"] };
 };
 
 	};
