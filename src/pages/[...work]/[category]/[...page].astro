@@ -3,7 +3,7 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 import { workCategoryRobots, getStaticPathsWorkCategory } from '../../../utils/work';
 
 import Layout from '../../../layouts/PageLayout.astro';
-import BlogList from '../../../components/post/List.astro';
+import WorkList from '../../../components/post/List.astro';
 import Headline from '../../../components/post/Headline.astro';
 import Pagination from '../../../components/post/Pagination.astro';
 
@@ -31,7 +31,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline><span class="capitalize">{category.replaceAll('-', ' ')}</span></Headline>
-    <BlogList posts={page.data} />
+    <WorkList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
 </Layout>

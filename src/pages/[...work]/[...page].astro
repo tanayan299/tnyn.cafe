@@ -2,7 +2,7 @@
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
 import Layout from '../../layouts/PageLayout.astro';
-import BlogList from '../../components/work/List.astro';
+import WorkList from '../../components/work/List.astro';
 import Headline from '../../components/post/Headline.astro';
 import Pagination from '../../components/post/Pagination.astro';
 // import PostTags from "~/components/blog/Tags.astro";
@@ -24,7 +24,7 @@ const currentPage = page.currentPage ?? 1;
 // const allTags = await findTags();
 
 const metadata = {
-  title: `Blog${currentPage > 1 ? ` / Page ${currentPage}` : ''}`,
+  title: `Work${currentPage > 1 ? ` / Page ${currentPage}` : ''}`,
   robots: {
     index: workListRobots?.index && currentPage === 1,
     follow: workListRobots?.follow,
@@ -42,7 +42,7 @@ const metadata = {
     >
       <Headline subtitle="">Work</Headline>
     </dev>
-    <BlogList posts={page.data} />
+    <WorkList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     <!--
       <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
