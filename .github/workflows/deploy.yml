@@ -25,19 +25,12 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      # ロックファイルのキャッシュをクリア
-      - name: Clear pnpm Lockfile Cache
-        run: rm -rf ~/.pnpm-store
-
-      # 依存関係のインストール
       - name: Install dependencies with pnpm
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
-      # プロジェクトのビルド
       - name: Build the project
         run: pnpm run build
 
-      # サイトのアップロード
       - name: Upload site
         uses: withastro/action@v0
         with:
