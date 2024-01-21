@@ -25,9 +25,6 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Set pnpm settings.autoInstallPeers
-        run: echo "auto-install-peers=true" >> .npmrc
-
       - name: Install dependencies with pnpm
         run: pnpm install --no-frozen-lockfile
 
