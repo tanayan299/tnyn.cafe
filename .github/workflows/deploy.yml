@@ -22,8 +22,8 @@ jobs:
         with:
           node-version: '21.4.0'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Install latest pnpm
+        run: npm install -g pnpm@latest
 
       - name: Install dependencies with pnpm
         run: pnpm install --no-frozen-lockfile
