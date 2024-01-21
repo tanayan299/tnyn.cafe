@@ -23,7 +23,7 @@ jobs:
           node-version: '21.4.0'
 
       - name: Install pnpm
-        run: npm install -g pnp
+        run: npm install -g pnpm
 
       - name: Set pnpm settings.autoInstallPeers
         run: echo "auto-install-peers=true" >> .npmrc
