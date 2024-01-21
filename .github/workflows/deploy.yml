@@ -25,13 +25,20 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      # - name: Install sharp with pnpm
-      #   run: pnpm install sharp
+      # ロックファイルのキャッシュをクリア
+      - name: Clear pnpm Lockfile Cache
+        run: rm -rf ~/.pnpm-store
 
-      - name: Install other dependencies with yarn
+      # 依存関係のインストール
+      - name: Install dependencies with pnpm
         run: pnpm install
 
-      - name: Build and upload your site
+      # プロジェクトのビルド
+      - name: Build the project
+        run: pnpm run build
+
+      # サイトのアップロード
+      - name: Upload site
         uses: withastro/action@v0
         with:
           package-manager: pnpm
