@@ -23,7 +23,10 @@ jobs:
           node-version: '21.4.0'
 
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: npm install -g pnp
+
+      - name: Set pnpm settings.autoInstallPeers
+        run: echo "auto-install-peers=true" >> .npmrc
 
       - name: Install dependencies with pnpm
         run: pnpm install --no-frozen-lockfile
