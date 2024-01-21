@@ -3,7 +3,7 @@ lockfileVersion: '6.0'
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
-pn
+
 dependencies:
   '@astrojs/rss':
     specifier: ^4.0.2
