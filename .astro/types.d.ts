@@ -187,6 +187,13 @@ declare module 'astro:content' {
   collection: "work";
   data: any
 } & { render(): Render[".md"] };
+"2024/2024-04-16_bakusokuDB.md": {
+	id: "2024/2024-04-16_bakusokuDB.md";
+  slug: "2024/2024-04-16_bakusokudb";
+  body: string;
+  collection: "work";
+  data: any
+} & { render(): Render[".md"] };
 };
 
 	};
