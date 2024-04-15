@@ -8,6 +8,7 @@ import Pagination from '~/components/post/Pagination.astro';
 // import PostTags from "~/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { Icon } from 'astro-icon/components';
 
 export const prerender = true;
 
@@ -37,16 +38,35 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <dev
-      class="dark:text-gray-200"
-    >
+    <dev class="dark:text-gray-200">
       <Headline subtitle="">Blog</Headline>
     </dev>
+
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     <!--
       <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
       <PostTags tags={allTags}  title="Search by Tags:" />
     -->
+    <div
+      class="dark:text-gray-200 text-right text-sm"
+      style={{
+        // boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)',
+        padding: '1rem',
+        borderTop: '2px solid skyblue',
+        borderTopWidth: '8px',
+        position: 'relative',
+      }}
+    >
+      <a
+        href="https://techblog.ap-com.co.jp/archive/author/tanayan29"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-end"
+      >
+        See Company Blog Posts: techblog APC
+        <Icon name="external" class="w-4 h-4 ml-2" />
+      </a>
+    </div>
   </section>
 </Layout>
