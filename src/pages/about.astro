@@ -1,18 +1,18 @@
 ---
-import { Icon } from "astro-icon/components";
-import Image from "~/components/common/Image.astro";
-import { SITE } from "~/utils/config"; 
+import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
+import { SITE } from '~/utils/config';
 
-import Headline from "~/components/post/Headline.astro";
-import HeaderLink from "~/components/widgets/HeaderLink.astro";
-import Layout from "~/layouts/PageLayout.astro";
-import ProfileImage from "~/assets/images/profile_icon.jpeg";
-import Round from "~/components/common/Round.astro";
-import TimeLine from "~/components/common/TimeLine.astro";
+import Headline from '~/components/post/Headline.astro';
+import HeaderLink from '~/components/widgets/HeaderLink.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import ProfileImage from '~/assets/images/profile_icon.jpeg';
+import Round from '~/components/common/Round.astro';
+import TimeLine from '~/components/common/TimeLine.astro';
 
-import type { MetaData } from "~/types";
+import type { MetaData } from '~/types';
 
-const metadata: MetaData= {
+const metadata: MetaData = {
   title: 'About',
   description: SITE.description,
 };
@@ -20,16 +20,12 @@ const metadata: MetaData= {
 
 <Layout metadata={metadata}>
   <main class="container mx-auto w-5/6 lg:w-1/2">
-    <section
-      class="px-6 sm:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-4xl dark:text-gray-200"
-    >
+    <section class="px-6 sm:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-4xl dark:text-gray-200">
       <Headline subtitle="">About Me</Headline>
     </section>
     <div class="flex flex-wrap flex-row items-center justify-center my-5 mb-10">
       <div class="avatar mr-5">
-        <div
-          class="w-24 h-24 rounded-full ring ring-offset-base-100 ring-offset-2 dark:ring-cyan-400 ring-blue-200"
-        >
+        <div class="w-24 h-24 rounded-full ring ring-offset-base-100 ring-offset-2 dark:ring-cyan-400 ring-blue-200">
           <Image
             src={ProfileImage}
             class="w-24 h-24 rounded-full"
@@ -41,24 +37,18 @@ const metadata: MetaData= {
           />
         </div>
       </div>
-      <div class="text-sm my-6">
-        ゲームが大好きなエンジニア。<br
-        />
-        <br />最近はインフラ寄りからWebフロントエンド・バックエンド寄りのエンジニア。<br
-        />
-        新しいことに触れるのが好きです。デザインやイラストも好きで、最近はUIやWebフロントエンドに興味があります。<br
-        />
-        <br />最近は3DCGにも興味があり、BlenderやUnreal Engineの勉強中です。<br
-        />
+      <div class="text-sm mb-6">
+        ゲームが大好きなエンジニア。<br />
+        <br />最近はインフラ寄りからWebフロントエンド・バックエンド寄りのエンジニア。<br />
+        新しいことに触れるのが好きです。デザインやイラストも好きで、最近はUIやWebフロントエンドに興味があります。<br />
+        <br />最近は3DCGにも興味があり、BlenderやUnreal Engineの勉強中です。<br />
         <br />これまで不足していたアウトプットを増やそうと画策中。<br />
       </div>
     </div>
 
-    <div class="flex flex-wrap -mt-6">
+    <div class="flex flex-wrap mt-6">
       <div class="w-full sm:w-1/2">
-        <h3
-          class="my-1 text-2xl font-bold dark:text-gray-200 flex items-center"
-        >
+        <h3 class="my-1 text-2xl font-bold dark:text-gray-200 flex items-center">
           <Icon name="link" class="w-6 h-6 mr-1" />Links
         </h3>
         <div class="items-center md:flex">
@@ -68,20 +58,20 @@ const metadata: MetaData= {
             target="_blank"
             aria-label="tanayan Twitter"
           >
-          <div class="flex items-center">
-            <Icon name="brand-x" class="w-5 h-5" />
-            <div class="md:ml-1"> X</div>
-          </div>
+            <div class="flex items-center">
+              <Icon name="brand-x" class="w-5 h-5" />
+              <div class="md:ml-1">X</div>
+            </div>
             <HeaderLink
               class="text-muted dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
               href="https://github.com/tanayan299"
               target="_blank"
               aria-label="tanayan GitHub"
             >
-            <div class="flex items-center">
-              <Icon name="brand-github" class="w-5 h-5" />
-              <dev class="md:ml-1"> GitHub</dev>
-            </div>
+              <div class="flex items-center">
+                <Icon name="brand-github" class="w-5 h-5" />
+                <dev class="md:ml-1"> GitHub</dev>
+              </div>
             </HeaderLink>
             <HeaderLink
               class="text-muted dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
@@ -89,18 +79,16 @@ const metadata: MetaData= {
               target="_blank"
               aria-label="tanayan Docswell"
             >
-            <div class="flex items-center">
-              <Icon name="link" class="w-5 h-5" />
-              <dev class="md:ml-1"> Docswell</dev>
-            </div>
+              <div class="flex items-center">
+                <Icon name="link" class="w-5 h-5" />
+                <dev class="md:ml-1"> Docswell</dev>
+              </div>
             </HeaderLink>
           </HeaderLink>
         </div>
       </div>
       <div class="w-full sm:w-1/2">
-        <h3
-          class="my-1 text-2xl font-bold dark:text-gray-200 flex items-center"
-        >
+        <h3 class="my-1 text-2xl font-bold dark:text-gray-200 flex items-center">
           <Icon name="map-pin-heart" class="w-6 h-6 mr-1" />Interest
         </h3>
         <ul class="list-disc pl-8 text-sm">
@@ -125,6 +113,40 @@ const metadata: MetaData= {
       -->
     </div>
 
+    <div class="w-full">
+      <h3 class="my-1 text-2xl font-bold dark:text-gray-200 flex items-center">
+        <Icon name="book" class="w-5 h-5 mr-1" />Books
+      </h3>
+      <ul class="list-disc pl-8 text-sm">
+        <li>
+          <a href="https://techbookfest.org/product/qunTLHG5hLbL91bBX9dqDU" target="_blank" rel="noopener noreferrer"
+            ><div class="items-center flex">
+              Real World Platform Engineering
+              <Icon name="external" class="w-4 h-4 ml-1" />
+            </div></a
+          >
+          <ul class="list-disc pl-8 text-sm">
+            <li>初版発行: 2024/5/12 第10回 技術書同人誌博覧会</li>
+            <li>形式: アンソロジー</li>
+            <li>担当: 第2章, 表紙裏表紙デザイン</li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://techbookfest.org/product/i3epaUpnNgLgwm7cce1zFa" target="_blank" rel="noopener noreferrer"
+            ><div class="items-center flex">
+              Backstageをはじめよう！
+              <Icon name="external" class="w-4 h-4 ml-1" />
+            </div></a
+          >
+          <ul class="list-disc pl-8 text-sm">
+            <li>初版発行: 2024/5/12 第10回 技術書同人誌博覧会</li>
+            <li>形式: 共著</li>
+            <li>担当: 第1~2, 4~6章(全6章), 表紙裏表紙デザイン、編集</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
     <!-- BackGround Section -->
     <div
       class="card card-bordered shadow-lg my-8 bg-custom_bg_cream dark:bg-gray-800 rounded-sm border border-gray-800 dark:border dark:border-gray-300"
@@ -132,10 +154,7 @@ const metadata: MetaData= {
       <div class="card-body dark:text-gray-300">
         <h2 class="card-title text-lg p-4">Background</h2>
         <div class="time-line-container mx-8 mb-3">
-          <TimeLine
-            title="Hewlett Packard Japan, G.K."
-            date="Apr 2019 - Jun 2023"
-          />
+          <TimeLine title="Hewlett Packard Japan, G.K." date="Apr 2019 - Jun 2023" />
           <Round title="AP Communications Co., Ltd." date="Jul 2023 - Now" />
         </div>
       </div>
@@ -192,7 +211,6 @@ const metadata: MetaData= {
 <!-- 発光エフェクト -->
 <style>
   .icon {
-    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5))
-      drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5)) drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
   }
 </style>
