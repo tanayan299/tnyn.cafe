@@ -1,0 +1,95 @@
+---
+publishDate: 2024-06-04T09:00:00Z
+title: '「Backstageをはじめよう！」という本を技術書典16でだしました'
+description: ''
+excerpt: 'Backstageについての入門書を執筆しました📕'
+image: ~/assets/images/blogs/2024/techbookfeat16.png
+category: 'Tech'
+tags:
+  - Backstage
+  - Writing
+canonical: https://tnyn.cafe/2024-06-05_techbookfest16
+---
+
+import BlogCard from '~/components/blog/BlogCard.astro';
+
+[技術書典16](https://techbookfest.org/)で「Backstageをはじめよう！」という本を頒布しました。  
+人生初の技術同人誌です！
+
+namayasai_tech氏との共著で、A5 196ページ (PDF版)というなかなかのボリュームになりました。  
+以下の技術書典オンラインマーケットより電子版を購入いただけます。
+
+<BlogCard
+  url="https://techbookfest.org/product/i3epaUpnNgLgwm7cce1zFa?productVariantID=72UBgcAExyWL8QxXmrsXZq"
+  image="https://techbookfest.org/api/image/29TjwR4U3a6LTVVxCt3YDn.png?size=432"
+  title="Backstageをはじめよう！"
+  description="近年、技術の高度化や複雑化による開発者の認知負荷が増大している背景を受け、その解決策としてPlatform Engineering という考え方が注目されています。Platform Engineeringでは、Team Topologies に基づいた適切なチーム分けや認知負荷の低減を目的とした共通プラットフォームを構築することによって、開発生産性の向上を目指します。本書はPlatform Engineering の中で構築されるプラットフォームを操作するインターフェイスとして代表的なツールであるBackstage をテーマにした本です。Backstage を構築・拡張していくにあたり、把握しておきたい基礎知識を一冊にまとめました。
+現時点のBackstage は機能的に手が届いていない部分も多く、継続的にアップデートが行われています。継続的なアップデートによりさまざまな機能がリリースされますが、その一方でドキュメントの整備が追いついていないこともあります。ネット上にもまだまだ情報が多いとも言えず、Backstage をはじめようとしたときに躓きポイントが多いと感じています。
+Backstage を学び始める方々の躓きポイントを少しでも減らしたい！ という思いから本書を執筆しました。本書がBackstageをはじめるための一助となれば嬉しい限りです。"
+/>
+
+## Backstageをはじめようはどんな本？
+
+Platform Engineering における OSS の開発者ポータル (IDP)ツールとして注目されている Backstage についての入門書です。
+
+近年、技術の高度化や複雑化による開発者の認知負荷が増大している背景を受け、その解決策としてPlatform Engineering という考え方が注目されています。  
+Platform Engineeringでは、Team Topologies に基づいた適切なチーム分けや認知負荷の低減を目的とした共通プラットフォームを構築することによって、開発生産性の向上を目指します。
+
+Backstageをはじめよう、はPlatform Engineering の中で構築されるプラットフォームを操作するインターフェイスとして代表的なツールである Backstage を
+テーマにした本です。Backstage を構築・拡張していくにあたり、把握しておきたい基礎知識を一冊にまとめています。
+
+現時点のBackstage は機能的に手が届いていない部分も多く、かつ頻繁にアップデートが行われています。
+約1カ月周期でマイナーアップデートが行われ様々な機能がリリースされますが、ドキュメントの整備が追いついていない部分もまだ多くあります。
+また、ネット上の情報もまだまだ少なく、Backstage 自体もコーディングが必要となったり、いざはじめようとしたときに躓きポイントが多いと感じています。
+
+Backstage を学び始める際の躓きポイントを少しでも減らしたい、という思いから本書を執筆しました。  
+Backstage が生まれた背景からコンセプト、コア機能、ローカル環境や Kubernetes 環境での構築方法などを解説しています。
+
+## 本書の目次
+
+- はじめに
+- 第 1 章 Backstage とは?
+  - 1.1 Platform Engineering と Backstage
+  - 1.2 Backstage の目的と解決する課題
+- 第 2 章 Backstage の基礎
+  - 2.1 Backstage コア概念
+  - 2.2 Backstage の技術スタック
+  - 2.3 Local Backstage
+  - 2.4 まとめ
+- 第 3 章 Backstage のコア機能について
+  - 3.1 Software Catalog
+  - 3.2 Software Templates
+  - 3.3 Backstage Search
+  - 3.4 TechDocs
+  - 3.5 まとめ
+- 第 4 章 パッケージとプラグイン
+  - 4.1 パッケージアーキテクチャとプラグインの種類
+  - 4.2 プラグインアーキテクチャ
+  - 4.3 プラグインの作成
+  - 4.4 まとめ
+- 第 5 章 Backstage Permission
+  - 5.1 Backstage におけるパーミッション
+  - 5.2 バックエンドへのポリシーの設定
+  - 5.3 フロントエンドでのポリシーの利用
+  - 5.4 さまざまなパーミッションやルールの設定
+  - 5.5 まとめ
+- 第 6 章 Kubernetes 上での Backstage 運用
+  - 6.1 環境構築
+  - 6.2 Backstage のデプロイ
+  - 6.3 Kubernetes Plugin
+  - 6.4 まとめ
+
+## 本を書くのに勢いって大事
+
+本を執筆するのは一部の、いわゆる強強エンジニアとして認知されてる方々で、自分には縁遠い世界だと思っていましたが、
+何かを形にして共有したい、という思いがあれば案外本って書けるんだなぁというのが素直な感想です。  
+勢い大事。
+
+本を書きあげるのには想像以上にエネルギーが必要でしたが、それ以上に徐々に形になっていく過程が楽しかったです。  
+何より、本棚に自分の本が並んでいるというのは想像以上に嬉しいものです。にやにやしちゃいます。
+
+今回、本文のほかにも表紙デザインや編集なども担当しました。  
+表紙の紙を何にしよう、どんな加工を入れようと考えるのも楽しかったです。  
+今回は表紙のPP加工だけでしたが、次は箔押しや遊び紙なども試してみたいです。
+
+次はどんな本を作ろうかな！

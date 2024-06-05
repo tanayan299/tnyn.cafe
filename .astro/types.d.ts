@@ -150,6 +150,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
+"2024/2024-06-05_techbookfest16.mdx": {
+	id: "2024/2024-06-05_techbookfest16.mdx";
+  slug: "2024/2024-06-05_techbookfest16";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".mdx"] };
 };
 "work": {
 "2023/2023-04-17_CICD2023.md": {

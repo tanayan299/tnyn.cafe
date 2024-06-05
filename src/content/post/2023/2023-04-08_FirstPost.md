@@ -20,12 +20,12 @@ canonical: https://tnyn.cafe/2023-04-08_FirstPost
 
 Astro は React や Vue.js などのコンポーネントが使えるようなので、勉強がてらどこかに組み込んでいきたいです。
 
-普段は Vim でコードを書いていて、VSCode はもっぱら Markdown メモに使用していました。  
-ただ折角新しいこと始めるので開発も Vim 以外で、と思って VSCode + WSL2 でこのサイトは開発しています。  
-VSCode、とっても便利ー！
+普段は Vim でコードを書いていて、VS Code はもっぱら Markdown メモに使用していました。  
+ただ折角新しいこと始めるので開発も Vim 以外で、と思って VS Code + WSL2 でこのサイトは開発しています。  
+VS Code、とっても便利ー！
 
 パッケージ管理は [asdf](https://asdf-vm.com/) を使いました。  
-今回初めて知ったのですが、かゆいところに手が届く感じの管理ができていいですね。
+今回はじめて知ったのですが、かゆいところに手が届く感じの管理ができていいですね。
 
 また、Git の Commit メッセージも統一しようと思って、今回 [cz-cli](https://github.com/commitizen/cz-cli) というものを使いました。  
 Commit メッセージのフォーマットを強制してくれます。  

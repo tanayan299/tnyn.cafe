@@ -3,11 +3,9 @@ const { url, image, title, description } = Astro.props;
 ---
 
 <div class="flex items-center justify-center">
-  <div
-    class="border border-black dark:border-gray-400 pr-4 pl-4 flex items-center"
-  >
+  <div class="border border-black dark:border-gray-400 pr-4 pl-4 flex items-center">
     <a href={url} target="_blank">
-      <img src={image} class="max-w-150 max-h-150 block border-0" />
+      <img src={image} class="min-w-20 object-cover block border-0" />
     </a>
     <div class="pl-4">
       <a href={url} target="_blank">
